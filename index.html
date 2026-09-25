@@ -555,68 +555,94 @@
       transform: translateY(-2px);
     }
 
-    /* THE ORDER BOARD CARD (ROW BY ROW) */
+    /* THE ORDER BOARD CARD (ROW BY ROW - MOBILE FIRST OPTIMIZED) */
     .ticket-container {
       background: #0d0d0d;
       border: 2px solid var(--mh-orange);
       border-radius: 18px;
-      padding: 24px;
+      padding: 18px 16px;
       color: var(--mh-white);
       box-shadow: 0 16px 45px rgba(0,0,0,0.9);
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 10px;
       width: 100%;
       box-sizing: border-box;
       position: relative;
     }
     
+    /* FIX: HEADER ROW */
     .ticket-header-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #242424;
-      padding-bottom: 14px;
-      margin-bottom: 4px;
+      border-bottom: 1.5px solid #242424;
+      padding-bottom: 12px;
+      margin-bottom: 2px;
+      gap: 8px;
     }
     .ticket-logo-meta {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
+      min-width: 0;
     }
     .ticket-logo-frame {
-      width: 85px;
-      height: 48px;
+      width: 48px;
+      height: 38px;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+    .ticket-branding-titles {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
     .ticket-branding-titles h3 {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       font-weight: 900;
       color: var(--mh-white);
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      line-height: 1.2;
     }
     .ticket-branding-titles span {
-      font-size: 0.65rem;
-      letter-spacing: 2px;
+      font-size: 0.62rem;
+      letter-spacing: 1.5px;
       color: var(--mh-orange);
       font-weight: 800;
       text-transform: uppercase;
-      display: block;
+      white-space: nowrap;
     }
     .ticket-order-ref {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
       text-align: left;
+      flex-shrink: 0;
     }
     .ticket-ref-text {
-      font-size: 1.1rem;
+      font-size: 0.85rem;
       font-weight: 900;
       color: var(--mh-orange);
-      letter-spacing: 1px;
+      direction: ltr;
+      unicode-bidi: isolate;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      background: rgba(244, 81, 16, 0.1);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(244, 81, 16, 0.35);
+      display: inline-block;
     }
     .ticket-ref-date {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: var(--mh-cool-grey);
+      margin-top: 3px;
+      direction: ltr;
+      white-space: nowrap;
     }
 
     .info-row-item {
@@ -657,15 +683,41 @@
       gap: 4px;
     }
 
+    /* FIX: FOOTER ROW */
     .ticket-footer-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid #242424;
+      border-top: 1.5px solid #242424;
       padding-top: 10px;
-      font-size: 0.7rem;
+      margin-top: 4px;
+      gap: 8px;
+    }
+    .ticket-footer-note {
+      font-size: 0.72rem;
+      font-weight: 700;
       color: var(--mh-cool-grey);
-      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .ticket-footer-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--mh-orange);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+      .ticket-container {
+        padding: 14px 12px;
+        gap: 8px;
+      }
+      .ticket-branding-titles h3 { font-size: 0.86rem; }
+      .ticket-branding-titles span { font-size: 0.58rem; }
+      .ticket-ref-text { font-size: 0.78rem; padding: 2px 6px; }
+      .ticket-footer-note { font-size: 0.68rem; }
+      .ticket-footer-badge { font-size: 0.62rem; }
     }
 
     /* Admin Password Prompt & Modal */
@@ -1052,20 +1104,21 @@
             <p>تأكد من البيانات؛ سيتم تصدير هذه البطاقة بصورة عالية الدقة لإرسالها وتثبيت الطلب فوراً عبر واتساب.</p>
           </div>
 
-          <!-- CAPTURE TICKET AREA (STRUCTURED ROWS) -->
+          <!-- CAPTURE TICKET AREA (FIXED & RESPONSIVE) -->
           <div id="ticketCaptureArea" class="ticket-container">
             
+            <!-- 1. HEADER ROW -->
             <div class="ticket-header-row">
               <div class="ticket-logo-meta">
                 <div class="ticket-logo-frame">
-                  <img src="Logo.png" alt="MH Logo" style="max-width:100%; max-height:100%; object-fit:contain;" onerror="this.style.display='none'; document.getElementById('ticketSvgLogo').style.display='block';">
-                  <svg id="ticketSvgLogo" style="display:none; width:70px; height:40px;" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <img src="Logo.png" alt="MH" style="max-width:100%; max-height:100%; object-fit:contain;" onerror="this.style.display='none'; document.getElementById('ticketSvgLogo').style.display='block';">
+                  <svg id="ticketSvgLogo" style="display:none; width:48px; height:32px;" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 40 30 L 76 30 L 126 106 L 176 30 L 212 30 L 212 150 L 176 150 L 176 86 L 141 136 L 111 136 L 76 86 L 76 150 L 40 150 Z" fill="#F45110"/>
                     <path d="M 176 80 L 246 80 L 246 30 L 280 30 L 280 150 L 246 150 L 246 108 L 176 108 Z" fill="#F45110"/>
                   </svg>
                 </div>
                 <div class="ticket-branding-titles">
-                  <h3>MH PERSONALIZED MYSTERY BOX</h3>
+                  <h3>MH MYSTERY BOX</h3>
                   <span>ONE BRAND. EVERY MOMENT.</span>
                 </div>
               </div>
@@ -1075,7 +1128,7 @@
               </div>
             </div>
 
-            <!-- Structured Sequential Rows -->
+            <!-- 2. DATA ROWS -->
             <div class="info-row-item">
               <span class="info-row-title">صاحب الطلب والتواصل</span>
               <span class="info-row-content" id="t_sender">--</span>
@@ -1121,9 +1174,10 @@
               <span class="info-row-content" id="t_message" style="font-style: italic; color: #f0f0f0;"></span>
             </div>
 
+            <!-- 3. FOOTER ROW -->
             <div class="ticket-footer-row">
-              <span>VALUE GUARANTEED • CURATED FOR THE RECIPIENT</span>
-              <span>MH OFFICIAL ORDER TICKET</span>
+              <span class="ticket-footer-note">ضمان القيمة 100% • تجربة مخصصة</span>
+              <span class="ticket-footer-badge">MH OFFICIAL TICKET</span>
             </div>
 
           </div>
