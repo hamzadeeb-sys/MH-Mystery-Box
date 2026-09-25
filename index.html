@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MH Mystery Box | صمم تجربة المفاجأة</title>
+  
+  <!-- Fonts & Libraries -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    :root {
+      --mh-orange: #F45110;
+      --mh-orange-hover: #ff632b;
+      --mh-deep-black: #0F0F0F;
+      --mh-graphite: #262626;
+      --mh-card-bg: #161616;
+      --mh-card-border: #2c2c2c;
+      --mh-cool-grey: #C3CACC;
+      --mh-mist: #EEF2F3;
+      --mh-white: #FFFFFF;
+      --mh-glow: rgba(244, 81, 16, 0.22);
+      --font-primary: 'Cairo', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--mh-deep-black);
+      color: var(--mh-white);
+      font-family: var(--font-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(244, 81, 16, 0.12) 0%, transparent 60%),
+        linear-gradient(to bottom, #0F0F0F 0%, #141414 100%);
+      background-attachment: fixed;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 760px;
+      padding: 24px 20px 80px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding-top: 10px;
+    }
+
+    .brand-logo-wrap {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+    }
+    .brand-logo-wrap:hover {
+      transform: scale(1.04);
+    }
+
+    .brand-logo-svg {
+      width: 140px;
+      height: auto;
+      filter: drop-shadow(0 4px 18px var(--mh-glow));
+    }
+
+    .brand-slogan {
+      font-size: 0.82rem;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--mh-cool-grey);
+      font-weight: 700;
+      border-bottom: 2px solid var(--mh-orange);
+      padding-bottom: 4px;
+    }
+
+    .tagline-hero {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--mh-mist);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+    .tagline-hero span {
+      color: var(--mh-orange);
+      font-weight: 800;
+    }
+
+    .progress-section {
+      background: var(--mh-card-bg);
+      border: 1px solid var(--mh-card-border);
+      border-radius: 18px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .progress-step-title {
+      color: var(--mh-white);
+    }
+    .progress-step-counter {
+      color: var(--mh-orange);
+      background: rgba(244, 81, 16, 0.12);
+      padding: 2px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(244, 81, 16, 0.25);
+    }
+
+    .progress-bar-track {
+      width: 100%;
+      height: 7px;
+      background: var(--mh-graphite);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 16.6%;
+      background: linear-gradient(90deg, var(--mh-orange), #ff7a45);
+      border-radius: 99px;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 10px var(--mh-orange);
+    }
+
+    .step-card {
+      background: var(--mh-card-bg);
+      border: 1px solid var(--mh-card-border);
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+      display: none;
+      flex-direction: column;
+      gap: 26px;
+      position: relative;
+      animation: fadeIn 0.35s ease;
+    }
+    .step-card.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-header {
+      border-right: 4px solid var(--mh-orange);
+      padding-right: 14px;
+    }
+    .step-header h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--mh-white);
+      line-height: 1.3;
+    }
+    .step-header p {
+      font-size: 0.9rem;
+      color: var(--mh-cool-grey);
+      margin-top: 6px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .field-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--mh-mist);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .field-label .required {
+      color: var(--mh-orange);
+    }
+
+    .chips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+
+    .chip-item {
+      position: relative;
+    }
+    .chip-item input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .chip-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px 14px;
+      background: #1e1e1e;
+      border: 1px solid var(--mh-card-border);
+      border-radius: 14px;
+      color: var(--mh-cool-grey);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+      min-height: 52px;
+    }
+    .chip-label:hover {
+      border-color: #555;
+      color: var(--mh-white);
+      background: #252525;
+    }
+    .chip-item input:checked + .chip-label {
+      background: rgba(244, 81, 16, 0.12);
+      border-color: var(--mh-orange);
+      color: var(--mh-white);
+      font-weight: 700;
+      box-shadow: 0 0 14px rgba(244, 81, 16, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .input-box, .textarea-box {
+      width: 100%;
+      background: #1c1c1c;
+      border: 1px solid var(--mh-card-border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      color: var(--mh-white);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .input-box:focus, .textarea-box:focus {
+      border-color: var(--mh-orange);
+      box-shadow: 0 0 12px rgba(244, 81, 16, 0.25);
+      background: #222;
+    }
+    .textarea-box {
+      min-height: 100px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    .tier-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .tier-card {
+      position: relative;
+    }
+    .tier-card input {
+      position: absolute;
+      opacity: 0;
+    }
+    .tier-content {
+      background: #1c1c1c;
+      border: 1px solid var(--mh-card-border);
+      border-radius: 16px;
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tier-card input:checked + .tier-content {
+      border-color: var(--mh-orange);
+      background: rgba(244, 81, 16, 0.12);
+      box-shadow: 0 0 16px rgba(244, 81, 16, 0.25);
+      transform: translateY(-3px);
+    }
+    .tier-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--mh-white);
+    }
+    .tier-tag {
+      font-size: 0.72rem;
+      color: var(--mh-orange);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .tier-desc {
+      font-size: 0.78rem;
+      color: var(--mh-cool-grey);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .oath-box {
+      background: linear-gradient(135deg, rgba(244, 81, 16, 0.15) 0%, rgba(15, 15, 15, 0.9) 100%);
+      border: 1px solid rgba(244, 81, 16, 0.4);
+      border-radius: 18px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .oath-icon {
+      font-size: 2rem;
+    }
+    .oath-text h4 {
+      color: var(--mh-orange);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .oath-text p {
+      font-size: 0.84rem;
+      color: var(--mh-mist);
+      line-height: 1.5;
+    }
+
+    .step-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .btn {
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      outline: none;
+    }
+    .btn-primary {
+      background: var(--mh-orange);
+      color: var(--mh-white);
+      flex: 1;
+      box-shadow: 0 6px 20px rgba(244, 81, 16, 0.35);
+    }
+    .btn-primary:hover {
+      background: var(--mh-orange-hover);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: #242424;
+      color: var(--mh-mist);
+      border: 1px solid var(--mh-card-border);
+      min-width: 120px;
+    }
+    .btn-secondary:hover {
+      background: #2e2e2e;
+      color: var(--mh-white);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #0b2b14;
+      font-weight: 800;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      width: 100%;
+      font-size: 1.05rem;
+      padding: 16px 24px;
+    }
+    .btn-whatsapp:hover {
+      background: #2fe06f;
+      transform: translateY(-2px);
+    }
+
+    /* LUXURY TICKET CONTAINER (Captured by html2canvas) */
+    .ticket-wrapper {
+      background: #0a0a0a;
+      border: 2px solid var(--mh-orange);
+      border-radius: 20px;
+      padding: 26px;
+      color: var(--mh-white);
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      overflow: hidden;
+    }
+    .ticket-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px dashed #333;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+    .ticket-id {
+      color: var(--mh-orange);
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
+    }
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      font-size: 0.88rem;
+    }
+    .ticket-field {
+      background: #141414;
+      border: 1px solid #282828;
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
+    .ticket-field-title {
+      font-size: 0.72rem;
+      color: var(--mh-cool-grey);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .ticket-field-value {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .ticket-message-box {
+      grid-column: span 2;
+      background: #141414;
+      border: 1px solid #282828;
+      border-right: 3px solid var(--mh-orange);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-style: italic;
+    }
+    .ticket-footer {
+      margin-top: 18px;
+      border-top: 1px solid #252525;
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--mh-cool-grey);
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-dialog {
+      background: #141414;
+      border: 1px solid #333;
+      border-radius: 24px;
+      width: 100%;
+      max-width: 860px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: auto;
+      padding: 24px 0 10px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: #666;
+      font-size: 0.8rem;
+    }
+    .admin-trigger-btn {
+      background: transparent;
+      border: none;
+      color: #555;
+      font-size: 0.75rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <header>
+      <div class="brand-logo-wrap" id="brandLogo">
+        <!-- Monogram MH Logo -->
+        <svg class="brand-logo-svg" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 40 40 L 80 40 L 130 115 L 180 40 L 220 40 L 220 160 L 180 160 L 180 95 L 145 145 L 115 145 L 80 95 L 80 160 L 40 160 Z" fill="#F45110"/>
+          <path d="M 180 90 L 255 90 L 255 40 L 290 40 L 290 160 L 255 160 L 255 118 L 180 118 Z" fill="#F45110"/>
+        </svg>
+      </div>
+      <div class="brand-slogan">Your Anonymous Friend.</div>
+      <div class="tagline-hero">سرّ الصندوق إنك ما بتعرف شو جواته... <span>بس نحنا منعرف لمين</span></div>
+    </header>
+
+    <!-- Progress Indicator -->
+    <div class="progress-section">
+      <div class="progress-meta">
+        <span class="progress-step-title" id="stepIndicatorTitle">الخطوة 1: لمن الهدية؟</span>
+        <span class="progress-step-counter" id="stepCounter">1 / 6</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+    </div>
+
+    <form id="mysteryForm" onsubmit="return false;">
+      
+      <!-- STEP 1: لمن الهدية -->
+      <div class="step-card active" data-step="1">
+        <div class="step-header">
+          <h2>1. مين الشخص المميز؟</h2>
+          <p>حدد طبيعة علاقتك بالشخص المستلم لنبني هوية الصندوق بشكل دقيق.</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">طبيعة العلاقة <span class="required">*</span></label>
+          <div class="chips-grid">
+            <div class="chip-item"><input type="radio" name="relationship" id="rel_partner" value="شريك حياة (زوج / زوجة)" checked><label class="chip-label" for="rel_partner">زوج / زوجة</label></div>
+            <div class="chip-item"><input type="radio" name="relationship" id="rel_fiance" value="خطيب / خطيبة"><label class="chip-label" for="rel_fiance">خطيب / خطيبة</label></div>
+            <div class="chip-item"><input type="radio" name="relationship" id="rel_friend" value="صديق مقرب"><label class="chip-label" for="rel_friend">صديق مقرب</label></div>
+            <div class="chip-item"><input type="radio" name="relationship" id="rel_sibling" value="أخ / أخت"><label class="chip-label" for="rel_sibling">أخ / أخت</label></div>
+            <div class="chip-item"><input type="radio" name="relationship" id="rel_parent" value="أب / أم"><label class="chip-label" for="rel_parent">أب / أم</label></div>
+            <div class="chip-item"><input type="radio" name="relationship" id="rel_other" value="أخرى"><label class="chip-label" for="rel_other">علاقة أخرى</label></div>
+          </div>
+          <input type="text" class="input-box" id="rel_other_text" placeholder="اكتب نوع العلاقة..." style="display:none; margin-top:8px;">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">الجنس <span class="required">*</span></label>
+          <div class="chips-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="chip-item"><input type="radio" name="gender" id="gender_m" value="ذكر" checked><label class="chip-label" for="gender_m">ذكر</label></div>
+            <div class="chip-item"><input type="radio" name="gender" id="gender_f" value="أنثى"><label class="chip-label" for="gender_f">أنثى</label></div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">الفئة العمرية <span class="required">*</span></label>
+          <div class="chips-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="chip-item"><input type="radio" name="age_range" id="age_1" value="أقل من 12"><label class="chip-label" for="age_1">&lt; 12 سنة</label></div>
+            <div class="chip-item"><input type="radio" name="age_range" id="age_2" value="12 - 17"><label class="chip-label" for="age_2">12 – 17</label></div>
+            <div class="chip-item"><input type="radio" name="age_range" id="age_3" value="18 - 24" checked><label class="chip-label" for="age_3">18 – 24</label></div>
+            <div class="chip-item"><input type="radio" name="age_range" id="age_4" value="25 - 34"><label class="chip-label" for="age_4">25 – 34</label></div>
+            <div class="chip-item"><input type="radio" name="age_range" id="age_5" value="35 - 44"><label class="chip-label" for="age_5">35 – 44</label></div>
+            <div class="chip-item"><input type="radio" name="age_range" id="age_6" value="45+"><label class="chip-label" for="age_6">45+ سنة</label></div>
+          </div>
+        </div>
+
+        <div class="step-actions">
+          <div></div>
+          <button type="button" class="btn btn-primary" onclick="nextStep(1)">التالي: المناسبة ➔</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: المناسبة -->
+      <div class="step-card" data-step="2">
+        <div class="step-header">
+          <h2>2. شو المناسبة؟</h2>
+          <p>توقيت المفاجأة يحدد الروح العامة للصندوق والرسائل المرفقة.</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">اختر المناسبة <span class="required">*</span></label>
+          <div class="chips-grid">
+            <div class="chip-item"><input type="radio" name="occasion" id="occ_bday" value="عيد ميلاد" checked><label class="chip-label" for="occ_bday">عيد ميلاد</label></div>
+            <div class="chip-item"><input type="radio" name="occasion" id="occ_anniv" value="ذكرى سنوية / زواج"><label class="chip-label" for="occ_anniv">ذكرى حب / زواج</label></div>
+            <div class="chip-item"><input type="radio" name="occasion" id="occ_grad" value="تخرج / نجاح"><label class="chip-label" for="occ_grad">تخرج نجاح</label></div>
+            <div class="chip-item"><input type="radio" name="occasion" id="occ_job" value="وظيفة جديدة / إنجاز"><label class="chip-label" for="occ_job">وظيفة / إنجاز</label></div>
+            <div class="chip-item"><input type="radio" name="occasion" id="occ_thanks" value="شكر وتقدير"><label class="chip-label" for="occ_thanks">شكر وعرفان</label></div>
+            <div class="chip-item"><input type="radio" name="occasion" id="occ_none" value="بدون مناسبة (بس حبيت فرحك)"><label class="chip-label" for="occ_none">بدون مناسبة (بس لفرحك)</label></div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">الشعور الأساسي للهدية</label>
+          <div class="chips-grid" style="grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));">
+            <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_love" value="حب ورومانسية"><label class="chip-label" for="vibe_love">حب ورومانسية</label></div>
+            <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_miss" value="اشتياق"><label class="chip-label" for="vibe_miss">مشتقلك</label></div>
+            <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_proud" value="فخر واعتزاز"><label class="chip-label" for="vibe_proud">فخور فيك</label></div>
+            <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_cheer" value="بهجة وضحك"><label class="chip-label" for="vibe_cheer">بهجة وضحكة</label></div>
+          </div>
+        </div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn-secondary" onclick="prevStep(2)">➔ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep(2)">التالي: الشخصية ➔</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: شخصية المستلم -->
+      <div class="step-card" data-step="3">
+        <div class="step-header">
+          <h2>3. كيف شخصيته وطباعه؟</h2>
+          <p>اختر السمات التي تصفه بدقة (يمكنك اختيار أكثر من صفة).</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">سمات الشخصية <span class="required">*</span></label>
+          <div class="chips-grid">
+            <div class="chip-item"><input type="checkbox" name="personality" id="p_fun" value="مرح وبيحب الضحك"><label class="chip-label" for="p_fun">مرح</label></div>
+            <div class="chip-item"><input type="checkbox" name="personality" id="p_practical" value="عملي جداً"><label class="chip-label" for="p_practical">عملي ومباشر</label></div>
+            <div class="chip-item"><input type="checkbox" name="personality" id="p_calm" value="هادئ ورايق"><label class="chip-label" for="p_calm">هادئ ورايق</label></div>
+            <div class="chip-item"><input type="checkbox" name="personality" id="p_romantic" value="رومانسي"><label class="chip-label" for="p_romantic">رومانسي</label></div>
+            <div class="chip-item"><input type="checkbox" name="personality" id="p_elegant" value="أنيق ويهتم بمظهره"><label class="chip-label" for="p_elegant">أنيق وفخم</label></div>
+            <div class="chip-item"><input type="checkbox" name="personality" id="p_tech" value="تقني"><label class="chip-label" for="p_tech">مهووس تقني</label></div>
+            <div class="chip-item"><input type="checkbox" name="personality" id="p_details" value="يدقق في أصغر التفاصيل"><label class="chip-label" for="p_details">يدقق بالتفاصيل</label></div>
+            <div class="chip-item"><input type="checkbox" name="personality" id="p_simple" value="بسيط"><label class="chip-label" for="p_simple">بسيط وعفوي</label></div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">صفه لنا بجملة أو 3 كلمات مميزة</label>
+          <input type="text" class="input-box" name="personality_desc" placeholder="مثال: ذكي، دايماً مشغول باللابتوب، بيعشق القهوة المركزة...">
+        </div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn-secondary" onclick="prevStep(3)">➔ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep(3)">التالي: الاهتمامات ➔</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: الاهتمامات والممنوعات -->
+      <div class="step-card" data-step="4">
+        <div class="step-header">
+          <h2>4. اهتماماته والممنوعات</h2>
+          <p>نصنع قيمة الصندوق لتكون كل قطعة ذات معنى وتجنب أي محظورات.</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">أبرز مجالات الاهتمام</label>
+          <div class="chips-grid" style="grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));">
+            <div class="chip-item"><input type="checkbox" name="interests" id="int_coffee" value="Coffee / قهوة"><label class="chip-label" for="int_coffee">قهوة</label></div>
+            <div class="chip-item"><input type="checkbox" name="interests" id="int_gaming" value="Gaming / ألعاب"><label class="chip-label" for="int_gaming">Gaming</label></div>
+            <div class="chip-item"><input type="checkbox" name="interests" id="int_cars" value="Cars / سيارات"><label class="chip-label" for="int_cars">سيارات</label></div>
+            <div class="chip-item"><input type="checkbox" name="interests" id="int_gym" value="Gym / رياضة"><label class="chip-label" for="int_gym">جيم ورياضة</label></div>
+            <div class="chip-item"><input type="checkbox" name="interests" id="int_tech" value="Tech / تكنولوجيا"><label class="chip-label" for="int_tech">تكنولوجيا</label></div>
+            <div class="chip-item"><input type="checkbox" name="interests" id="int_perfume" value="Perfume / عطور"><label class="chip-label" for="int_perfume">عطور</label></div>
+            <div class="chip-item"><input type="checkbox" name="interests" id="int_watches" value="Watches / ساعات"><label class="chip-label" for="int_watches">ساعات وإكسسوار</label></div>
+            <div class="chip-item"><input type="checkbox" name="interests" id="int_books" value="Books / كتب"><label class="chip-label" for="int_books">قراءة وكتب</label></div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">لونه المفضل أو ماركة/شيء يحبه جداً</label>
+          <input type="text" class="input-box" name="favorite_items" placeholder="مثال: لونه الأسود والبرتقالي، BMW، شاي كرك...">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" style="color: #ff5252;">ممنوعات البوكس (Red Flags) - شو ما بيحب أو شو ممنوع نحط؟</label>
+          <input type="text" class="input-box" name="dislikes" placeholder="مثال: لا يحب العطور السكرية، حساسية شوكولا، ما بيشرب قهوة..." style="border-color: rgba(255, 82, 82, 0.4);">
+        </div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn-secondary" onclick="prevStep(4)">➔ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep(4)">التالي: اللمسة الشخصية ➔</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: اللمسة الشخصية والرسالة -->
+      <div class="step-card" data-step="5">
+        <div class="step-header">
+          <h2>5. اللمسة الخاصة والرسالة</h2>
+          <p>التفاصيل الدقيقة هي التي تجعل المستلم يشعر بأن الصندوق صُنع لأجله فقط.</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">ذكرى خاصة أو كلمة سر بينكم؟</label>
+          <input type="text" class="input-box" name="special_memory" placeholder="مثال: أول لقاء تحت المطر، كلمة 'يا فنان'...">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">نص كرت الإهداء (الذي سيُطبع على بطاقة MH الفاخرة) <span class="required">*</span></label>
+          <textarea class="textarea-box" name="gift_message" id="gift_message" placeholder="اكتب رسالتك بكل صدق ودفء هنا..."></textarea>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">اسم الشخص المستلم لطباعته على الغلاف أو الكرت</label>
+          <input type="text" class="input-box" name="recipient_name" placeholder="مثال: منى، أحمد، أبو سامر...">
+        </div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn-secondary" onclick="prevStep(5)">➔ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep(5)">التالي: الميزانية والمفاجأة ➔</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: الميزانية والتسليم -->
+      <div class="step-card" data-step="6">
+        <div class="step-header">
+          <h2>6. الميزانية ودرجة المفاجأة</h2>
+          <p>حدد فئة الصندوق وطريقة المفاجأة ثم راجع بطاقتك الشخصية.</p>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">فئة الصندوق <span class="required">*</span></label>
+          <div class="tier-cards">
+            <div class="tier-card">
+              <input type="radio" name="budget_tier" id="tier_basic" value="Basic Box" checked>
+              <div class="tier-content">
+                <span class="tier-tag">CLASSIC</span>
+                <span class="tier-title">Basic</span>
+                <span class="tier-desc">3-4 عناصر متناسقة وعملية</span>
+              </div>
+            </div>
+            <div class="tier-card">
+              <input type="radio" name="budget_tier" id="tier_standard" value="Standard Box">
+              <div class="tier-content">
+                <span class="tier-tag">POPULAR</span>
+                <span class="tier-title">Standard</span>
+                <span class="tier-desc">توازن ممتاز مع قطع مخصصة وتغليف متكامل</span>
+              </div>
+            </div>
+            <div class="tier-card">
+              <input type="radio" name="budget_tier" id="tier_premium" value="Premium Box">
+              <div class="tier-content">
+                <span class="tier-tag">LUXURY</span>
+                <span class="tier-title">Premium</span>
+                <span class="tier-desc">صندوق فاخر مع عطر أو إكسسوار مخصص</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">درجة جرأة المفاجأة</label>
+          <div class="chips-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));">
+            <div class="chip-item"><input type="radio" name="surprise_level" id="s_safe" value="محافظ وآمن"><label class="chip-label" for="s_safe">محافظ وآمن</label></div>
+            <div class="chip-item"><input type="radio" name="surprise_level" id="s_bal" value="متوازن وممتع" checked><label class="chip-label" for="s_bal">متوازن وممتع</label></div>
+            <div class="chip-item"><input type="radio" name="surprise_level" id="s_bold" value="جريء ومفاجئ"><label class="chip-label" for="s_bold">جريء ومفاجئ</label></div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">بيانات التواصل والتسليم <span class="required">*</span></label>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="text" class="input-box" id="sender_name" name="sender_name" placeholder="اسمك الكريم *" required>
+            <input type="tel" class="input-box" id="sender_phone" name="sender_phone" placeholder="رقم هاتفك / واتساب للتواصل *" required>
+            <input type="text" class="input-box" id="delivery_city" name="delivery_city" placeholder="المدينة / العنوان للتسليم">
+          </div>
+        </div>
+
+        <div class="oath-box">
+          <div class="oath-icon">🔒</div>
+          <div class="oath-text">
+            <h4>تعهد المفاجأة من MH:</h4>
+            <p>محتويات الصندوق تُنتقى خصيصاً وفقاً لإجاباتك وبأعلى معايير الذوق، ولن يتم الكشف عن المحتويات مسبقاً حفاظاً على سحر المفاجأة.</p>
+          </div>
+        </div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn-secondary" onclick="prevStep(6)">➔ السابق</button>
+          <button type="button" class="btn btn-primary" onclick="showSummaryTicket()">عرض بطاقة الصندوق ➔</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: بطاقة الطلب الفاخرة المجهزة للتصوير والإرسال -->
+      <div class="step-card" data-step="7" id="summaryStep">
+        <div class="step-header">
+          <h2>بطاقة طلبك الفاخرة جاهزة!</h2>
+          <p>سيتم تحويل هذه البطاقة إلى صورة عالية الدقة وإرسالها مباشرة عبر واتساب لتنفيذ الصندوق فوراً.</p>
+        </div>
+
+        <!-- THE CAPTURE TICKET -->
+        <div id="ticketCaptureArea" class="ticket-wrapper">
+          <div class="ticket-header">
+            <div>
+              <div style="color:var(--mh-orange); font-size:1.1rem; font-weight:900; letter-spacing: 2px;">MH MYSTERY BOX</div>
+              <div style="font-size:0.7rem; color:var(--mh-cool-grey); letter-spacing: 1px;">ONE BRAND. EVERY MOMENT.</div>
+            </div>
+            <div style="text-align: left;">
+              <div class="ticket-id" id="t_ref">#MH-0000</div>
+              <div style="font-size:0.72rem; color:var(--mh-cool-grey);" id="t_date">2026/09/25</div>
+            </div>
+          </div>
+
+          <div class="ticket-grid">
+            <div class="ticket-field">
+              <div class="ticket-field-title">صاحب الطلب (المرسل)</div>
+              <div class="ticket-field-value" id="t_sender">--</div>
+            </div>
+            <div class="ticket-field">
+              <div class="ticket-field-title">الشخص المستلم</div>
+              <div class="ticket-field-value" id="t_recipient">--</div>
+            </div>
+
+            <div class="ticket-field">
+              <div class="ticket-field-title">العلاقة & الفئة</div>
+              <div class="ticket-field-value" id="t_rel">--</div>
+            </div>
+            <div class="ticket-field">
+              <div class="ticket-field-title">المناسبة & الشعور</div>
+              <div class="ticket-field-value" id="t_occ">--</div>
+            </div>
+
+            <div class="ticket-field">
+              <div class="ticket-field-title">الطباع والشخصية</div>
+              <div class="ticket-field-value" id="t_personality">--</div>
+            </div>
+            <div class="ticket-field">
+              <div class="ticket-field-title">الاهتمامات والهوايات</div>
+              <div class="ticket-field-value" id="t_interests">--</div>
+            </div>
+
+            <div class="ticket-field">
+              <div class="ticket-field-title">المفضلات الخاصة</div>
+              <div class="ticket-field-value" id="t_likes">--</div>
+            </div>
+            <div class="ticket-field" style="border-color: rgba(255,82,82,0.5);">
+              <div class="ticket-field-title" style="color:#ff5252;">الممنوعات (Red Flags)</div>
+              <div class="ticket-field-value" style="color:#ff8a80;" id="t_dislikes">لا يوجد</div>
+            </div>
+
+            <div class="ticket-field">
+              <div class="ticket-field-title">فئة الصندوق</div>
+              <div class="ticket-field-value" style="color:var(--mh-orange);" id="t_budget">Standard</div>
+            </div>
+            <div class="ticket-field">
+              <div class="ticket-field-title">درجة المفاجأة</div>
+              <div class="ticket-field-value" id="t_surprise">متوازن</div>
+            </div>
+
+            <div class="ticket-message-box">
+              <div class="ticket-field-title" style="color:var(--mh-orange);">نص كرت الإهداء المرفق:</div>
+              <div id="t_message" style="font-size:0.92rem; color:#fff; line-height: 1.5; margin-top:4px;"></div>
+            </div>
+          </div>
+
+          <div class="ticket-footer">
+            <span>العنوان: <strong id="t_city" style="color:#fff;">--</strong></span>
+            <span style="letter-spacing: 1px;">AUTHENTIC CUSTOM EXPERIENCE</span>
+          </div>
+        </div>
+
+        <!-- ACTIONS -->
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:14px;">
+          <button type="button" class="btn btn-whatsapp" id="btnSendWhatsApp" onclick="processAndSendTicket()">
+            <span id="btnText">إرسال بطاقة الصندوق كصورة عبر واتساب</span>
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="prevStep(7)">تعديل البيانات</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS CONFIRMATION SCREEN -->
+      <div class="step-card" data-step="8" id="successStep" style="text-align: center; align-items: center;">
+        <div style="font-size: 3.5rem; color: var(--mh-orange); margin-bottom: 8px;">🎁</div>
+        <h2 style="font-size: 1.6rem; color: var(--mh-white); font-weight: 800;">تم تجهيز طلبك بنجاح!</h2>
+        <p style="color: var(--mh-mist); max-width: 500px; line-height: 1.6; margin-top: 6px;">
+          فريق <strong>MH</strong> بدأ الآن في إعداد المحتويات بناءً على بطاقتك الشخصية.
+        </p>
+
+        <div id="imagePreviewContainer" style="margin: 16px 0; max-width: 100%; border-radius: 14px; overflow: hidden; border: 1px solid var(--mh-orange);">
+          <!-- Rendered Image Appears Here -->
+        </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; width: 100%;">
+          <button type="button" class="btn btn-primary" onclick="location.reload()" style="flex: 1; min-width: 180px;">
+            <span>طلب صندوق جديد</span>
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+    <footer>
+      <div>MH BRAND &copy; 2026 • ONE BRAND. EVERY MOMENT.</div>
+      <button type="button" class="admin-trigger-btn" onclick="openAdminModal()">لوحة الطلبات الداخلية</button>
+    </footer>
+  </div>
+
+  <!-- ADMIN MODAL -->
+  <div class="modal-backdrop" id="adminModal">
+    <div class="modal-dialog">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #333; padding-bottom:12px;">
+        <h3 style="color:var(--mh-orange);">لوحة تحكم الطلبات | MH CRM</h3>
+        <button type="button" style="background:none; border:none; color:#aaa; font-size:1.5rem; cursor:pointer;" onclick="closeAdminModal()">&times;</button>
+      </div>
+      <div id="adminOrdersContainer" style="display:flex; flex-direction:column; gap:12px;"></div>
+    </div>
+  </div>
+
+  <script>
+    const TOTAL_STEPS = 6;
+    let currentStep = 1;
+    const STORAGE_KEY = 'MH_MYSTERY_BOX_ORDERS';
+    
+    // ضع رقم الواتساب الرسمي للمتجر هنا مع مفتاح الدولة (بدون + أو 00)
+    const STORE_WHATSAPP_PHONE = '963991096792'; 
+
+    const stepTitles = {
+      1: 'الخطوة 1: لمن الهدية؟',
+      2: 'الخطوة 2: ما هي المناسبة؟',
+      3: 'الخطوة 3: شخصية المستلم',
+      4: 'الخطوة 4: الاهتمامات والممنوعات',
+      5: 'الخطوة 5: اللمسة الخاصة والرسالة',
+      6: 'الخطوة 6: الميزانية والتسليم',
+      7: 'الخطوة 7: بطاقة الطلب الفاخرة'
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('input[name="relationship"]').forEach(el => {
+        el.addEventListener('change', () => {
+          const otherInput = document.getElementById('rel_other_text');
+          otherInput.style.display = (el.value === 'أخرى') ? 'block' : 'none';
+          if (el.value === 'أخرى') otherInput.focus();
+        });
+      });
+    });
+
+    function goToStep(step) {
+      document.querySelectorAll('.step-card').forEach(card => card.classList.remove('active'));
+      const targetCard = document.querySelector(`.step-card[data-step="${step}"]`);
+      if (targetCard) {
+        targetCard.classList.add('active');
+        currentStep = step;
+        updateProgress(step);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function updateProgress(step) {
+      const progressBar = document.getElementById('progressBar');
+      const counter = document.getElementById('stepCounter');
+      const title = document.getElementById('stepIndicatorTitle');
+
+      if (step <= TOTAL_STEPS) {
+        const percent = (step / TOTAL_STEPS) * 100;
+        progressBar.style.width = `${percent}%`;
+        counter.textContent = `${step} / ${TOTAL_STEPS}`;
+        title.textContent = stepTitles[step] || '';
+      } else {
+        progressBar.style.width = `100%`;
+        counter.textContent = `تأكيد الطلب`;
+        title.textContent = stepTitles[step] || 'إنهاء الطلب';
+      }
+    }
+
+    function nextStep(step) {
+      if (validateStep(step)) goToStep(step + 1);
+    }
+    function prevStep(step) {
+      if (step > 1) goToStep(step - 1);
+    }
+
+    function validateStep(step) {
+      if (step === 1) {
+        const rel = document.querySelector('input[name="relationship"]:checked');
+        if (!rel) { alert('يرجى تحديد طبيعة العلاقة.'); return false; }
+        if (rel.value === 'أخرى' && !document.getElementById('rel_other_text').value.trim()) {
+          alert('يرجى تحديد نوع العلاقة في الحقل المخصص.');
+          return false;
+        }
+      }
+      if (step === 5) {
+        if (!document.getElementById('gift_message').value.trim()) {
+          alert('يرجى كتابة نص رسالة الإهداء للكرت.');
+          document.getElementById('gift_message').focus();
+          return false;
+        }
+      }
+      if (step === 6) {
+        if (!document.getElementById('sender_name').value.trim()) {
+          alert('يرجى إدخال اسمك الكريم.');
+          document.getElementById('sender_name').focus();
+          return false;
+        }
+        if (!document.getElementById('sender_phone').value.trim()) {
+          alert('يرجى إدخال رقم هاتفك أو واتساب.');
+          document.getElementById('sender_phone').focus();
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function getFormData() {
+      const relRadio = document.querySelector('input[name="relationship"]:checked');
+      let relationship = relRadio ? relRadio.value : '';
+      if (relationship === 'أخرى') {
+        relationship = document.getElementById('rel_other_text').value.trim() || 'أخرى';
+      }
+
+      const occasion = (document.querySelector('input[name="occasion"]:checked') || {}).value || '';
+      const gender = (document.querySelector('input[name="gender"]:checked') || {}).value || '';
+      const age = (document.querySelector('input[name="age_range"]:checked') || {}).value || '';
+
+      const vibes = Array.from(document.querySelectorAll('input[name="vibe"]:checked')).map(el => el.value).join('، ') || 'عام';
+      const personalities = Array.from(document.querySelectorAll('input[name="personality"]:checked')).map(el => el.value).join('، ') || 'متنوع';
+      const personalityDesc = (document.querySelector('input[name="personality_desc"]') || {}).value || '';
+
+      const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value).join('، ') || 'عام';
+      const likes = (document.querySelector('input[name="favorite_items"]') || {}).value || 'لم تحدد';
+      const dislikes = (document.querySelector('input[name="dislikes"]') || {}).value || 'لا يوجد';
+
+      const specialMemory = (document.querySelector('input[name="special_memory"]') || {}).value || '';
+      const giftMessage = document.getElementById('gift_message').value.trim();
+      const recipientName = (document.querySelector('input[name="recipient_name"]') || {}).value || 'شخص عزيز';
+
+      const budgetTier = (document.querySelector('input[name="budget_tier"]:checked') || {}).value || 'Standard Box';
+      const surpriseLevel = (document.querySelector('input[name="surprise_level"]:checked') || {}).value || 'متوازن';
+
+      const senderName = document.getElementById('sender_name').value.trim();
+      const senderPhone = document.getElementById('sender_phone').value.trim();
+      const deliveryCity = document.getElementById('delivery_city').value.trim() || 'غير محدد';
+
+      return {
+        id: 'MH-' + Math.floor(1000 + Math.random() * 9000),
+        date: new Date().toLocaleDateString('ar-SY'),
+        timestamp: Date.now(),
+        relationship,
+        gender,
+        age,
+        occasion,
+        vibes,
+        personalities: personalityDesc ? `${personalities} (${personalityDesc})` : personalities,
+        interests,
+        likes,
+        dislikes,
+        specialMemory,
+        giftMessage,
+        recipientName,
+        budgetTier,
+        surpriseLevel,
+        senderName,
+        senderPhone,
+        deliveryCity
+      };
+    }
+
+    let activeOrderData = null;
+
+    function showSummaryTicket() {
+      if (!validateStep(6)) return;
+      activeOrderData = getFormData();
+
+      // ملء بيانات البطاقة المصممة
+      document.getElementById('t_ref').textContent = `#${activeOrderData.id}`;
+      document.getElementById('t_date').textContent = activeOrderData.date;
+      document.getElementById('t_sender').textContent = `${activeOrderData.senderName} (${activeOrderData.senderPhone})`;
+      document.getElementById('t_recipient').textContent = activeOrderData.recipientName;
+      document.getElementById('t_rel').textContent = `${activeOrderData.relationship} (${activeOrderData.gender} - ${activeOrderData.age})`;
+      document.getElementById('t_occ').textContent = `${activeOrderData.occasion} [${activeOrderData.vibes}]`;
+      document.getElementById('t_personality').textContent = activeOrderData.personalities;
+      document.getElementById('t_interests').textContent = activeOrderData.interests;
+      document.getElementById('t_likes').textContent = activeOrderData.likes;
+      document.getElementById('t_dislikes').textContent = activeOrderData.dislikes;
+      document.getElementById('t_budget').textContent = activeOrderData.budgetTier;
+      document.getElementById('t_surprise').textContent = activeOrderData.surpriseLevel;
+      document.getElementById('t_message').textContent = `"${activeOrderData.giftMessage}"`;
+      document.getElementById('t_city').textContent = activeOrderData.deliveryCity;
+
+      goToStep(7);
+    }
+
+    async function processAndSendTicket() {
+      const btn = document.getElementById('btnSendWhatsApp');
+      const btnText = document.getElementById('btnText');
+      btn.disabled = true;
+      btnText.textContent = 'جاري تصيير البطاقة كصورة فاخرة...';
+
+      // حفظ الطلب في الـ LocalStorage الداخلي
+      saveToStorage(activeOrderData);
+
+      const ticketElement = document.getElementById('ticketCaptureArea');
+
+      try {
+        const canvas = await html2canvas(ticketElement, {
+          scale: 2, // دقة مضاعفة فائقة الوضوح (Retina Ready)
+          backgroundColor: '#0a0a0a',
+          useCORS: true
+        });
+
+        // تحويل الكانفاس إلى ملف صورة Blob
+        canvas.toBlob(async (blob) => {
+          const fileName = `MH_Mystery_Order_${activeOrderData.id}.png`;
+          const imageFile = new File([blob], fileName, { type: 'image/png' });
+
+          // نص رسالة الواتساب التوضيحي
+          const waCaption = `*طلب جديد: MH Mystery Box*\n*الرقم المرجعي:* #${activeOrderData.id}\n*العميل:* ${activeOrderData.senderName}\n*المستلم:* ${activeOrderData.recipientName}\n*الفئة:* ${activeOrderData.budgetTier}\n\n_تم إرفاق صورة تفاصيل الصندوق بالكامل._`;
+          const encodedText = encodeURIComponent(waCaption);
+          const waUrl = `https://wa.me/${STORE_WHATSAPP_PHONE}?text=${encodedText}`;
+
+          // عرض معاينة الصورة في صفحة النجاح
+          const previewImg = document.createElement('img');
+          previewImg.src = canvas.toDataURL('image/png');
+          previewImg.style.width = '100%';
+          previewImg.style.display = 'block';
+          const container = document.getElementById('imagePreviewContainer');
+          container.innerHTML = '';
+          container.appendChild(previewImg);
+
+          // 1. فحص إمكانية المشاركة المباشرة بالصورة عبر Web Share API (هواتف آيفون وأندرويد)
+          if (navigator.canShare && navigator.canShare({ files: [imageFile] })) {
+            try {
+              await navigator.share({
+                files: [imageFile],
+                title: `MH Mystery Box - ${activeOrderData.id}`,
+                text: waCaption
+              });
+              goToStep(8);
+              return;
+            } catch (err) {
+              console.log('User dismissed share or fallback required', err);
+            }
+          }
+
+          // 2. Fallback لأجهزة الكمبيوتر أو المتصفحات التي لا تدعم مشاركة الملفات مباشرة:
+          // تنزيل الصورة تلقائياً لجهاز المستخدم + فتح محادثة الواتساب
+          const downloadLink = document.createElement('a');
+          downloadLink.download = fileName;
+          downloadLink.href = canvas.toDataURL('image/png');
+          downloadLink.click();
+
+          alert('تم حفظ صورة بطاقة الصندوق في جهازك بنجاح! سيتم فتح واتساب الآن، يرجى إرفاق الصورة داخل المحادثة.');
+          window.open(waUrl, '_blank');
+          goToStep(8);
+
+        }, 'image/png');
+
+      } catch (err) {
+        console.error('Error capturing ticket image:', err);
+        alert('حدث خطأ أثناء إنشاء الصورة، سيتم توجيهك للواتساب مباشرة.');
+        submitDirectWhatsAppFallback();
+      } finally {
+        btn.disabled = false;
+        btnText.textContent = 'إرسال بطاقة الصندوق كصورة عبر واتساب';
+      }
+    }
+
+    function submitDirectWhatsAppFallback() {
+      const waCaption = `*طلب MH Mystery Box: #${activeOrderData.id}*\nالعميل: ${activeOrderData.senderName}\nالمستلم: ${activeOrderData.recipientName}\nالفئة: ${activeOrderData.budgetTier}`;
+      window.open(`https://wa.me/${STORE_WHATSAPP_PHONE}?text=${encodeURIComponent(waCaption)}`, '_blank');
+      goToStep(8);
+    }
+
+    function saveToStorage(data) {
+      try {
+        const current = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        current.unshift(data);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
+      } catch (e) {
+        console.error('Storage error:', e);
+      }
+    }
+
+    function openAdminModal() {
+      const listEl = document.getElementById('adminOrdersContainer');
+      const orders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      if (orders.length === 0) {
+        listEl.innerHTML = '<div style="color:#aaa; text-align:center; padding:20px;">لا توجد طلبات محفوظة محلياً بعد.</div>';
+      } else {
+        listEl.innerHTML = orders.map(o => `
+          <div style="background:#1e1e1e; padding:12px; border-radius:10px; border-right:3px solid var(--mh-orange);">
+            <div style="font-weight:bold; color:var(--mh-orange);">#${o.id} - ${o.recipientName} (${o.budgetTier})</div>
+            <div style="font-size:0.85rem; color:#ccc;">المرسل: ${o.senderName} (${o.senderPhone}) | المناسبة: ${o.occasion}</div>
+            <div style="font-size:0.8rem; color:#aaa; margin-top:4px;">الرسالة: "${o.giftMessage}"</div>
+          </div>
+        `).join('');
+      }
+      document.getElementById('adminModal').classList.add('open');
+    }
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.remove('open');
+    }
+  </script>
+</body>
+</html>
