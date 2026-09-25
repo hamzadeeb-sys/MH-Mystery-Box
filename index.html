@@ -2160,7 +2160,7 @@
       var fileName = 'MH_Order_' + order.id + '.png';
       var imageFile = new File([blob], fileName, { type: 'image/png' });
       var waMsg = 'مرحبًا MH، هذا رقم طلبي: #' + order.id + '\n(تم حفظ بيانات الصندوق وبطاقة الطلب المعتمدة)';
-      var waUrl = 'https://wa.me/' + STORE_WHATSAPP_PHONE + '?text=' + encodeURIComponent(waMsg);
+      var waUrl = 'https://wa.me/qr/YLKOH6XH6XSLM1' + STORE_WHATSAPP_PHONE + '?text=' + encodeURIComponent(waMsg);
 
       if (navigator.canShare && navigator.canShare({ files: [imageFile] })) {
         try {
@@ -2304,7 +2304,7 @@
           if (logoClicks >= 5) {
             logoClicks = 0;
             var pass = prompt('الدخول للوحة إدارة MH (أدخل كلمة المرور):');
-            if (pass === 'mh2026') openAdminModal();
+            if (pass === '66621262003') openAdminModal();
             else if (pass !== null) alert('كلمة المرور غير صحيحة.');
           } else {
             logoTimer = setTimeout(function() { logoClicks = 0; }, 1600);
