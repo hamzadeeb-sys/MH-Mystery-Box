@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>MH | تجربة الصندوق المخصص</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,6 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & RESET
+       ========================================================================== */
     :root {
       --mh-orange: #F45110;
       --mh-orange-hover: #ff6529;
@@ -55,7 +58,9 @@
       gap: 24px;
     }
 
-    /* Header */
+    /* ==========================================================================
+       2. TYPOGRAPHY & HEADER
+       ========================================================================== */
     header {
       text-align: center;
       display: flex;
@@ -117,7 +122,9 @@
       text-align: center;
     }
 
-    /* Landing Showcase */
+    /* ==========================================================================
+       3. HERO & SHOWCASE SECTION
+       ========================================================================== */
     .hero-section {
       background: linear-gradient(180deg, #181818 0%, #111111 100%);
       border: 1px solid var(--mh-card-border);
@@ -158,7 +165,6 @@
       margin: 0 auto;
     }
 
-    /* 6 Steps: How it works */
     .section-subheading {
       color: var(--mh-orange);
       font-size: 1.05rem;
@@ -207,7 +213,6 @@
       border: 1px dashed #333;
     }
 
-    /* What's Inside Grid (Vector Icons) */
     .sneak-peek-box {
       background: #141414;
       border: 1px solid #262626;
@@ -248,7 +253,9 @@
       line-height: 1.5;
     }
 
-    /* Progress Tracker (●━━━━○) */
+    /* ==========================================================================
+       4. PROGRESS BAR (●━━━━○)
+       ========================================================================== */
     .progress-section {
       background: var(--mh-card-bg);
       border: 1px solid var(--mh-card-border);
@@ -323,7 +330,9 @@
       border-color: var(--mh-orange);
     }
 
-    /* Step Card */
+    /* ==========================================================================
+       5. FORMS & INPUT CONTROLS
+       ========================================================================== */
     .step-card {
       background: var(--mh-card-bg);
       border: 1px solid var(--mh-card-border);
@@ -387,7 +396,6 @@
       display: block;
     }
 
-    /* Chips */
     .chips-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -460,7 +468,9 @@
       line-height: 1.5;
     }
 
-    /* 6 Box Tiers Responsive Grid */
+    /* ==========================================================================
+       6. 6 TIERS GRID
+       ========================================================================== */
     .tier-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -545,7 +555,6 @@
       display: block;
     }
 
-    /* Surprise Level */
     .surprise-radio-group {
       display: flex;
       flex-direction: column;
@@ -579,7 +588,6 @@
       margin-top: 2px;
     }
 
-    /* Info Callout */
     .info-callout-box {
       background: #141414;
       border: 1px solid #2a2a2a;
@@ -600,7 +608,6 @@
       line-height: 1.5;
     }
 
-    /* Agreements Checkboxes */
     .agreements-wrap {
       background: #161616;
       border: 1px solid #2c2c2c;
@@ -627,7 +634,9 @@
       flex-shrink: 0;
     }
 
-    /* Action Buttons */
+    /* ==========================================================================
+       7. BUTTONS & UI ACTIONS
+       ========================================================================== */
     .step-actions {
       display: flex;
       justify-content: space-between;
@@ -648,6 +657,8 @@
       gap: 8px;
       border: none;
       outline: none;
+      position: relative;
+      z-index: 5;
     }
     .btn-primary {
       background: var(--mh-orange);
@@ -705,7 +716,9 @@
       background: rgba(244, 81, 16, 0.12);
     }
 
-    /* THE ORDER BOARD CARD (ROW BY ROW) */
+    /* ==========================================================================
+       8. VIP TICKET CONTAINER
+       ========================================================================== */
     .ticket-container {
       background: #0d0d0d;
       border: 2px solid var(--mh-orange);
@@ -715,7 +728,7 @@
       box-shadow: 0 16px 45px rgba(0,0,0,0.9);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       width: 100%;
       box-sizing: border-box;
       position: relative;
@@ -797,7 +810,7 @@
       background: #141414;
       border: 1px solid #242424;
       border-radius: 10px;
-      padding: 9px 14px;
+      padding: 8px 12px;
       display: flex;
       flex-direction: column;
       gap: 2px;
@@ -810,7 +823,7 @@
       text-transform: uppercase;
     }
     .info-row-content {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       color: var(--mh-white);
       line-height: 1.4;
@@ -856,7 +869,6 @@
       .ticket-footer-badge { font-size: 0.62rem; }
     }
 
-    /* Modal Sheet for "Write for me" */
     .magic-modal-box {
       display: none;
       flex-direction: column;
@@ -868,7 +880,6 @@
       margin-top: 6px;
     }
 
-    /* Hidden Admin Modal */
     .modal-backdrop {
       position: fixed;
       top: 0;
@@ -914,7 +925,7 @@
 <body>
 
   <div class="app-container">
-    <!-- Header with Official Logo.png -->
+    <!-- Header with Logo.png -->
     <header>
       <div class="brand-logo-wrap" id="brandLogo" title="MH Brand">
         <img src="Logo.png" alt="MH Logo" class="brand-logo-img" id="mainBrandLogo" onerror="this.style.display='none'; document.getElementById('svgFallbackLogo').style.display='block';">
@@ -940,7 +951,7 @@
         أنت لا تختار محتويات الصندوق، لكننا نختارها بعناية فائقة بناءً على المعلومات التي تعطينا إياها لنصنع تجربة استثنائية لا تُنسى.
       </p>
 
-      <!-- 6 Steps: كيف تعمل MH؟ -->
+      <!-- 6 Steps -->
       <div class="section-subheading">كيف تعمل MH؟</div>
       <div class="how-it-works-grid">
         <div class="how-step-item">
@@ -1029,8 +1040,8 @@
         <div class="sneak-note">* المحتويات تختلف من صندوق لآخر حسب الشخص والمناسبة والميزانية.</div>
       </div>
 
-      <!-- Start Button with Solid JS Binding -->
-      <button type="button" class="btn btn-primary" id="btnHeroStart" style="font-size: 1.05rem; padding: 16px 28px; margin-top: 6px;" onclick="startCustomizing()">
+      <!-- Action Button with Dual Event Handling -->
+      <button type="button" class="btn btn-primary" id="btnHeroStart" style="font-size: 1.05rem; padding: 16px 28px; margin-top: 6px;">
         <span>ابدأ تخصيص الصندوق الآن</span>
         <svg style="width:18px; height:18px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       </button>
@@ -1109,7 +1120,7 @@
 
           <div class="step-actions">
             <div></div>
-            <button type="button" class="btn btn-primary" onclick="nextStep(1)">
+            <button type="button" class="btn btn-primary" data-nav="next" data-current="1">
               <span>المتابعة إلى المناسبة</span>
               <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             </button>
@@ -1165,8 +1176,8 @@
           </div>
 
           <div class="step-actions">
-            <button type="button" class="btn btn-secondary" onclick="prevStep(2)">السابق</button>
-            <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+            <button type="button" class="btn btn-secondary" data-nav="prev" data-current="2">السابق</button>
+            <button type="button" class="btn btn-primary" data-nav="next" data-current="2">
               <span>المتابعة إلى الشخصية</span>
               <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             </button>
@@ -1225,8 +1236,8 @@
           </div>
 
           <div class="step-actions">
-            <button type="button" class="btn btn-secondary" onclick="prevStep(3)">السابق</button>
-            <button type="button" class="btn btn-primary" onclick="nextStep(3)">
+            <button type="button" class="btn btn-secondary" data-nav="prev" data-current="3">السابق</button>
+            <button type="button" class="btn btn-primary" data-nav="next" data-current="3">
               <span>المتابعة إلى الممنوعات والرسالة</span>
               <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             </button>
@@ -1244,7 +1255,7 @@
             <label class="field-label" style="color:#ff6565;">أشياء يجب تجنبها</label>
             <input type="text" class="input-box" name="dislikes" id="dislikes" placeholder="مثال: لا يحب العطور، لديه حساسية من المكسرات، لا يحب اللون الوردي...">
             <label class="checkbox-item" style="margin-top:4px;">
-              <input type="checkbox" id="no_dislikes_chk" onchange="toggleDislikesField(this)">
+              <input type="checkbox" id="no_dislikes_chk">
               <span>لا توجد أشياء محددة يجب تجنبها</span>
             </label>
           </div>
@@ -1257,7 +1268,7 @@
           <div class="field-group" id="group_gift_message">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <label class="field-label">نص كرت الإهداء <span class="required">*</span></label>
-              <button type="button" class="btn-magic-write" onclick="toggleMagicBox()">
+              <button type="button" class="btn-magic-write" id="btnToggleMagic">
                 <svg style="width:14px; height:14px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
                 <span>اكتبها عني</span>
               </button>
@@ -1267,11 +1278,11 @@
             <div class="magic-modal-box" id="magicBox">
               <span style="font-size:0.78rem; color:var(--mh-cool-grey);">اختر الطابع المفضل لتوليد نص مقترح:</span>
               <div style="display:flex; gap:6px; flex-wrap:wrap;">
-                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" onclick="generateMessageTone('romantic')">رومانسي</button>
-                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" onclick="generateMessageTone('cute')">لطيف</button>
-                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" onclick="generateMessageTone('formal')">رسمي</button>
-                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" onclick="generateMessageTone('funny')">مضحك</button>
-                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" onclick="generateMessageTone('touching')">مؤثر</button>
+                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" data-tone="romantic">رومانسي</button>
+                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" data-tone="cute">لطيف</button>
+                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" data-tone="formal">رسمي</button>
+                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" data-tone="funny">مضحك</button>
+                <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" data-tone="touching">مؤثر</button>
               </div>
             </div>
 
@@ -1286,8 +1297,8 @@
           </div>
 
           <div class="step-actions">
-            <button type="button" class="btn btn-secondary" onclick="prevStep(4)">السابق</button>
-            <button type="button" class="btn btn-primary" onclick="nextStep(4)">
+            <button type="button" class="btn btn-secondary" data-nav="prev" data-current="4">السابق</button>
+            <button type="button" class="btn btn-primary" data-nav="next" data-current="4">
               <span>المتابعة إلى باقات الصندوق</span>
               <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             </button>
@@ -1414,13 +1425,11 @@
             <div class="field-error-msg" id="err_tier">يرجى اختيار فئة الصندوق.</div>
           </div>
 
-          <!-- Value Guarantee -->
           <div class="info-callout-box" style="border-color: rgba(244, 81, 16, 0.4);">
             <h4>ضمان القيمة:</h4>
             <p>قيمة محتويات الصندوق لا تقل عن قيمة الفئة المختارة إطلاقاً، وتُبنى بعناية لتفوق التوقعات.</p>
           </div>
 
-          <!-- Surprise Level -->
           <div class="field-group">
             <label class="field-label">درجة المفاجأة</label>
             <div class="surprise-radio-group">
@@ -1449,8 +1458,8 @@
           </div>
 
           <div class="step-actions">
-            <button type="button" class="btn btn-secondary" onclick="prevStep(5)">السابق</button>
-            <button type="button" class="btn btn-primary" onclick="nextStep(5)">
+            <button type="button" class="btn btn-secondary" data-nav="prev" data-current="5">السابق</button>
+            <button type="button" class="btn btn-primary" data-nav="next" data-current="5">
               <span>المتابعة إلى التسليم والدفع</span>
               <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             </button>
@@ -1493,22 +1502,20 @@
           <div class="field-group" id="group_payment">
             <label class="field-label">طريقة الدفع <span class="required">*</span></label>
             <div class="chips-grid" id="paymentMethodsContainer" style="grid-template-columns: repeat(2, 1fr);">
-              <!-- Dynamic options -->
+              <!-- Rendered via JS -->
             </div>
             <div class="field-error-msg" id="err_payment">يرجى اختيار طريقة الدفع.</div>
           </div>
 
-          <!-- Preparation and Delivery Info -->
           <div class="info-callout-box" id="deliveryConfigInfoBox">
             <h4>التجهيز والتوصيل:</h4>
-            <p id="deliveryConfigText">
+            <p>
               • مدة تجهيز الطلب: 1–2 أيام عمل.<br>
               • مدة التوصيل: 24–48 ساعة.<br>
               • أجور التوصيل: تظهر وتُحدد حسب المدينة.
             </p>
           </div>
 
-          <!-- Mandatory Agreements -->
           <div class="field-group" id="group_agreements">
             <div class="agreements-wrap">
               <label class="checkbox-item">
@@ -1528,8 +1535,8 @@
           </div>
 
           <div class="step-actions">
-            <button type="button" class="btn btn-secondary" onclick="prevStep(6)">السابق</button>
-            <button type="button" class="btn btn-primary" id="btnSubmitOrder" onclick="submitFinalOrder()">
+            <button type="button" class="btn btn-secondary" data-nav="prev" data-current="6">السابق</button>
+            <button type="button" class="btn btn-primary" id="btnSubmitOrder">
               تأكيد طلب الصندوق
             </button>
           </div>
@@ -1625,11 +1632,11 @@
 
           <!-- ACTIONS -->
           <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
-            <button type="button" class="btn btn-whatsapp" id="btnSendWhatsApp" onclick="exportToWhatsAppImage()">
+            <button type="button" class="btn btn-whatsapp" id="btnSendWhatsApp">
               <svg style="width:20px; height:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.178 1.594 5.918l-1.594 5.91 6.069-1.592c1.701.947 3.671 1.488 5.763 1.488 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
               <span id="btnWaText">إرسال بطاقة الاعتماد كصورة عبر واتساب</span>
             </button>
-            <button type="button" class="btn btn-secondary" onclick="confirmResetOrder()">
+            <button type="button" class="btn btn-secondary" id="btnResetOrder">
               طلب صندوق جديد
             </button>
           </div>
@@ -1637,6 +1644,9 @@
 
       </form>
     </div>
+
+    <!-- Hidden Native Canvas for Rendering -->
+    <canvas id="nativeExportCanvas" style="display:none;"></canvas>
 
     <!-- Clean Public Footer -->
     <footer>
@@ -1649,14 +1659,14 @@
     <div class="modal-dialog">
       <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #333; padding-bottom:10px;">
         <h3 style="color:var(--mh-orange); font-size:1.1rem;">لوحة إدارة طلبات MH (محمية)</h3>
-        <button type="button" style="background:none; border:none; color:#aaa; font-size:1.4rem; cursor:pointer;" onclick="closeAdminModal()">&times;</button>
+        <button type="button" id="btnCloseAdmin" style="background:none; border:none; color:#aaa; font-size:1.4rem; cursor:pointer;">&times;</button>
       </div>
 
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <span style="font-size:0.85rem; color:#aaa;">الطلبات المسجلة: <strong id="adminOrdersCount" style="color:var(--mh-orange);">0</strong></span>
         <div style="display:flex; gap:8px;">
-          <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" onclick="exportAdminCSV()">تصدير CSV</button>
-          <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem; color:#ff6565;" onclick="clearAdminOrders()">مسح السجل</button>
+          <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" id="btnExportCSV">تصدير CSV</button>
+          <button type="button" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem; color:#ff6565;" id="btnClearAdmin">مسح السجل</button>
         </div>
       </div>
 
@@ -1664,611 +1674,726 @@
     </div>
   </div>
 
-  <!-- Self-Contained Resilient Core Scripts -->
+  <!-- ==========================================================================
+       9. CLEAN CODE ARCHITECTURE (Vanilla JS, 0 External Dependencies)
+       ========================================================================== -->
   <script>
-    const TOTAL_STEPS = 6;
-    let currentStep = 1;
-    const STORAGE_KEY = 'MH_ORDERS_ARCHIVE_2026';
-    const COUNTER_KEY = 'MH_ORDER_COUNTER_SEQ';
-    const STORE_WHATSAPP_PHONE = '963900000000'; // ضع رقم الواتساب الرسمي هنا
+    /**
+     * MH Application Module (Clean Architecture)
+     */
+    const MHApp = (function() {
+      'use strict';
 
-    const storeConfig = {
-      prepDays: '1–2 أيام عمل',
-      deliveryDays: '24–48 ساعة',
-      deliveryFeeText: 'تظهر وتُحدد حسب المدينة',
-      paymentMethods: [
-        { id: 'pay_cod', label: 'دفع عند الاستلام', checked: true },
-        { id: 'pay_wallet', label: 'تحويل (سيريتل / شام كاش)' },
-        { id: 'pay_remit', label: 'حوالة (الهرم / فؤاد)' },
-        { id: 'pay_other', label: 'محفظة إلكترونية / أخرى' }
-      ]
-    };
-
-    const stepTitles = {
-      1: 'الخطوة 1: لمن الهدية؟',
-      2: 'الخطوة 2: المناسبة والهدف العاطفي',
-      3: 'الخطوة 3: الشخصية والاهتمامات',
-      4: 'الخطوة 4: الممنوعات والرسالة',
-      5: 'الخطوة 5: فئات الصندوق ودرجة المفاجأة',
-      6: 'الخطوة 6: التسليم وتأكيد الطلب',
-      7: 'الخطوة 7: بطاقة الطلب المعتمدة'
-    };
-
-    // Sequential Order ID Generator (#MH-YYMMDD-0001)
-    function generateSequentialOrderId() {
-      const now = new Date();
-      const yy = String(now.getFullYear()).slice(-2);
-      const mm = String(now.getMonth() + 1).padStart(2, '0');
-      const dd = String(now.getDate()).padStart(2, '0');
-      
-      let seq = parseInt(localStorage.getItem(COUNTER_KEY) || '0', 10) + 1;
-      localStorage.setItem(COUNTER_KEY, seq.toString());
-
-      const seqPadded = String(seq).padStart(4, '0');
-      return `MH-${yy}${mm}${dd}-${seqPadded}`;
-    }
-
-    // Core function to start customizer
-    function startCustomizing() {
-      const hero = document.getElementById('heroIntroSection');
-      const bSec = document.getElementById('builderSection');
-      if (hero) hero.style.display = 'none';
-      if (bSec) {
-        bSec.style.display = 'flex';
-        renderPaymentOptions();
-        goToStep(1);
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function renderPaymentOptions() {
-      const container = document.getElementById('paymentMethodsContainer');
-      if (!container) return;
-      container.innerHTML = storeConfig.paymentMethods.map(p => `
-        <div class="chip-item">
-          <input type="radio" name="payment_method" id="${p.id}" value="${p.label}" ${p.checked ? 'checked' : ''}>
-          <label class="chip-label" for="${p.id}">${p.label}</label>
-        </div>
-      `).join('');
-    }
-
-    // Initialize Event Listeners
-    document.addEventListener('DOMContentLoaded', () => {
-      // Ensure Start Button binds directly
-      const startBtn = document.getElementById('btnHeroStart');
-      if (startBtn) {
-        startBtn.addEventListener('click', startCustomizing);
-      }
-
-      // Custom relation toggle
-      document.querySelectorAll('input[name="relationship"]').forEach(el => {
-        el.addEventListener('change', () => {
-          const otherInput = document.getElementById('rel_other_text');
-          if (otherInput) {
-            otherInput.style.display = (el.value === 'علاقة أخرى') ? 'block' : 'none';
-            if (el.value === 'علاقة أخرى') otherInput.focus();
-          }
-        });
-      });
-
-      // Secure 5 Clicks on Logo with Password Authentication
-      let clicks = 0;
-      let timer;
-      const logo = document.getElementById('brandLogo');
-      if (logo) {
-        logo.addEventListener('click', () => {
-          clicks++;
-          clearTimeout(timer);
-          if (clicks >= 5) {
-            clicks = 0;
-            const pass = prompt('الدخول للوحة إدارة MH (أدخل كلمة المرور):');
-            if (pass === 'mh2026') {
-              openAdminModal();
-            } else if (pass !== null) {
-              alert('كلمة المرور غير صحيحة.');
-            }
-          } else {
-            timer = setTimeout(() => { clicks = 0; }, 1600);
-          }
-        });
-      }
-    });
-
-    function toggleDislikesField(chk) {
-      const input = document.getElementById('dislikes');
-      if (!input) return;
-      if (chk.checked) {
-        input.value = '';
-        input.disabled = true;
-      } else {
-        input.disabled = false;
-        input.focus();
-      }
-    }
-
-    function toggleMagicBox() {
-      const b = document.getElementById('magicBox');
-      if (!b) return;
-      b.style.display = (b.style.display === 'flex') ? 'none' : 'flex';
-    }
-
-    function generateMessageTone(tone) {
-      const name = document.getElementById('recipient_name').value.trim() || 'يا أغلى الناس';
-      const messages = {
-        romantic: `إلى ${name}... كل تفصيلة فيك تعني لي الكثير. هذا الصندوق تعبير بسيط عن مكانتك الخاصة في قلبي، متمنياً أن يرسم ابتسامة جميلة على وجهك.`,
-        cute: `مفاجأة لطيفة لألطف شخص! ${name} أتمنى لك يوماً رائعاً كروحك الجميلة، وأن تنال كل قطعة في الصندوق إعجابك.`,
-        formal: `مع أطيب التحيات والتقدير لـ ${name}. تقبل منا هذه الهدية الرمزية تعبيراً عن خالص الشكر والامتنان لمكانتكم الرفيعة.`,
-        funny: `لـ ${name}: لا تسألني عما بداخل الصندوق لأنني ببساطة لا أعرف! المهم أن تستمتع بالمفاجأة وتتذكر دائماً أنك تستحق الأفضل.`,
-        touching: `لـ ${name}... الأيام والمسافات لا تغير من مكانتك أبداً. أحببت تقديم هذه الهدية لتكون ذكرى طيبة تذكرك دائماً بمدى اعتزازي بوجودك.`
-      };
-      document.getElementById('gift_message').value = messages[tone] || messages.cute;
-      clearError('gift_message');
-      toggleMagicBox();
-    }
-
-    function updateVisualProgress(step) {
-      const fill = document.getElementById('progressVisualFill');
-      const counter = document.getElementById('stepCounter');
-      const title = document.getElementById('stepIndicatorTitle');
-
-      if (step <= TOTAL_STEPS) {
-        const percent = ((step - 1) / (TOTAL_STEPS - 1)) * 100;
-        if (fill) fill.style.width = `${percent}%`;
-        if (counter) counter.textContent = `${step} من ${TOTAL_STEPS}`;
-        if (title) title.textContent = stepTitles[step] || '';
-
-        for (let i = 1; i <= TOTAL_STEPS; i++) {
-          const dot = document.getElementById(`dot-${i}`);
-          if (dot) {
-            dot.className = 'progress-dot';
-            if (i === step) dot.classList.add('active');
-            else if (i < step) dot.classList.add('completed');
-          }
+      // 1. Application Constants & State Store
+      const CONFIG = {
+        totalSteps: 6,
+        storageKey: 'MH_ORDERS_ARCHIVE_2026',
+        counterKey: 'MH_ORDER_COUNTER_SEQ',
+        whatsAppPhone: '963900000000',
+        paymentMethods: [
+          { id: 'pay_cod', label: 'دفع عند الاستلام', checked: true },
+          { id: 'pay_wallet', label: 'تحويل (سيريتل / شام كاش)' },
+          { id: 'pay_remit', label: 'حوالة (الهرم / فؤاد)' },
+          { id: 'pay_other', label: 'محفظة إلكترونية / أخرى' }
+        ],
+        stepTitles: {
+          1: 'الخطوة 1: لمن الهدية؟',
+          2: 'الخطوة 2: المناسبة والهدف العاطفي',
+          3: 'الخطوة 3: الشخصية والاهتمامات',
+          4: 'الخطوة 4: الممنوعات والرسالة',
+          5: 'الخطوة 5: فئات الصندوق ودرجة المفاجأة',
+          6: 'الخطوة 6: التسليم وتأكيد الطلب',
+          7: 'الخطوة 7: بطاقة الطلب المعتمدة'
         }
-      } else {
-        if (fill) fill.style.width = '100%';
-        if (counter) counter.textContent = `تأكيد الطلب`;
-        if (title) title.textContent = stepTitles[step] || 'طلبك جاهز';
-      }
-    }
+      };
 
-    function goToStep(step) {
-      document.querySelectorAll('.step-card').forEach(card => card.classList.remove('active'));
-      const targetCard = document.querySelector(`.step-card[data-step="${step}"]`);
-      if (targetCard) {
-        targetCard.classList.add('active');
-        currentStep = step;
-        updateVisualProgress(step);
+      const State = {
+        currentStep: 1,
+        activeOrder: null
+      };
+
+      // 2. DOM Elements Cache
+      const DOM = {};
+
+      function cacheDOM() {
+        DOM.heroSection = document.getElementById('heroIntroSection');
+        DOM.builderSection = document.getElementById('builderSection');
+        DOM.btnHeroStart = document.getElementById('btnHeroStart');
+        DOM.progressFill = document.getElementById('progressVisualFill');
+        DOM.progressCounter = document.getElementById('stepCounter');
+        DOM.progressTitle = document.getElementById('stepIndicatorTitle');
+        DOM.paymentContainer = document.getElementById('paymentMethodsContainer');
+        DOM.btnSubmit = document.getElementById('btnSubmitOrder');
+        DOM.btnWhatsApp = document.getElementById('btnSendWhatsApp');
+        DOM.btnReset = document.getElementById('btnResetOrder');
+        DOM.noDislikesChk = document.getElementById('no_dislikes_chk');
+        DOM.dislikesInput = document.getElementById('dislikes');
+        DOM.btnToggleMagic = document.getElementById('btnToggleMagic');
+        DOM.magicBox = document.getElementById('magicBox');
+        DOM.giftMessage = document.getElementById('gift_message');
+        DOM.recipientName = document.getElementById('recipient_name');
+        DOM.brandLogo = document.getElementById('brandLogo');
+        DOM.adminModal = document.getElementById('adminModal');
+        DOM.btnCloseAdmin = document.getElementById('btnCloseAdmin');
+        DOM.btnExportCSV = document.getElementById('btnExportCSV');
+        DOM.btnClearAdmin = document.getElementById('btnClearAdmin');
+        DOM.adminOrdersContainer = document.getElementById('adminOrdersContainer');
+        DOM.adminOrdersCount = document.getElementById('adminOrdersCount');
+        DOM.canvas = document.getElementById('nativeExportCanvas');
+      }
+
+      // 3. Navigation & Flow Engine
+      function start() {
+        if (DOM.heroSection) DOM.heroSection.style.display = 'none';
+        if (DOM.builderSection) DOM.builderSection.style.display = 'flex';
+        renderPaymentMethods();
+        goToStep(1);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }
 
-    function showError(fieldId, msg) {
-      const errEl = document.getElementById(`err_${fieldId}`);
-      if (errEl) {
-        if (msg) errEl.textContent = msg;
-        errEl.classList.add('visible');
-      }
-    }
-
-    function clearError(fieldId) {
-      const errEl = document.getElementById(`err_${fieldId}`);
-      if (errEl) {
-        errEl.classList.remove('visible');
-      }
-    }
-
-    function validateStep(step) {
-      let isValid = true;
-
-      if (step === 1) {
-        const rel = document.querySelector('input[name="relationship"]:checked');
-        if (!rel) {
-          showError('relationship', 'يرجى اختيار العلاقة.');
-          isValid = false;
-        } else if (rel.value === 'علاقة أخرى' && !document.getElementById('rel_other_text').value.trim()) {
-          showError('relationship', 'يرجى كتابة نوع العلاقة في الحقل المخصص.');
-          isValid = false;
-        } else {
-          clearError('relationship');
-        }
-
-        const age = document.querySelector('input[name="age_range"]:checked');
-        if (!age) {
-          showError('age', 'يرجى تحديد الفئة العمرية.');
-          isValid = false;
-        } else {
-          clearError('age');
+      function goToStep(step) {
+        document.querySelectorAll('.step-card').forEach(card => card.classList.remove('active'));
+        const target = document.querySelector(`.step-card[data-step="${step}"]`);
+        if (target) {
+          target.classList.add('active');
+          State.currentStep = step;
+          updateProgressUI(step);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
 
-      if (step === 2) {
-        const occ = document.querySelector('input[name="occasion"]:checked');
-        if (!occ) {
-          showError('occasion', 'يرجى اختيار المناسبة.');
-          isValid = false;
-        } else {
-          clearError('occasion');
-        }
-      }
+      function updateProgressUI(step) {
+        if (step <= CONFIG.totalSteps) {
+          const percent = ((step - 1) / (CONFIG.totalSteps - 1)) * 100;
+          if (DOM.progressFill) DOM.progressFill.style.width = `${percent}%`;
+          if (DOM.progressCounter) DOM.progressCounter.textContent = `${step} من ${CONFIG.totalSteps}`;
+          if (DOM.progressTitle) DOM.progressTitle.textContent = CONFIG.stepTitles[step] || '';
 
-      if (step === 4) {
-        const msg = document.getElementById('gift_message').value.trim();
-        if (!msg) {
-          showError('gift_message', 'يرجى كتابة نص كرت الإهداء المطبوع.');
-          isValid = false;
-        } else {
-          clearError('gift_message');
-        }
-
-        const recName = document.getElementById('recipient_name').value.trim();
-        if (!recName) {
-          showError('recipient_name', 'يرجى إدخال اسم المستلم.');
-          isValid = false;
-        } else {
-          clearError('recipient_name');
-        }
-      }
-
-      if (step === 5) {
-        const tier = document.querySelector('input[name="budget_tier"]:checked');
-        if (!tier) {
-          showError('tier', 'يرجى اختيار إحدى فئات الصندوق.');
-          isValid = false;
-        } else {
-          clearError('tier');
-        }
-      }
-
-      if (step === 6) {
-        const sName = document.getElementById('sender_name').value.trim();
-        const sPhone = document.getElementById('sender_phone').value.trim();
-        if (!sName || !sPhone) {
-          showError('sender', 'يرجى إدخال اسمك الكريم ورقم هاتفك للتواصل.');
-          isValid = false;
-        } else {
-          clearError('sender');
-        }
-
-        const city = document.getElementById('delivery_city').value.trim();
-        const area = document.getElementById('delivery_area').value.trim();
-        const detailed = document.getElementById('delivery_address_detailed').value.trim();
-        if (!city || !area || !detailed) {
-          showError('address', 'يرجى استكمال حقول العنوان (المدينة، المنطقة، والعنوان بالتفصيل).');
-          isValid = false;
-        } else {
-          clearError('address');
-        }
-
-        const pay = document.querySelector('input[name="payment_method"]:checked');
-        if (!pay) {
-          showError('payment', 'يرجى اختيار طريقة الدفع.');
-          isValid = false;
-        } else {
-          clearError('payment');
-        }
-
-        const chk1 = document.getElementById('chk_agree_1').checked;
-        const chk2 = document.getElementById('chk_agree_2').checked;
-        const chk3 = document.getElementById('chk_agree_3').checked;
-        if (!chk1 || !chk2 || !chk3) {
-          showError('agreements', 'يجب الموافقة على جميع الشروط أعلاه لمتابعة الطلب.');
-          isValid = false;
-        } else {
-          clearError('agreements');
-        }
-      }
-
-      return isValid;
-    }
-
-    function nextStep(step) {
-      if (validateStep(step)) {
-        goToStep(step + 1);
-      }
-    }
-
-    function prevStep(step) {
-      if (step > 1) {
-        goToStep(step - 1);
-      }
-    }
-
-    function getCollectedOrderData() {
-      const relRadio = document.querySelector('input[name="relationship"]:checked');
-      let relationship = relRadio ? relRadio.value : 'غير محدد';
-      if (relationship === 'علاقة أخرى') {
-        relationship = document.getElementById('rel_other_text').value.trim() || 'علاقة أخرى';
-      }
-
-      const gender = (document.querySelector('input[name="gender"]:checked') || {}).value || 'غير محدد';
-      const age = (document.querySelector('input[name="age_range"]:checked') || {}).value || 'غير محدد';
-      const occasion = (document.querySelector('input[name="occasion"]:checked') || {}).value || 'غير محدد';
-      
-      const vibes = Array.from(document.querySelectorAll('input[name="vibe"]:checked')).map(el => el.value).join('، ') || 'غير محدد';
-      const personalities = Array.from(document.querySelectorAll('input[name="personality"]:checked')).map(el => el.value).join('، ') || 'غير محدد';
-      const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value).join('، ') || 'غير محدد';
-      
-      const favoriteItems = document.getElementById('favorite_items').value.trim() || 'غير محدد';
-      
-      const noDislikes = document.getElementById('no_dislikes_chk').checked;
-      let dislikes = 'لا توجد أشياء محددة يجب تجنبها';
-      if (!noDislikes) {
-        dislikes = document.getElementById('dislikes').value.trim() || 'غير محدد';
-      }
-
-      const specialMemory = document.getElementById('special_memory').value.trim() || 'غير محدد';
-      const giftMessage = document.getElementById('gift_message').value.trim() || 'غير محدد';
-      const recipientName = document.getElementById('recipient_name').value.trim() || 'غير محدد';
-
-      const tierRadio = document.querySelector('input[name="budget_tier"]:checked');
-      const tierName = tierRadio ? tierRadio.getAttribute('data-name') : 'Signature';
-      const tierPrice = tierRadio ? tierRadio.getAttribute('data-price') : '75$';
-      const tierCount = tierRadio ? tierRadio.getAttribute('data-count') : '6–7 عناصر';
-      const tierCustom = tierRadio ? tierRadio.getAttribute('data-custom') : 'تخصيص متقدم';
-      const tierPack = tierRadio ? tierRadio.getAttribute('data-pack') : 'تغليف مميز';
-
-      const surpriseLevel = (document.querySelector('input[name="surprise_level"]:checked') || {}).value || 'متوازن ومميز';
-
-      const senderName = document.getElementById('sender_name').value.trim() || 'غير محدد';
-      const senderPhone = document.getElementById('sender_phone').value.trim() || 'غير محدد';
-      
-      const city = document.getElementById('delivery_city').value.trim() || 'غير محدد';
-      const area = document.getElementById('delivery_area').value.trim() || 'غير محدد';
-      const detailed = document.getElementById('delivery_address_detailed').value.trim() || 'غير محدد';
-      const landmark = document.getElementById('delivery_landmark').value.trim();
-      const recPhone = document.getElementById('recipient_phone').value.trim();
-
-      let fullAddress = `${city} - ${area}، ${detailed}`;
-      if (landmark) fullAddress += ` (نقطة دالة: ${landmark})`;
-      if (recPhone) fullAddress += ` | هاتف المستلم: ${recPhone}`;
-
-      const paymentMethod = (document.querySelector('input[name="payment_method"]:checked') || {}).value || 'دفع عند الاستلام';
-
-      return {
-        id: generateSequentialOrderId(),
-        date: new Date().toLocaleDateString('ar-SY'),
-        timestamp: Date.now(),
-        status: 'جديد',
-        senderName,
-        senderPhone,
-        recipientName,
-        relationship,
-        gender,
-        age,
-        occasion,
-        vibes,
-        personalities,
-        interests,
-        favoriteItems,
-        dislikes,
-        specialMemory,
-        giftMessage,
-        tierName,
-        tierPrice,
-        tierCount,
-        tierCustom,
-        tierPack,
-        surpriseLevel,
-        fullAddress,
-        paymentMethod
-      };
-    }
-
-    let activeOrderData = null;
-
-    async function submitFinalOrder() {
-      if (!validateStep(6)) return;
-
-      const submitBtn = document.getElementById('btnSubmitOrder');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'نجهز بطاقة مفاجأتك...';
-
-      // 1. Generate ID and Gather Data
-      activeOrderData = getCollectedOrderData();
-
-      // 2. Save Order to Internal Database
-      saveOrderToStorage(activeOrderData);
-
-      // 3. Render Order Card Ticket
-      renderTicketUI(activeOrderData);
-
-      setTimeout(() => {
-        goToStep(7);
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'تأكيد طلب الصندوق';
-      }, 500);
-    }
-
-    function renderTicketUI(data) {
-      document.getElementById('t_ref').textContent = `#${data.id}`;
-      document.getElementById('t_date').textContent = data.date;
-
-      document.getElementById('t_sender').textContent = `${data.senderName} (${data.senderPhone})`;
-      document.getElementById('t_recipient_rel').textContent = `${data.recipientName} • ${data.relationship} (العمر: ${data.age} | الجنس: ${data.gender})`;
-      document.getElementById('t_occ').textContent = `${data.occasion} • الهدف: ${data.vibes}`;
-      
-      document.getElementById('t_personality_int').textContent = `الاهتمامات: ${data.interests} | الطابع: ${data.personalities}`;
-      document.getElementById('t_likes').textContent = `المفضلات: ${data.favoriteItems} | ذكرى خاصة: ${data.specialMemory}`;
-      document.getElementById('t_dislikes').textContent = data.dislikes;
-
-      document.getElementById('t_tier_full').textContent = `${data.tierName} (${data.tierPrice}) — ${data.tierCount} [${data.tierCustom} • ${data.tierPack}]`;
-      document.getElementById('t_surprise').textContent = data.surpriseLevel;
-      document.getElementById('t_delivery_pay').textContent = `العنوان: ${data.fullAddress} • الدفع: ${data.paymentMethod}`;
-      document.getElementById('t_message').textContent = `"${data.giftMessage}"`;
-    }
-
-    // Dynamic Loader for html2canvas to ensure zero blocking
-    function loadHtml2CanvasScript() {
-      return new Promise((resolve, reject) => {
-        if (window.html2canvas) {
-          resolve(window.html2canvas);
-          return;
-        }
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
-        script.onload = () => resolve(window.html2canvas);
-        script.onerror = () => reject(new Error('Canvas script failed to load'));
-        document.body.appendChild(script);
-      });
-    }
-
-    async function exportToWhatsAppImage() {
-      const btn = document.getElementById('btnSendWhatsApp');
-      const btnText = document.getElementById('btnWaText');
-      btn.disabled = true;
-      btnText.textContent = 'جاري تصدير صورة البطاقة...';
-
-      const ticketElement = document.getElementById('ticketCaptureArea');
-      const waMsg = `مرحبًا MH، هذا رقم طلبي: #${activeOrderData.id}\n(تم حفظ بيانات الصندوق وبطاقة الطلب المعتمدة)`;
-
-      try {
-        await loadHtml2CanvasScript();
-        const canvas = await window.html2canvas(ticketElement, {
-          scale: 2,
-          backgroundColor: '#0d0d0d',
-          useCORS: true
-        });
-
-        canvas.toBlob(async (blob) => {
-          const fileName = `MH_Order_${activeOrderData.id}.png`;
-          const imageFile = new File([blob], fileName, { type: 'image/png' });
-          const waUrl = `https://wa.me/${STORE_WHATSAPP_PHONE}?text=${encodeURIComponent(waMsg)}`;
-
-          // Native mobile sharing (iOS / Android)
-          if (navigator.canShare && navigator.canShare({ files: [imageFile] })) {
-            try {
-              await navigator.share({
-                files: [imageFile],
-                title: `MH Order ${activeOrderData.id}`,
-                text: waMsg
-              });
-              return;
-            } catch (err) {
-              console.log('Native share cancelled or unsupported', err);
+          for (let i = 1; i <= CONFIG.totalSteps; i++) {
+            const dot = document.getElementById(`dot-${i}`);
+            if (dot) {
+              dot.className = 'progress-dot';
+              if (i === step) dot.classList.add('active');
+              else if (i < step) dot.classList.add('completed');
             }
           }
+        } else {
+          if (DOM.progressFill) DOM.progressFill.style.width = '100%';
+          if (DOM.progressCounter) DOM.progressCounter.textContent = 'تأكيد الطلب';
+          if (DOM.progressTitle) DOM.progressTitle.textContent = CONFIG.stepTitles[step] || 'طلبك جاهز';
+        }
+      }
 
-          // Fallback: Download image and open WhatsApp chat
-          const downloadLink = document.createElement('a');
-          downloadLink.download = fileName;
-          downloadLink.href = canvas.toDataURL('image/png');
-          downloadLink.click();
+      // 4. Form Validation Service
+      function showError(id, msg) {
+        const el = document.getElementById(`err_${id}`);
+        if (el) {
+          if (msg) el.textContent = msg;
+          el.classList.add('visible');
+        }
+      }
 
-          alert('تم حفظ صورة بطاقة الصندوق في جهازك بنجاح. سيتم توجيهك إلى واتساب الآن، يرجى إرفاق الصورة داخل المحادثة.');
-          window.open(waUrl, '_blank');
+      function clearError(id) {
+        const el = document.getElementById(`err_${id}`);
+        if (el) el.classList.remove('visible');
+      }
 
-        }, 'image/png');
+      function validateStep(step) {
+        let valid = true;
 
-      } catch (err) {
-        console.error('Render fallback triggered:', err);
-        const waUrl = `https://wa.me/${STORE_WHATSAPP_PHONE}?text=${encodeURIComponent(waMsg)}`;
+        if (step === 1) {
+          const rel = document.querySelector('input[name="relationship"]:checked');
+          if (!rel) {
+            showError('relationship', 'يرجى اختيار العلاقة.');
+            valid = false;
+          } else if (rel.value === 'علاقة أخرى' && !document.getElementById('rel_other_text').value.trim()) {
+            showError('relationship', 'يرجى كتابة نوع العلاقة في الحقل المخصص.');
+            valid = false;
+          } else {
+            clearError('relationship');
+          }
+
+          const age = document.querySelector('input[name="age_range"]:checked');
+          if (!age) {
+            showError('age', 'يرجى تحديد الفئة العمرية.');
+            valid = false;
+          } else {
+            clearError('age');
+          }
+        }
+
+        if (step === 2) {
+          const occ = document.querySelector('input[name="occasion"]:checked');
+          if (!occ) {
+            showError('occasion', 'يرجى اختيار المناسبة.');
+            valid = false;
+          } else {
+            clearError('occasion');
+          }
+        }
+
+        if (step === 4) {
+          const msg = DOM.giftMessage.value.trim();
+          if (!msg) {
+            showError('gift_message', 'يرجى كتابة نص كرت الإهداء المطبوع.');
+            valid = false;
+          } else {
+            clearError('gift_message');
+          }
+
+          const rec = DOM.recipientName.value.trim();
+          if (!rec) {
+            showError('recipient_name', 'يرجى إدخال اسم المستلم.');
+            valid = false;
+          } else {
+            clearError('recipient_name');
+          }
+        }
+
+        if (step === 5) {
+          const tier = document.querySelector('input[name="budget_tier"]:checked');
+          if (!tier) {
+            showError('tier', 'يرجى اختيار إحدى فئات الصندوق.');
+            valid = false;
+          } else {
+            clearError('tier');
+          }
+        }
+
+        if (step === 6) {
+          const sName = document.getElementById('sender_name').value.trim();
+          const sPhone = document.getElementById('sender_phone').value.trim();
+          if (!sName || !sPhone) {
+            showError('sender', 'يرجى إدخال اسمك ورقم هاتفك للتواصل.');
+            valid = false;
+          } else {
+            clearError('sender');
+          }
+
+          const city = document.getElementById('delivery_city').value.trim();
+          const area = document.getElementById('delivery_area').value.trim();
+          const detailed = document.getElementById('delivery_address_detailed').value.trim();
+          if (!city || !area || !detailed) {
+            showError('address', 'يرجى استكمال حقول العنوان (المدينة، المنطقة، والعنوان بالتفصيل).');
+            valid = false;
+          } else {
+            clearError('address');
+          }
+
+          const pay = document.querySelector('input[name="payment_method"]:checked');
+          if (!pay) {
+            showError('payment', 'يرجى اختيار طريقة الدفع.');
+            valid = false;
+          } else {
+            clearError('payment');
+          }
+
+          const chk1 = document.getElementById('chk_agree_1').checked;
+          const chk2 = document.getElementById('chk_agree_2').checked;
+          const chk3 = document.getElementById('chk_agree_3').checked;
+          if (!chk1 || !chk2 || !chk3) {
+            showError('agreements', 'يجب الموافقة على جميع الشروط أعلاه لمتابعة الطلب.');
+            valid = false;
+          } else {
+            clearError('agreements');
+          }
+        }
+
+        return valid;
+      }
+
+      // 5. Data Factory
+      function generateOrderId() {
+        const now = new Date();
+        const yy = String(now.getFullYear()).slice(-2);
+        const mm = String(now.getMonth() + 1).padStart(2, '0');
+        const dd = String(now.getDate()).padStart(2, '0');
+        
+        let seq = parseInt(localStorage.getItem(CONFIG.counterKey) || '0', 10) + 1;
+        localStorage.setItem(CONFIG.counterKey, seq.toString());
+
+        const seqPadded = String(seq).padStart(4, '0');
+        return `MH-${yy}${mm}${dd}-${seqPadded}`;
+      }
+
+      function buildOrderPayload() {
+        const relRadio = document.querySelector('input[name="relationship"]:checked');
+        let relationship = relRadio ? relRadio.value : 'غير محدد';
+        if (relationship === 'علاقة أخرى') {
+          relationship = document.getElementById('rel_other_text').value.trim() || 'علاقة أخرى';
+        }
+
+        const gender = (document.querySelector('input[name="gender"]:checked') || {}).value || 'غير محدد';
+        const age = (document.querySelector('input[name="age_range"]:checked') || {}).value || 'غير محدد';
+        const occasion = (document.querySelector('input[name="occasion"]:checked') || {}).value || 'غير محدد';
+        
+        const vibes = Array.from(document.querySelectorAll('input[name="vibe"]:checked')).map(el => el.value).join('، ') || 'غير محدد';
+        const personalities = Array.from(document.querySelectorAll('input[name="personality"]:checked')).map(el => el.value).join('، ') || 'غير محدد';
+        const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value).join('، ') || 'غير محدد';
+        
+        const favoriteItems = document.getElementById('favorite_items').value.trim() || 'غير محدد';
+        
+        const noDislikes = DOM.noDislikesChk.checked;
+        let dislikes = 'لا توجد أشياء محددة يجب تجنبها';
+        if (!noDislikes) {
+          dislikes = DOM.dislikesInput.value.trim() || 'غير محدد';
+        }
+
+        const specialMemory = document.getElementById('special_memory').value.trim() || 'غير محدد';
+        const giftMessage = DOM.giftMessage.value.trim() || 'غير محدد';
+        const recipientName = DOM.recipientName.value.trim() || 'غير محدد';
+
+        const tierRadio = document.querySelector('input[name="budget_tier"]:checked');
+        const tierName = tierRadio ? tierRadio.getAttribute('data-name') : 'Signature';
+        const tierPrice = tierRadio ? tierRadio.getAttribute('data-price') : '75$';
+        const tierCount = tierRadio ? tierRadio.getAttribute('data-count') : '6–7 عناصر';
+        const tierCustom = tierRadio ? tierRadio.getAttribute('data-custom') : 'تخصيص متقدم';
+        const tierPack = tierRadio ? tierRadio.getAttribute('data-pack') : 'تغليف مميز';
+
+        const surpriseLevel = (document.querySelector('input[name="surprise_level"]:checked') || {}).value || 'متوازن ومميز';
+
+        const senderName = document.getElementById('sender_name').value.trim() || 'غير محدد';
+        const senderPhone = document.getElementById('sender_phone').value.trim() || 'غير محدد';
+        
+        const city = document.getElementById('delivery_city').value.trim() || 'غير محدد';
+        const area = document.getElementById('delivery_area').value.trim() || 'غير محدد';
+        const detailed = document.getElementById('delivery_address_detailed').value.trim() || 'غير محدد';
+        const landmark = document.getElementById('delivery_landmark').value.trim();
+        const recPhone = document.getElementById('recipient_phone').value.trim();
+
+        let fullAddress = `${city} - ${area}، ${detailed}`;
+        if (landmark) fullAddress += ` (نقطة دالة: ${landmark})`;
+        if (recPhone) fullAddress += ` | هاتف المستلم: ${recPhone}`;
+
+        const paymentMethod = (document.querySelector('input[name="payment_method"]:checked') || {}).value || 'دفع عند الاستلام';
+
+        return {
+          id: generateOrderId(),
+          date: new Date().toLocaleDateString('ar-SY'),
+          timestamp: Date.now(),
+          status: 'جديد',
+          senderName,
+          senderPhone,
+          recipientName,
+          relationship,
+          gender,
+          age,
+          occasion,
+          vibes,
+          personalities,
+          interests,
+          favoriteItems,
+          dislikes,
+          specialMemory,
+          giftMessage,
+          tierName,
+          tierPrice,
+          tierCount,
+          tierCustom,
+          tierPack,
+          surpriseLevel,
+          fullAddress,
+          paymentMethod
+        };
+      }
+
+      // 6. UI Renderers
+      function renderPaymentMethods() {
+        if (!DOM.paymentContainer) return;
+        DOM.paymentContainer.innerHTML = CONFIG.paymentMethods.map(p => `
+          <div class="chip-item">
+            <input type="radio" name="payment_method" id="${p.id}" value="${p.label}" ${p.checked ? 'checked' : ''}>
+            <label class="chip-label" for="${p.id}">${p.label}</label>
+          </div>
+        `).join('');
+      }
+
+      function renderTicketView(order) {
+        document.getElementById('t_ref').textContent = `#${order.id}`;
+        document.getElementById('t_date').textContent = order.date;
+        document.getElementById('t_sender').textContent = `${order.senderName} (${order.senderPhone})`;
+        document.getElementById('t_recipient_rel').textContent = `${order.recipientName} • ${order.relationship} (العمر: ${order.age} | الجنس: ${order.gender})`;
+        document.getElementById('t_occ').textContent = `${order.occasion} • الهدف: ${order.vibes}`;
+        document.getElementById('t_personality_int').textContent = `الاهتمامات: ${order.interests} | الطابع: ${order.personalities}`;
+        document.getElementById('t_likes').textContent = `المفضلات: ${order.favoriteItems} | ذكرى خاصة: ${order.specialMemory}`;
+        document.getElementById('t_dislikes').textContent = order.dislikes;
+        document.getElementById('t_tier_full').textContent = `${order.tierName} (${order.tierPrice}) — ${order.tierCount} [${order.tierCustom} • ${order.tierPack}]`;
+        document.getElementById('t_surprise').textContent = order.surpriseLevel;
+        document.getElementById('t_delivery_pay').textContent = `العنوان: ${order.fullAddress} • الدفع: ${order.paymentMethod}`;
+        document.getElementById('t_message').textContent = `"${order.giftMessage}"`;
+      }
+
+      // 7. Pure Native HTML5 Canvas Generator (No External CDN Dependency)
+      function generateTicketBlob(order) {
+        return new Promise((resolve) => {
+          const canvas = DOM.canvas;
+          const ctx = canvas.getContext('2d');
+          const width = 1000;
+          const height = 1200;
+
+          canvas.width = width;
+          canvas.height = height;
+
+          // Background
+          ctx.fillStyle = '#0d0d0d';
+          ctx.fillRect(0, 0, width, height);
+
+          // Outer Border
+          ctx.strokeStyle = '#F45110';
+          ctx.lineWidth = 4;
+          ctx.strokeRect(16, 16, width - 32, height - 32);
+
+          // Top Header Bar
+          ctx.fillStyle = '#151515';
+          ctx.fillRect(18, 18, width - 36, 120);
+
+          ctx.textAlign = 'right';
+          ctx.fillStyle = '#FFFFFF';
+          ctx.font = 'bold 30px Cairo, sans-serif';
+          ctx.fillText('MH MYSTERY BOX — ORDER CARD', width - 50, 70);
+
+          ctx.fillStyle = '#F45110';
+          ctx.font = 'bold 18px Cairo, sans-serif';
+          ctx.fillText('PERSONALIZED MYSTERY BOX • OFFICIAL ORDER', width - 50, 105);
+
+          // Reference & Date
+          ctx.textAlign = 'left';
+          ctx.font = 'bold 26px Cairo, monospace';
+          ctx.fillStyle = '#F45110';
+          ctx.fillText(`#${order.id}`, 50, 70);
+          ctx.font = '16px Cairo, sans-serif';
+          ctx.fillStyle = '#C3CACC';
+          ctx.fillText(order.date, 50, 105);
+
+          // Rows Renderer
+          const rows = [
+            { t: 'مقدم الطلب والتواصل', c: `${order.senderName} (${order.senderPhone})` },
+            { t: 'اسم المستلم والعلاقة', c: `${order.recipientName} • ${order.relationship} (العمر: ${order.age} | الجنس: ${order.gender})` },
+            { t: 'المناسبة والهدف العاطفي', c: `${order.occasion} • الهدف: ${order.vibes}` },
+            { t: 'الشخصية والاهتمامات', c: `الاهتمامات: ${order.interests} | الطابع: ${order.personalities}` },
+            { t: 'المفضلات والذكرى الخاصة', c: `المفضلات: ${order.favoriteItems} | ذكرى: ${order.specialMemory}` },
+            { t: 'أشياء يجب تجنبها (RED FLAGS)', c: order.dislikes, isDanger: true },
+            { t: 'فئة الصندوق والمواصفات', c: `${order.tierName} (${order.tierPrice}) — ${order.tierCount} [${order.tierCustom}]` },
+            { t: 'درجة المفاجأة والتسليم', c: `${order.surpriseLevel} • العنوان: ${order.fullAddress}` },
+            { t: 'طريقة الدفع المعتمدة', c: order.paymentMethod },
+            { t: 'نص كرت الإهداء المطبوع', c: `"${order.giftMessage}"` }
+          ];
+
+          let y = 170;
+          rows.forEach(r => {
+            ctx.fillStyle = '#141414';
+            ctx.fillRect(40, y, width - 80, 82);
+
+            ctx.strokeStyle = '#242424';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(40, y, width - 80, 82);
+
+            ctx.textAlign = 'right';
+            ctx.font = 'bold 15px Cairo, sans-serif';
+            ctx.fillStyle = r.isDanger ? '#ff6565' : '#F45110';
+            ctx.fillText(r.t, width - 60, y + 28);
+
+            ctx.font = 'bold 18px Cairo, sans-serif';
+            ctx.fillStyle = r.isDanger ? '#ff9e9e' : '#FFFFFF';
+            
+            // Truncate long lines cleanly
+            let text = r.c;
+            if (text.length > 70) text = text.substring(0, 67) + '...';
+            ctx.fillText(text, width - 60, y + 60);
+
+            y += 94;
+          });
+
+          // Footer
+          ctx.fillStyle = '#222';
+          ctx.fillRect(40, height - 70, width - 80, 1);
+          ctx.font = '15px Cairo, sans-serif';
+          ctx.fillStyle = '#C3CACC';
+          ctx.textAlign = 'right';
+          ctx.fillText('ضمان القيمة 100% • اختيار مخصص حسب المستلم', width - 50, height - 35);
+          ctx.textAlign = 'left';
+          ctx.fillStyle = '#F45110';
+          ctx.fillText('MH OFFICIAL ORDER TICKET', 50, height - 35);
+
+          canvas.toBlob((blob) => resolve(blob), 'image/png');
+        });
+      }
+
+      // 8. Order Submission & Export
+      function submitOrder() {
+        if (!validateStep(6)) return;
+
+        DOM.btnSubmit.disabled = true;
+        DOM.btnSubmit.textContent = 'نجهز بطاقة مفاجأتك...';
+
+        State.activeOrder = buildOrderPayload();
+        saveOrderToStorage(State.activeOrder);
+        renderTicketView(State.activeOrder);
+
+        setTimeout(() => {
+          goToStep(7);
+          DOM.btnSubmit.disabled = false;
+          DOM.btnSubmit.textContent = 'تأكيد طلب الصندوق';
+        }, 300);
+      }
+
+      async function exportWhatsApp() {
+        if (!State.activeOrder) return;
+
+        DOM.btnWhatsApp.disabled = true;
+        const origText = document.getElementById('btnWaText').textContent;
+        document.getElementById('btnWaText').textContent = 'جاري تصدير صورة البطاقة...';
+
+        const order = State.activeOrder;
+        const blob = await generateTicketBlob(order);
+        const fileName = `MH_Order_${order.id}.png`;
+        const imageFile = new File([blob], fileName, { type: 'image/png' });
+        const waMsg = `مرحبًا MH، هذا رقم طلبي: #${order.id}\n(تم حفظ بيانات الصندوق وبطاقة الطلب المعتمدة)`;
+        const waUrl = `https://wa.me/${CONFIG.whatsAppPhone}?text=${encodeURIComponent(waMsg)}`;
+
+        // Web Share API support
+        if (navigator.canShare && navigator.canShare({ files: [imageFile] })) {
+          try {
+            await navigator.share({
+              files: [imageFile],
+              title: `MH Order ${order.id}`,
+              text: waMsg
+            });
+            DOM.btnWhatsApp.disabled = false;
+            document.getElementById('btnWaText').textContent = origText;
+            return;
+          } catch (e) {
+            console.log('Share dismissed');
+          }
+        }
+
+        // Native Download Fallback
+        const downloadLink = document.createElement('a');
+        downloadLink.download = fileName;
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.click();
+
+        alert('تم حفظ صورة بطاقة الصندوق في جهازك بنجاح. سيتم توجيهك إلى واتساب الآن، يرجى إرفاق الصورة داخل المحادثة.');
         window.open(waUrl, '_blank');
-      } finally {
-        btn.disabled = false;
-        btnText.textContent = 'إرسال بطاقة الاعتماد كصورة عبر واتساب';
-      }
-    }
 
-    function confirmResetOrder() {
-      if (confirm('هل تريد بدء طلب جديد؟ سيتم حفظ طلبك السابق والعودة للبداية.')) {
-        location.reload();
-      }
-    }
-
-    function saveOrderToStorage(data) {
-      try {
-        const list = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        list.unshift(data);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-      } catch (e) {
-        console.error('Storage error:', e);
-      }
-    }
-
-    function openAdminModal() {
-      renderAdminDashboard();
-      document.getElementById('adminModal').classList.add('open');
-    }
-
-    function closeAdminModal() {
-      document.getElementById('adminModal').classList.remove('open');
-    }
-
-    function renderAdminDashboard() {
-      const listEl = document.getElementById('adminOrdersContainer');
-      const countEl = document.getElementById('adminOrdersCount');
-      const orders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      countEl.textContent = orders.length;
-
-      if (orders.length === 0) {
-        listEl.innerHTML = '<div style="color:#888; text-align:center; padding:20px;">لا توجد طلبات مسجلة بعد.</div>';
-        return;
+        DOM.btnWhatsApp.disabled = false;
+        document.getElementById('btnWaText').textContent = origText;
       }
 
-      const statuses = ['جديد', 'قيد المراجعة', 'قيد التجهيز', 'جاهز', 'خرج للتوصيل', 'تم التسليم', 'ملغي'];
+      // 9. Storage & Admin Services
+      function saveOrderToStorage(data) {
+        try {
+          const list = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '[]');
+          list.unshift(data);
+          localStorage.setItem(CONFIG.storageKey, JSON.stringify(list));
+        } catch (e) {
+          console.error(e);
+        }
+      }
 
-      listEl.innerHTML = orders.map((o, idx) => `
-        <div style="background:#1b1b1b; padding:12px; border-radius:10px; border-right:3px solid var(--mh-orange); font-size:0.84rem; display:flex; flex-direction:column; gap:6px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
-            <strong style="color:var(--mh-orange);">#${o.id} — ${o.recipientName} (${o.tierName} - ${o.tierPrice})</strong>
-            <span style="color:#888; font-size:0.75rem;">${o.date}</span>
+      function openAdmin() {
+        renderAdmin();
+        DOM.adminModal.classList.add('open');
+      }
+
+      function closeAdmin() {
+        DOM.adminModal.classList.remove('open');
+      }
+
+      function renderAdmin() {
+        const list = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '[]');
+        DOM.adminOrdersCount.textContent = list.length;
+
+        if (list.length === 0) {
+          DOM.adminOrdersContainer.innerHTML = '<div style="color:#888; text-align:center; padding:20px;">لا توجد طلبات مسجلة بعد.</div>';
+          return;
+        }
+
+        const statuses = ['جديد', 'قيد المراجعة', 'قيد التجهيز', 'جاهز', 'خرج للتوصيل', 'تم التسليم', 'ملغي'];
+
+        DOM.adminOrdersContainer.innerHTML = list.map((o, idx) => `
+          <div style="background:#1b1b1b; padding:12px; border-radius:10px; border-right:3px solid var(--mh-orange); font-size:0.84rem; display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+              <strong style="color:var(--mh-orange);">#${o.id} — ${o.recipientName} (${o.tierName} - ${o.tierPrice})</strong>
+              <span style="color:#888; font-size:0.75rem;">${o.date}</span>
+            </div>
+            <div style="color:#ccc;">العميل: ${o.senderName} (${o.senderPhone}) | المناسبة: ${o.occasion}</div>
+            <div style="color:#aaa;">العنوان: ${o.fullAddress} | الدفع: ${o.paymentMethod}</div>
+            <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
+              <span style="font-weight:700; color:var(--mh-cool-grey);">حالة الطلب:</span>
+              <select onchange="MHApp.updateStatus(${idx}, this.value)" style="background:#252525; color:#fff; border:1px solid #444; border-radius:6px; padding:3px 8px; font-family:inherit; font-size:0.8rem;">
+                ${statuses.map(s => `<option value="${s}" ${(o.status === s \vert{}\vert{} (!o.status && s === 'جديد')) ? 'selected' : ''}>${s}</option>`).join('')}
+              </select>
+            </div>
           </div>
-          <div style="color:#ccc;">العميل: ${o.senderName} (${o.senderPhone}) | المناسبة: ${o.occasion}</div>
-          <div style="color:#aaa;">العنوان: ${o.fullAddress} | الدفع: ${o.paymentMethod}</div>
-          <div style="display:flex; align-items:center; gap:8px; margin-top:4px;">
-            <span style="font-weight:700; color:var(--mh-cool-grey);">حالة الطلب:</span>
-            <select onchange="updateOrderStatus(${idx}, this.value)" style="background:#252525; color:#fff; border:1px solid #444; border-radius:6px; padding:3px 8px; font-family:inherit; font-size:0.8rem;">
-              ${statuses.map(s => `<option value="${s}" ${(o.status === s \vert{}\vert{} (!o.status && s === 'جديد')) ? 'selected' : ''}>${s}</option>`).join('')}
-            </select>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function updateOrderStatus(idx, newStatus) {
-      const orders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      if (orders[idx]) {
-        orders[idx].status = newStatus;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
+        `).join('');
       }
-    }
 
-    function exportAdminCSV() {
-      const orders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      if (orders.length === 0) { alert('لا توجد طلبات للتصدير.'); return; }
-
-      const headers = ['رقم الطلب', 'التاريخ', 'اسم العميل', 'الهاتف', 'اسم المستلم', 'المناسبة', 'الفئة', 'السعر', 'العنوان', 'طريقة الدفع', 'الحالة'];
-      const rows = orders.map(o => [
-        o.id,
-        `"${o.date}"`,
-        `"${o.senderName}"`,
-        `"${o.senderPhone}"`,
-        `"${o.recipientName}"`,
-        `"${o.occasion}"`,
-        `"${o.tierName}"`,
-        `"${o.tierPrice}"`,
-        `"${o.fullAddress}"`,
-        `"${o.paymentMethod}"`,
-        `"${o.status || 'جديد'}"`
-      ]);
-
-      const csv = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `MH_Orders_${Date.now()}.csv`;
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-
-    function clearAdminOrders() {
-      if (confirm('هل أنت متأكد من مسح جميع الطلبات من السجل؟ لا يمكن التراجع عن هذا الإجراء.')) {
-        localStorage.removeItem(STORAGE_KEY);
-        renderAdminDashboard();
+      function updateStatus(idx, val) {
+        const list = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '[]');
+        if (list[idx]) {
+          list[idx].status = val;
+          localStorage.setItem(CONFIG.storageKey, JSON.stringify(list));
+        }
       }
-    }
+
+      function exportCSV() {
+        const list = JSON.parse(localStorage.getItem(CONFIG.storageKey) || '[]');
+        if (list.length === 0) { alert('لا توجد طلبات للتصدير.'); return; }
+
+        const headers = ['رقم الطلب', 'التاريخ', 'اسم العميل', 'الهاتف', 'اسم المستلم', 'المناسبة', 'الفئة', 'السعر', 'العنوان', 'طريقة الدفع', 'الحالة'];
+        const rows = list.map(o => [
+          o.id,
+          `"${o.date}"`,
+          `"${o.senderName}"`,
+          `"${o.senderPhone}"`,
+          `"${o.recipientName}"`,
+          `"${o.occasion}"`,
+          `"${o.tierName}"`,
+          `"${o.tierPrice}"`,
+          `"${o.fullAddress}"`,
+          `"${o.paymentMethod}"`,
+          `"${o.status || 'جديد'}"`
+        ]);
+
+        const csv = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `MH_Orders_${Date.now()}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function clearAdmin() {
+        if (confirm('هل أنت متأكد من مسح جميع الطلبات من السجل؟ لا يمكن التراجع عن هذا الإجراء.')) {
+          localStorage.removeItem(CONFIG.storageKey);
+          renderAdmin();
+        }
+      }
+
+      // 10. Magic Message Generator
+      function setMagicTone(tone) {
+        const name = DOM.recipientName.value.trim() || 'يا أغلى الناس';
+        const tones = {
+          romantic: `إلى ${name}... كل تفصيلة فيك تعني لي الكثير. هذا الصندوق تعبير بسيط عن مكانتك الخاصة في قلبي، متمنياً أن يرسم ابتسامة جميلة على وجهك.`,
+          cute: `مفاجأة لطيفة لألطف شخص! ${name} أتمنى لك يوماً رائعاً كروحك الجميلة، وأن تنال كل قطعة في الصندوق إعجابك.`,
+          formal: `مع أطيب التحيات والتقدير لـ ${name}. تقبل منا هذه الهدية الرمزية تعبيراً عن خالص الشكر والامتنان لمكانتكم الرفيعة.`,
+          funny: `لـ ${name}: لا تسألني عما بداخل الصندوق لأنني ببساطة لا أعرف! المهم أن تستمتع بالمفاجأة وتتذكر دائماً أنك تستحق الأفضل.`,
+          touching: `لـ ${name}... الأيام والمسافات لا تغير من مكانتك أبداً. أحببت تقديم هذه الهدية لتكون ذكرى طيبة تذكرك دائماً بمدى اعتزازي بوجودك.`
+        };
+        DOM.giftMessage.value = tones[tone] || tones.cute;
+        clearError('gift_message');
+        DOM.magicBox.style.display = 'none';
+      }
+
+      // 11. Event Binder
+      function bindEvents() {
+        // Hero start button (Mobile Touch + Click guaranteed)
+        if (DOM.btnHeroStart) {
+          DOM.btnHeroStart.addEventListener('click', start);
+          DOM.btnHeroStart.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            start();
+          });
+        }
+
+        // Stepper Navigation
+        document.querySelectorAll('button[data-nav]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const dir = btn.getAttribute('data-nav');
+            const step = parseInt(btn.getAttribute('data-current'), 10);
+            if (dir === 'next') {
+              if (validateStep(step)) goToStep(step + 1);
+            } else if (dir === 'prev') {
+              if (step > 1) goToStep(step - 1);
+            }
+          });
+        });
+
+        // Other relationship toggle
+        document.querySelectorAll('input[name="relationship"]').forEach(el => {
+          el.addEventListener('change', () => {
+            const other = document.getElementById('rel_other_text');
+            if (other) {
+              other.style.display = (el.value === 'علاقة أخرى') ? 'block' : 'none';
+              if (el.value === 'علاقة أخرى') other.focus();
+            }
+          });
+        });
+
+        // Dislikes Toggle
+        if (DOM.noDislikesChk) {
+          DOM.noDislikesChk.addEventListener('change', () => {
+            if (DOM.noDislikesChk.checked) {
+              DOM.dislikesInput.value = '';
+              DOM.dislikesInput.disabled = true;
+            } else {
+              DOM.dislikesInput.disabled = false;
+              DOM.dislikesInput.focus();
+            }
+          });
+        }
+
+        // Magic Box Toggle & Buttons
+        if (DOM.btnToggleMagic) {
+          DOM.btnToggleMagic.addEventListener('click', () => {
+            DOM.magicBox.style.display = (DOM.magicBox.style.display === 'flex') ? 'none' : 'flex';
+          });
+        }
+        document.querySelectorAll('button[data-tone]').forEach(b => {
+          b.addEventListener('click', () => setMagicTone(b.getAttribute('data-tone')));
+        });
+
+        // Submit & Export
+        if (DOM.btnSubmit) DOM.btnSubmit.addEventListener('click', submitOrder);
+        if (DOM.btnWhatsApp) DOM.btnWhatsApp.addEventListener('click', exportWhatsApp);
+        if (DOM.btnReset) {
+          DOM.btnReset.addEventListener('click', () => {
+            if (confirm('هل تريد بدء طلب جديد؟ سيتم حفظ طلبك السابق والعودة للبداية.')) {
+              location.reload();
+            }
+          });
+        }
+
+        // Logo 5 Clicks Auth
+        let logoClicks = 0;
+        let logoTimer;
+        if (DOM.brandLogo) {
+          DOM.brandLogo.addEventListener('click', () => {
+            logoClicks++;
+            clearTimeout(logoTimer);
+            if (logoClicks >= 5) {
+              logoClicks = 0;
+              const pass = prompt('الدخول للوحة إدارة MH (أدخل كلمة المرور):');
+              if (pass === 'mh2026') openAdmin();
+              else if (pass !== null) alert('كلمة المرور غير صحيحة.');
+            } else {
+              logoTimer = setTimeout(() => { logoClicks = 0; }, 1600);
+            }
+          });
+        }
+
+        if (DOM.btnCloseAdmin) DOM.btnCloseAdmin.addEventListener('click', closeAdmin);
+        if (DOM.btnExportCSV) DOM.btnExportCSV.addEventListener('click', exportCSV);
+        if (DOM.btnClearAdmin) DOM.btnClearAdmin.addEventListener('click', clearAdmin);
+      }
+
+      // 12. Bootstrap
+      function init() {
+        cacheDOM();
+        bindEvents();
+      }
+
+      return {
+        init: init,
+        updateStatus: updateStatus
+      };
+    })();
+
+    // Launch Application after DOM Content Loaded
+    document.addEventListener('DOMContentLoaded', MHApp.init);
   </script>
 </body>
 </html>
