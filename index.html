@@ -934,7 +934,7 @@
           <path d="M 176 80 L 246 80 L 246 30 L 280 30 L 280 150 L 246 150 L 246 108 L 176 108 Z" fill="#F45110"/>
         </svg>
       </div>
-      <div class="brand-slogan">ONE BRAND. EVERY MOMENT.</div>
+      <div class="brand-slogan">LET US SURPRISE YOU</div>
       <div class="tagline-hero">سرّ الصندوق إنك ما بتعرف شو جواته... <span>بس نحنا منعرف لمين</span></div>
       <div class="tagline-sub">أنت بتخبرنا لمين الهدية وشو بيحب... ونحن منختار المفاجأة عنك.</div>
       <div class="tagline-note">كل صندوق مصمم حسب الشخص، المناسبة والميزانية.</div>
@@ -1673,10 +1673,10 @@
   </div>
 
   <!-- ==========================================================================
-       ROBUST APPLICATION CONTROLLER (Global Scoped, No Blockers)
+       ROBUST APPLICATION CONTROLLER (Global Scoped, Direct Execution)
        ========================================================================== -->
   <script>
-    // 1. GLOBAL SCOPE DECLARATION (GUARANTEED EXECUTION)
+    // 1. Direct Start Function
     window.startCustomizing = function() {
       var hero = document.getElementById('heroIntroSection');
       var bSec = document.getElementById('builderSection');
@@ -1692,7 +1692,7 @@
     var STORAGE_KEY = 'MH_ORDERS_ARCHIVE_2026';
     var COUNTER_KEY = 'MH_ORDER_COUNTER_SEQ';
     
-    // رقم الواتساب الرسمي المعتمد للتواصل واستقبال الطلبات فوراً
+    // رقم الواتساب المباشر الخاص بك
     var STORE_WHATSAPP_PHONE = '963991096792'; 
 
     var storeConfig = {
@@ -2147,6 +2147,7 @@
       });
     }
 
+    // Direct WhatsApp Export & Redirection Handler
     async function exportToWhatsAppImage() {
       if (!activeOrderData) return;
 
@@ -2162,6 +2163,7 @@
       var waMsg = 'مرحبًا MH، هذا رقم طلبي: #' + order.id + '\n(تم حفظ بيانات الصندوق وبطاقة الطلب المعتمدة)';
       var waUrl = 'https://wa.me/' + STORE_WHATSAPP_PHONE + '?text=' + encodeURIComponent(waMsg);
 
+      // Web Share API (Direct Share on Android / iOS)
       if (navigator.canShare && navigator.canShare({ files: [imageFile] })) {
         try {
           await navigator.share({
@@ -2177,16 +2179,17 @@
         }
       }
 
+      // Direct Download & Unrestricted Navigation to WhatsApp Chat
       var downloadLink = document.createElement('a');
       downloadLink.download = fileName;
       downloadLink.href = URL.createObjectURL(blob);
       downloadLink.click();
 
-      alert('تم حفظ صورة بطاقة الصندوق في جهازك بنجاح. سيتم توجيهك إلى واتساب الآن، يرجى إرفاق الصورة داخل المحادثة.');
-      window.open(waUrl, '_blank');
-
       btn.disabled = false;
       btnText.textContent = 'إرسال بطاقة الاعتماد كصورة عبر واتساب';
+
+      // Use location.href to bypass mobile popup blockers
+      window.location.href = waUrl;
     }
 
     function confirmResetOrder() {
@@ -2292,7 +2295,7 @@
       }
     }
 
-    // Direct Event Binders
+    // Direct Listeners for Inputs & Logo
     document.addEventListener('DOMContentLoaded', function() {
       var logo = document.getElementById('brandLogo');
       var logoClicks = 0;
