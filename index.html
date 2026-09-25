@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <style>
     :root {
@@ -118,7 +117,7 @@
       text-align: center;
     }
 
-    /* Landing / Hero Showcase */
+    /* Landing Showcase */
     .hero-section {
       background: linear-gradient(180deg, #181818 0%, #111111 100%);
       border: 1px solid var(--mh-card-border);
@@ -133,7 +132,7 @@
       background: rgba(244, 81, 16, 0.12);
       border: 1px solid rgba(244, 81, 16, 0.35);
       color: var(--mh-orange);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 800;
       padding: 4px 14px;
       border-radius: 30px;
@@ -159,7 +158,7 @@
       margin: 0 auto;
     }
 
-    /* 6 Steps How it works */
+    /* 6 Steps: How it works */
     .section-subheading {
       color: var(--mh-orange);
       font-size: 1.05rem;
@@ -208,7 +207,7 @@
       border: 1px dashed #333;
     }
 
-    /* What's Inside Grid */
+    /* What's Inside Grid (Vector Icons) */
     .sneak-peek-box {
       background: #141414;
       border: 1px solid #262626;
@@ -221,17 +220,27 @@
     .sneak-items-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 8px;
+      gap: 10px;
     }
     .sneak-pill {
-      background: #1c1c1c;
-      border: 1px solid #2e2e2e;
+      background: #1b1b1b;
+      border: 1px solid #2d2d2d;
       color: var(--mh-mist);
-      padding: 8px 12px;
+      padding: 10px 12px;
       border-radius: 10px;
       font-size: 0.82rem;
       font-weight: 600;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sneak-icon-svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--mh-orange);
+      stroke-width: 1.7;
+      fill: none;
+      flex-shrink: 0;
     }
     .sneak-note {
       font-size: 0.78rem;
@@ -536,7 +545,7 @@
       display: block;
     }
 
-    /* Surprise Level Descriptions */
+    /* Surprise Level */
     .surprise-radio-group {
       display: flex;
       flex-direction: column;
@@ -570,7 +579,7 @@
       margin-top: 2px;
     }
 
-    /* Info Boxes */
+    /* Info Callout */
     .info-callout-box {
       background: #141414;
       border: 1px solid #2a2a2a;
@@ -618,7 +627,7 @@
       flex-shrink: 0;
     }
 
-    /* Buttons */
+    /* Action Buttons */
     .step-actions {
       display: flex;
       justify-content: space-between;
@@ -636,6 +645,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       border: none;
       outline: none;
     }
@@ -687,6 +697,9 @@
       cursor: pointer;
       font-weight: 700;
       transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     .btn-magic-write:hover {
       background: rgba(244, 81, 16, 0.12);
@@ -702,7 +715,7 @@
       box-shadow: 0 16px 45px rgba(0,0,0,0.9);
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       width: 100%;
       box-sizing: border-box;
       position: relative;
@@ -784,7 +797,7 @@
       background: #141414;
       border: 1px solid #242424;
       border-radius: 10px;
-      padding: 8px 12px;
+      padding: 9px 14px;
       display: flex;
       flex-direction: column;
       gap: 2px;
@@ -797,7 +810,7 @@
       text-transform: uppercase;
     }
     .info-row-content {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--mh-white);
       line-height: 1.4;
@@ -829,6 +842,18 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+      .ticket-container {
+        padding: 14px 12px;
+        gap: 8px;
+      }
+      .ticket-branding-titles h3 { font-size: 0.86rem; }
+      .ticket-branding-titles span { font-size: 0.58rem; }
+      .ticket-ref-text { font-size: 0.78rem; padding: 2px 6px; }
+      .ticket-footer-note { font-size: 0.68rem; }
+      .ticket-footer-badge { font-size: 0.62rem; }
     }
 
     /* Modal Sheet for "Write for me" */
@@ -945,26 +970,69 @@
       </div>
       <div class="how-bottom-quote">"أنت لا تعرف ما بداخل الصندوق... وهذا هو الهدف."</div>
 
-      <!-- What's Inside Sneak Peek -->
+      <!-- What's Inside Grid (Vector Icons) -->
       <div class="sneak-peek-box">
         <div class="section-subheading" style="margin:0;">ماذا يمكن أن يكون داخل الصندوق؟</div>
         <div class="sneak-items-grid">
-          <div class="sneak-pill">🎁 إكسسوارات</div>
-          <div class="sneak-pill">☕ منتجات قهوة</div>
-          <div class="sneak-pill">🕯️ شموع</div>
-          <div class="sneak-pill">🍫 شوكولا</div>
-          <div class="sneak-pill">💌 بطاقات ورسائل</div>
-          <div class="sneak-pill">⌚ إكسسوارات شخصية</div>
-          <div class="sneak-pill">🧴 عناية وعطور</div>
-          <div class="sneak-pill">🎮 منتجات Gaming</div>
-          <div class="sneak-pill">🚗 منتجات للسيارات</div>
-          <div class="sneak-pill">📚 كتب ومنتجات مكتبية</div>
+          
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <span>إكسسوارات راقية</span>
+          </div>
+
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+            <span>منتجات قهوة مختصة</span>
+          </div>
+
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><path d="M12 2c1.5 2 2.5 3.5 2.5 5a2.5 2.5 0 0 1-5 0c0-1.5 1-3 2.5-5zM7 10h10v12H7z"/></svg>
+            <span>شموع معطرة</span>
+          </div>
+
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span>شوكولا فاخرة</span>
+          </div>
+
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>بطاقات ورسائل خاصة</span>
+          </div>
+
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 13.5 13.5"/><path d="M16.51 17.35l-.85 3.65H8.34l-.85-3.65M8.34 3h7.32l.85 3.65h-9.02z"/></svg>
+            <span>ساعات وإكسسوار شخصي</span>
+          </div>
+
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><path d="M10 2h4v4h-4zM6 6h12v15a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V6zM10 11h4M10 15h4"/></svg>
+            <span>عناية وعطور مميزة</span>
+          </div>
+
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="6"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="11" x2="15.01" y2="11"/><line x1="18" y1="13" x2="18.01" y2="13"/></svg>
+            <span>منتجات Gaming</span>
+          </div>
+
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="21"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
+            <span>منتجات للسيارات</span>
+          </div>
+
+          <div class="sneak-pill">
+            <svg class="sneak-icon-svg" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>كتب ومنتجات مكتبية</span>
+          </div>
+
         </div>
         <div class="sneak-note">* المحتويات تختلف من صندوق لآخر حسب الشخص والمناسبة والميزانية.</div>
       </div>
 
-      <button type="button" class="btn btn-primary" style="font-size: 1.05rem; padding: 16px 28px; margin-top: 6px;" onclick="startCustomizing()">
-        ابدأ تخصيص الصندوق الآن ➔
+      <!-- Start Button with Solid JS Binding -->
+      <button type="button" class="btn btn-primary" id="btnHeroStart" style="font-size: 1.05rem; padding: 16px 28px; margin-top: 6px;" onclick="startCustomizing()">
+        <span>ابدأ تخصيص الصندوق الآن</span>
+        <svg style="width:18px; height:18px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       </button>
     </section>
 
@@ -1041,7 +1109,10 @@
 
           <div class="step-actions">
             <div></div>
-            <button type="button" class="btn btn-primary" onclick="nextStep(1)">المتابعة إلى المناسبة ➔</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep(1)">
+              <span>المتابعة إلى المناسبة</span>
+              <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            </button>
           </div>
         </div>
 
@@ -1095,7 +1166,10 @@
 
           <div class="step-actions">
             <button type="button" class="btn btn-secondary" onclick="prevStep(2)">السابق</button>
-            <button type="button" class="btn btn-primary" onclick="nextStep(2)">المتابعة إلى الشخصية ➔</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+              <span>المتابعة إلى الشخصية</span>
+              <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            </button>
           </div>
         </div>
 
@@ -1152,7 +1226,10 @@
 
           <div class="step-actions">
             <button type="button" class="btn btn-secondary" onclick="prevStep(3)">السابق</button>
-            <button type="button" class="btn btn-primary" onclick="nextStep(3)">المتابعة إلى الممنوعات والرسالة ➔</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep(3)">
+              <span>المتابعة إلى الممنوعات والرسالة</span>
+              <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            </button>
           </div>
         </div>
 
@@ -1180,7 +1257,10 @@
           <div class="field-group" id="group_gift_message">
             <div style="display:flex; justify-content:space-between; align-items:center;">
               <label class="field-label">نص كرت الإهداء <span class="required">*</span></label>
-              <button type="button" class="btn-magic-write" onclick="toggleMagicBox()">✨ اكتبها عني</button>
+              <button type="button" class="btn-magic-write" onclick="toggleMagicBox()">
+                <svg style="width:14px; height:14px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                <span>اكتبها عني</span>
+              </button>
             </div>
 
             <!-- Magic generator palette -->
@@ -1207,7 +1287,10 @@
 
           <div class="step-actions">
             <button type="button" class="btn btn-secondary" onclick="prevStep(4)">السابق</button>
-            <button type="button" class="btn btn-primary" onclick="nextStep(4)">المتابعة إلى باقات الصندوق ➔</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep(4)">
+              <span>المتابعة إلى باقات الصندوق</span>
+              <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            </button>
           </div>
         </div>
 
@@ -1235,7 +1318,7 @@
                     <span>• تخصيص أساسي</span>
                     <span>• تغليف MH الأنيق</span>
                   </div>
-                  <div class="tier-selection-indicator">✓ تم اختيار Essential</div>
+                  <div class="tier-selection-indicator">تم اختيار Essential</div>
                 </div>
               </label>
 
@@ -1252,7 +1335,7 @@
                     <span>• تخصيص متوسط</span>
                     <span>• تغليف MH الأنيق</span>
                   </div>
-                  <div class="tier-selection-indicator">✓ تم اختيار Classic</div>
+                  <div class="tier-selection-indicator">تم اختيار Classic</div>
                 </div>
               </label>
 
@@ -1263,7 +1346,7 @@
                   <div class="tier-top-row">
                     <div>
                       <span class="tier-name">Signature</span>
-                      <div class="tier-badge-tag">⭐ اختيار متوازن</div>
+                      <div class="tier-badge-tag">اختيار متوازن</div>
                     </div>
                     <span class="tier-price">75$</span>
                   </div>
@@ -1272,7 +1355,7 @@
                     <span>• تخصيص متقدم</span>
                     <span>• تغليف مميز</span>
                   </div>
-                  <div class="tier-selection-indicator">✓ تم اختيار Signature</div>
+                  <div class="tier-selection-indicator">تم اختيار Signature</div>
                 </div>
               </label>
 
@@ -1289,7 +1372,7 @@
                     <span>• تخصيص فاخر</span>
                     <span>• تغليف فاخر</span>
                   </div>
-                  <div class="tier-selection-indicator">✓ تم اختيار Premium</div>
+                  <div class="tier-selection-indicator">تم اختيار Premium</div>
                 </div>
               </label>
 
@@ -1306,7 +1389,7 @@
                     <span>• تخصيص كامل</span>
                     <span>• علبة فاخرة صلبة</span>
                   </div>
-                  <div class="tier-selection-indicator">✓ تم اختيار Luxury</div>
+                  <div class="tier-selection-indicator">تم اختيار Luxury</div>
                 </div>
               </label>
 
@@ -1323,7 +1406,7 @@
                     <span>• تخصيص كامل</span>
                     <span>• تجربة VIP حصرية</span>
                   </div>
-                  <div class="tier-selection-indicator">✓ تم اختيار Royal VIP</div>
+                  <div class="tier-selection-indicator">تم اختيار Royal VIP</div>
                 </div>
               </label>
 
@@ -1367,7 +1450,10 @@
 
           <div class="step-actions">
             <button type="button" class="btn btn-secondary" onclick="prevStep(5)">السابق</button>
-            <button type="button" class="btn btn-primary" onclick="nextStep(5)">المتابعة إلى التسليم والدفع ➔</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep(5)">
+              <span>المتابعة إلى التسليم والدفع</span>
+              <svg style="width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none;" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            </button>
           </div>
         </div>
 
@@ -1407,7 +1493,7 @@
           <div class="field-group" id="group_payment">
             <label class="field-label">طريقة الدفع <span class="required">*</span></label>
             <div class="chips-grid" id="paymentMethodsContainer" style="grid-template-columns: repeat(2, 1fr);">
-              <!-- Rendered dynamically from storeConfig -->
+              <!-- Dynamic options -->
             </div>
             <div class="field-error-msg" id="err_payment">يرجى اختيار طريقة الدفع.</div>
           </div>
@@ -1444,7 +1530,7 @@
           <div class="step-actions">
             <button type="button" class="btn btn-secondary" onclick="prevStep(6)">السابق</button>
             <button type="button" class="btn btn-primary" id="btnSubmitOrder" onclick="submitFinalOrder()">
-              🎁 تأكيد طلب الصندوق
+              تأكيد طلب الصندوق
             </button>
           </div>
         </div>
@@ -1452,7 +1538,7 @@
         <!-- STEP 7: ORDER CARD & WHATSAPP ACTION -->
         <div class="step-card" data-step="7" id="summaryStep">
           <div class="step-header">
-            <h2>تم استلام طلبك بنجاح 🎉</h2>
+            <h2>تم استلام طلبك بنجاح</h2>
             <p>فريق MH سيقوم بمراجعة التفاصيل والتواصل معك لتأكيد الطلب قبل التجهيز.</p>
           </div>
 
@@ -1540,6 +1626,7 @@
           <!-- ACTIONS -->
           <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
             <button type="button" class="btn btn-whatsapp" id="btnSendWhatsApp" onclick="exportToWhatsAppImage()">
+              <svg style="width:20px; height:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.178 1.594 5.918l-1.594 5.91 6.069-1.592c1.701.947 3.671 1.488 5.763 1.488 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
               <span id="btnWaText">إرسال بطاقة الاعتماد كصورة عبر واتساب</span>
             </button>
             <button type="button" class="btn btn-secondary" onclick="confirmResetOrder()">
@@ -1551,7 +1638,7 @@
       </form>
     </div>
 
-    <!-- Clean Public Footer (No Admin Links Leaked) -->
+    <!-- Clean Public Footer -->
     <footer>
       <div>MH BRAND &copy; 2026 • ONE BRAND. EVERY MOMENT.</div>
     </footer>
@@ -1565,7 +1652,6 @@
         <button type="button" style="background:none; border:none; color:#aaa; font-size:1.4rem; cursor:pointer;" onclick="closeAdminModal()">&times;</button>
       </div>
 
-      <!-- Quick Stats & Tools -->
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <span style="font-size:0.85rem; color:#aaa;">الطلبات المسجلة: <strong id="adminOrdersCount" style="color:var(--mh-orange);">0</strong></span>
         <div style="display:flex; gap:8px;">
@@ -1574,19 +1660,18 @@
         </div>
       </div>
 
-      <!-- Orders List with Status Dropdowns -->
       <div id="adminOrdersContainer" style="display:flex; flex-direction:column; gap:10px;"></div>
     </div>
   </div>
 
+  <!-- Self-Contained Resilient Core Scripts -->
   <script>
     const TOTAL_STEPS = 6;
     let currentStep = 1;
     const STORAGE_KEY = 'MH_ORDERS_ARCHIVE_2026';
     const COUNTER_KEY = 'MH_ORDER_COUNTER_SEQ';
-    const STORE_WHATSAPP_PHONE = '963900000000'; // ضع رقم الواتساب الرسمي للمتجر هنا
+    const STORE_WHATSAPP_PHONE = '963900000000'; // ضع رقم الواتساب الرسمي هنا
 
-    // Configurable Store Options (Editable from config or local settings)
     const storeConfig = {
       prepDays: '1–2 أيام عمل',
       deliveryDays: '24–48 ساعة',
@@ -1606,7 +1691,7 @@
       4: 'الخطوة 4: الممنوعات والرسالة',
       5: 'الخطوة 5: فئات الصندوق ودرجة المفاجأة',
       6: 'الخطوة 6: التسليم وتأكيد الطلب',
-      7: 'الخطوة 7: بطاقة الطلب الفاخرة'
+      7: 'الخطوة 7: بطاقة الطلب المعتمدة'
     };
 
     // Sequential Order ID Generator (#MH-YYMMDD-0001)
@@ -1623,17 +1708,22 @@
       return `MH-${yy}${mm}${dd}-${seqPadded}`;
     }
 
+    // Core function to start customizer
     function startCustomizing() {
-      document.getElementById('heroIntroSection').style.display = 'none';
+      const hero = document.getElementById('heroIntroSection');
       const bSec = document.getElementById('builderSection');
-      bSec.style.display = 'flex';
-      renderPaymentOptions();
-      goToStep(1);
+      if (hero) hero.style.display = 'none';
+      if (bSec) {
+        bSec.style.display = 'flex';
+        renderPaymentOptions();
+        goToStep(1);
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function renderPaymentOptions() {
       const container = document.getElementById('paymentMethodsContainer');
+      if (!container) return;
       container.innerHTML = storeConfig.paymentMethods.map(p => `
         <div class="chip-item">
           <input type="radio" name="payment_method" id="${p.id}" value="${p.label}" ${p.checked ? 'checked' : ''}>
@@ -1642,13 +1732,22 @@
       `).join('');
     }
 
+    // Initialize Event Listeners
     document.addEventListener('DOMContentLoaded', () => {
-      // Toggle custom relation
+      // Ensure Start Button binds directly
+      const startBtn = document.getElementById('btnHeroStart');
+      if (startBtn) {
+        startBtn.addEventListener('click', startCustomizing);
+      }
+
+      // Custom relation toggle
       document.querySelectorAll('input[name="relationship"]').forEach(el => {
         el.addEventListener('change', () => {
           const otherInput = document.getElementById('rel_other_text');
-          otherInput.style.display = (el.value === 'علاقة أخرى') ? 'block' : 'none';
-          if (el.value === 'علاقة أخرى') otherInput.focus();
+          if (otherInput) {
+            otherInput.style.display = (el.value === 'علاقة أخرى') ? 'block' : 'none';
+            if (el.value === 'علاقة أخرى') otherInput.focus();
+          }
         });
       });
 
@@ -1662,7 +1761,7 @@
           clearTimeout(timer);
           if (clicks >= 5) {
             clicks = 0;
-            const pass = prompt('🔐 الدخول للوحة إدارة MH (أدخل كلمة المرور):');
+            const pass = prompt('الدخول للوحة إدارة MH (أدخل كلمة المرور):');
             if (pass === 'mh2026') {
               openAdminModal();
             } else if (pass !== null) {
@@ -1677,6 +1776,7 @@
 
     function toggleDislikesField(chk) {
       const input = document.getElementById('dislikes');
+      if (!input) return;
       if (chk.checked) {
         input.value = '';
         input.disabled = true;
@@ -1688,17 +1788,18 @@
 
     function toggleMagicBox() {
       const b = document.getElementById('magicBox');
+      if (!b) return;
       b.style.display = (b.style.display === 'flex') ? 'none' : 'flex';
     }
 
     function generateMessageTone(tone) {
       const name = document.getElementById('recipient_name').value.trim() || 'يا أغلى الناس';
       const messages = {
-        romantic: `إلى ${name}... كل تفصيلة فيك بتعنيلي دنيا كاملة. هالصندوق جزء بسيط من الحب اللي بقلبي إلك، بتمنى ترسم هالهدية ابتسامة حلوة على وجهك.`,
-        cute: `مفاجأة صغيرة لألطف شخص بالكون! ${name} بتمنالك يوم حلو متل روحك، وانشالله تعجبك كل قطعة انختارت لإلك بحب.`,
+        romantic: `إلى ${name}... كل تفصيلة فيك تعني لي الكثير. هذا الصندوق تعبير بسيط عن مكانتك الخاصة في قلبي، متمنياً أن يرسم ابتسامة جميلة على وجهك.`,
+        cute: `مفاجأة لطيفة لألطف شخص! ${name} أتمنى لك يوماً رائعاً كروحك الجميلة، وأن تنال كل قطعة في الصندوق إعجابك.`,
         formal: `مع أطيب التحيات والتقدير لـ ${name}. تقبل منا هذه الهدية الرمزية تعبيراً عن خالص الشكر والامتنان لمكانتكم الرفيعة.`,
-        funny: `لـ ${name}: لا تسألني شو في جوات البوكس لأنو أنا ذات نفسي ما بعرف 😂 المهم انبسط بالمفاجأة وتذكر إنك بتستاهل أحسن شي!`,
-        touching: `لـ ${name}... الأيام والمسافات ما بتغير مكانتك بقلبي أبداً. حبيت قدملك هالهدية لتكون ذكرى حلوة تذكرك دايماً أديش فخور فيك وممتن لوجودك بحياتي.`
+        funny: `لـ ${name}: لا تسألني عما بداخل الصندوق لأنني ببساطة لا أعرف! المهم أن تستمتع بالمفاجأة وتتذكر دائماً أنك تستحق الأفضل.`,
+        touching: `لـ ${name}... الأيام والمسافات لا تغير من مكانتك أبداً. أحببت تقديم هذه الهدية لتكون ذكرى طيبة تذكرك دائماً بمدى اعتزازي بوجودك.`
       };
       document.getElementById('gift_message').value = messages[tone] || messages.cute;
       clearError('gift_message');
@@ -1712,9 +1813,9 @@
 
       if (step <= TOTAL_STEPS) {
         const percent = ((step - 1) / (TOTAL_STEPS - 1)) * 100;
-        fill.style.width = `${percent}%`;
-        counter.textContent = `${step} من ${TOTAL_STEPS}`;
-        title.textContent = stepTitles[step] || '';
+        if (fill) fill.style.width = `${percent}%`;
+        if (counter) counter.textContent = `${step} من ${TOTAL_STEPS}`;
+        if (title) title.textContent = stepTitles[step] || '';
 
         for (let i = 1; i <= TOTAL_STEPS; i++) {
           const dot = document.getElementById(`dot-${i}`);
@@ -1725,9 +1826,9 @@
           }
         }
       } else {
-        fill.style.width = '100%';
-        counter.textContent = `تأكيد الطلب`;
-        title.textContent = stepTitles[step] || 'طلبك جاهز';
+        if (fill) fill.style.width = '100%';
+        if (counter) counter.textContent = `تأكيد الطلب`;
+        if (title) title.textContent = stepTitles[step] || 'طلبك جاهز';
       }
     }
 
@@ -1961,7 +2062,7 @@
 
       const submitBtn = document.getElementById('btnSubmitOrder');
       submitBtn.disabled = true;
-      submitBtn.textContent = 'نجهز بطاقة مفاجأتك... 🎁';
+      submitBtn.textContent = 'نجهز بطاقة مفاجأتك...';
 
       // 1. Generate ID and Gather Data
       activeOrderData = getCollectedOrderData();
@@ -1972,12 +2073,11 @@
       // 3. Render Order Card Ticket
       renderTicketUI(activeOrderData);
 
-      // Short delay for UI fluidity
       setTimeout(() => {
         goToStep(7);
         submitBtn.disabled = false;
-        submitBtn.textContent = '🎁 تأكيد طلب الصندوق';
-      }, 600);
+        submitBtn.textContent = 'تأكيد طلب الصندوق';
+      }, 500);
     }
 
     function renderTicketUI(data) {
@@ -1998,6 +2098,21 @@
       document.getElementById('t_message').textContent = `"${data.giftMessage}"`;
     }
 
+    // Dynamic Loader for html2canvas to ensure zero blocking
+    function loadHtml2CanvasScript() {
+      return new Promise((resolve, reject) => {
+        if (window.html2canvas) {
+          resolve(window.html2canvas);
+          return;
+        }
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+        script.onload = () => resolve(window.html2canvas);
+        script.onerror = () => reject(new Error('Canvas script failed to load'));
+        document.body.appendChild(script);
+      });
+    }
+
     async function exportToWhatsAppImage() {
       const btn = document.getElementById('btnSendWhatsApp');
       const btnText = document.getElementById('btnWaText');
@@ -2005,9 +2120,11 @@
       btnText.textContent = 'جاري تصدير صورة البطاقة...';
 
       const ticketElement = document.getElementById('ticketCaptureArea');
+      const waMsg = `مرحبًا MH، هذا رقم طلبي: #${activeOrderData.id}\n(تم حفظ بيانات الصندوق وبطاقة الطلب المعتمدة)`;
 
       try {
-        const canvas = await html2canvas(ticketElement, {
+        await loadHtml2CanvasScript();
+        const canvas = await window.html2canvas(ticketElement, {
           scale: 2,
           backgroundColor: '#0d0d0d',
           useCORS: true
@@ -2016,8 +2133,6 @@
         canvas.toBlob(async (blob) => {
           const fileName = `MH_Order_${activeOrderData.id}.png`;
           const imageFile = new File([blob], fileName, { type: 'image/png' });
-
-          const waMsg = `مرحبًا MH، هذا رقم طلبي: #${activeOrderData.id}\n(تم حفظ بيانات الصندوق وبطاقة الطلب المرفقة)`;
           const waUrl = `https://wa.me/${STORE_WHATSAPP_PHONE}?text=${encodeURIComponent(waMsg)}`;
 
           // Native mobile sharing (iOS / Android)
@@ -2030,7 +2145,7 @@
               });
               return;
             } catch (err) {
-              console.log('Share dismissed or fallback triggered', err);
+              console.log('Native share cancelled or unsupported', err);
             }
           }
 
@@ -2046,9 +2161,9 @@
         }, 'image/png');
 
       } catch (err) {
-        console.error('Render error:', err);
-        const waMsg = `مرحبًا MH، هذا رقم طلبي: #${activeOrderData.id}`;
-        window.open(`https://wa.me/${STORE_WHATSAPP_PHONE}?text=${encodeURIComponent(waMsg)}`, '_blank');
+        console.error('Render fallback triggered:', err);
+        const waUrl = `https://wa.me/${STORE_WHATSAPP_PHONE}?text=${encodeURIComponent(waMsg)}`;
+        window.open(waUrl, '_blank');
       } finally {
         btn.disabled = false;
         btnText.textContent = 'إرسال بطاقة الاعتماد كصورة عبر واتساب';
@@ -2061,7 +2176,6 @@
       }
     }
 
-    // Storage and CRM Logic
     function saveOrderToStorage(data) {
       try {
         const list = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
