@@ -41,47 +41,48 @@
       flex-direction: column;
       align-items: center;
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(244, 81, 16, 0.08) 0%, transparent 55%),
+        radial-gradient(circle at 50% 0%, rgba(244, 81, 16, 0.08) 0%, transparent 60%),
         linear-gradient(to bottom, #0F0F0F 0%, #121212 100%);
       background-attachment: fixed;
     }
 
     .app-container {
       width: 100%;
-      max-width: 780px;
-      padding: 24px 20px 80px 20px;
+      max-width: 820px;
+      padding: 20px 18px 80px 18px;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 28px;
     }
 
-    /* Brand Header */
+    /* Header */
     header {
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
-      padding-top: 12px;
+      gap: 8px;
+      padding-top: 10px;
     }
 
     .brand-logo-wrap {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 160px;
-      height: 90px;
+      width: 170px;
+      height: 95px;
+      cursor: pointer;
     }
 
     .brand-logo-img {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 4px 16px var(--mh-glow));
+      filter: drop-shadow(0 4px 18px var(--mh-glow));
     }
 
     .brand-slogan {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       letter-spacing: 4px;
       text-transform: uppercase;
       color: var(--mh-cool-grey);
@@ -90,16 +91,150 @@
       padding-bottom: 3px;
     }
 
-    .tagline-hero {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--mh-mist);
-      margin-top: 4px;
-      line-height: 1.6;
+    /* Landing / Hero Showcase */
+    .hero-section {
+      background: linear-gradient(180deg, #181818 0%, #111111 100%);
+      border: 1px solid var(--mh-card-border);
+      border-radius: 22px;
+      padding: 32px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.6);
     }
-    .tagline-hero span {
+    .hero-badge {
+      background: rgba(244, 81, 16, 0.12);
+      border: 1px solid rgba(244, 81, 16, 0.35);
       color: var(--mh-orange);
+      font-size: 0.78rem;
       font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 30px;
+      letter-spacing: 1px;
+    }
+    .hero-title {
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1.4;
+      color: #fff;
+    }
+    .hero-title span {
+      color: var(--mh-orange);
+    }
+    .hero-p {
+      color: var(--mh-cool-grey);
+      font-size: 0.94rem;
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    /* 3 Simple Steps */
+    .steps-brief-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+      margin-top: 10px;
+    }
+    @media (max-width: 600px) {
+      .steps-brief-grid { grid-template-columns: 1fr; }
+    }
+    .step-brief-box {
+      background: #161616;
+      border: 1px solid #282828;
+      border-radius: 14px;
+      padding: 16px 14px;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .step-num {
+      color: var(--mh-orange);
+      font-size: 0.85rem;
+      font-weight: 900;
+    }
+    .step-h {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .step-t {
+      font-size: 0.8rem;
+      color: #999;
+      line-height: 1.45;
+    }
+
+    /* What's Inside Gallery */
+    .sneak-peek-box {
+      background: #141414;
+      border: 1px solid #262626;
+      border-radius: 16px;
+      padding: 22px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: right;
+    }
+    .sneak-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #262626;
+      padding-bottom: 10px;
+    }
+    .sneak-title {
+      color: var(--mh-orange);
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+    .sneak-items-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .sneak-pill {
+      background: #1f1f1f;
+      border: 1px solid #333;
+      color: var(--mh-mist);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .sneak-note {
+      font-size: 0.76rem;
+      color: #777;
+      font-style: italic;
+    }
+
+    /* Trust Guarantees Bar */
+    .trust-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      .trust-bar { grid-template-columns: 1fr; }
+    }
+    .trust-item {
+      background: #131313;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--mh-cool-grey);
+    }
+    .trust-item strong {
+      color: var(--mh-orange);
+      display: block;
+      margin-bottom: 3px;
+      font-size: 0.86rem;
     }
 
     /* Progress Tracker */
@@ -141,7 +276,7 @@
     }
     .progress-bar-fill {
       height: 100%;
-      width: 16.6%;
+      width: 25%;
       background: linear-gradient(90deg, var(--mh-orange), #ff753e);
       border-radius: 99px;
       transition: width 0.4s ease;
@@ -153,11 +288,11 @@
       background: var(--mh-card-bg);
       border: 1px solid var(--mh-card-border);
       border-radius: 22px;
-      padding: 30px 26px;
+      padding: 28px 24px;
       box-shadow: 0 16px 40px rgba(0,0,0,0.6);
       display: none;
       flex-direction: column;
-      gap: 24px;
+      gap: 22px;
       animation: fadeIn 0.35s ease;
     }
     .step-card.active {
@@ -174,7 +309,7 @@
       padding-right: 14px;
     }
     .step-header h2 {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 800;
       color: var(--mh-white);
       line-height: 1.3;
@@ -202,7 +337,6 @@
       color: var(--mh-orange);
     }
 
-    /* Luxury Minimal Chips */
     .chips-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -212,7 +346,6 @@
     .chip-item {
       position: relative;
       user-select: none;
-      -webkit-user-select: none;
     }
     .chip-item input {
       position: absolute;
@@ -225,16 +358,15 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 12px 14px;
+      padding: 12px 12px;
       background: #1b1b1b;
       border: 1px solid var(--mh-card-border);
       border-radius: 12px;
       color: var(--mh-cool-grey);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
-      user-select: none;
       min-height: 48px;
     }
     .chip-label:hover {
@@ -274,7 +406,7 @@
       line-height: 1.6;
     }
 
-    /* 6 Luxury Tiers Grid (Fixed Clicks & Selection) */
+    /* 4 Refined Tiers */
     .tier-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -288,7 +420,6 @@
       position: relative;
       cursor: pointer;
       user-select: none;
-      -webkit-user-select: none;
       display: block;
     }
     .tier-card input[type="radio"] {
@@ -301,14 +432,13 @@
       background: #181818;
       border: 1.5px solid var(--mh-card-border);
       border-radius: 14px;
-      padding: 16px 18px;
+      padding: 18px 18px;
       display: flex;
       flex-direction: column;
       gap: 6px;
       cursor: pointer;
       transition: all 0.22s ease;
       height: 100%;
-      user-select: none;
     }
     .tier-card:hover .tier-content {
       border-color: #555;
@@ -328,13 +458,12 @@
       padding-bottom: 8px;
     }
     .tier-name {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--mh-white);
-      letter-spacing: 0.5px;
     }
     .tier-price {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 900;
       color: var(--mh-orange);
     }
@@ -343,11 +472,10 @@
       font-weight: 700;
       color: var(--mh-cool-grey);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
       margin-top: 2px;
     }
     .tier-desc {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: #9e9e9e;
       line-height: 1.45;
       margin-top: 4px;
@@ -366,7 +494,6 @@
       color: var(--mh-orange);
       font-size: 0.92rem;
       font-weight: 800;
-      letter-spacing: 0.5px;
     }
     .oath-box p {
       font-size: 0.82rem;
@@ -420,7 +547,7 @@
       font-weight: 800;
       box-shadow: 0 6px 18px rgba(37, 211, 102, 0.25);
       width: 100%;
-      font-size: 1rem;
+      font-size: 1.02rem;
       padding: 15px 22px;
     }
     .btn-whatsapp:hover {
@@ -428,7 +555,7 @@
       transform: translateY(-2px);
     }
 
-    /* THE ORDER BOARD CARD (STRUCTURED ROWS LAYOUT) */
+    /* THE ORDER BOARD CARD (ROW BY ROW) */
     .ticket-container {
       background: #0d0d0d;
       border: 2px solid var(--mh-orange);
@@ -438,7 +565,7 @@
       box-shadow: 0 16px 45px rgba(0,0,0,0.9);
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 11px;
       width: 100%;
       box-sizing: border-box;
       position: relative;
@@ -449,29 +576,29 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #242424;
-      padding-bottom: 16px;
+      padding-bottom: 14px;
       margin-bottom: 4px;
     }
     .ticket-logo-meta {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
     .ticket-logo-frame {
-      width: 90px;
-      height: 50px;
+      width: 85px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .ticket-branding-titles h3 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 900;
       color: var(--mh-white);
       letter-spacing: 1px;
     }
     .ticket-branding-titles span {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       letter-spacing: 2px;
       color: var(--mh-orange);
       font-weight: 800;
@@ -482,38 +609,37 @@
       text-align: left;
     }
     .ticket-ref-text {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 900;
       color: var(--mh-orange);
       letter-spacing: 1px;
     }
     .ticket-ref-date {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--mh-cool-grey);
     }
 
-    /* Rows of Information (Title colored on top, content right below) */
     .info-row-item {
       background: #141414;
       border: 1px solid #242424;
       border-radius: 10px;
-      padding: 10px 14px;
+      padding: 9px 14px;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
     }
     .info-row-title {
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 800;
       color: var(--mh-orange);
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
     .info-row-content {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--mh-white);
-      line-height: 1.45;
+      line-height: 1.4;
     }
     .info-row-content.red-flag {
       color: #ff9e9e;
@@ -536,13 +662,13 @@
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid #242424;
-      padding-top: 12px;
-      font-size: 0.72rem;
+      padding-top: 10px;
+      font-size: 0.7rem;
       color: var(--mh-cool-grey);
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
-    /* Admin Modal */
+    /* Admin Password Prompt & Modal */
     .modal-backdrop {
       position: fixed;
       top: 0;
@@ -579,17 +705,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
-      color: #555;
+      gap: 4px;
+      color: #444;
       font-size: 0.75rem;
-    }
-    .admin-trigger-btn {
-      background: transparent;
-      border: none;
-      color: #555;
-      font-size: 0.72rem;
-      cursor: pointer;
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -598,7 +716,7 @@
   <div class="app-container">
     <!-- Header with Official Logo.png -->
     <header>
-      <div class="brand-logo-wrap" id="brandLogo">
+      <div class="brand-logo-wrap" id="brandLogo" title="MH Brand">
         <img src="Logo.png" alt="MH Logo" class="brand-logo-img" id="mainBrandLogo" onerror="this.style.display='none'; document.getElementById('svgFallbackLogo').style.display='block';">
         <svg id="svgFallbackLogo" style="display:none; width:100%; height:100%;" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M 40 30 L 76 30 L 126 106 L 176 30 L 212 30 L 212 150 L 176 150 L 176 86 L 141 136 L 111 136 L 76 86 L 76 150 L 40 150 Z" fill="#F45110"/>
@@ -606,467 +724,491 @@
         </svg>
       </div>
       <div class="brand-slogan">ONE BRAND. EVERY MOMENT.</div>
-      <div class="tagline-hero">سرّ الصندوق إنك ما بتعرف شو جواته... <span>بس نحنا منعرف لمين</span></div>
     </header>
 
-    <!-- Progress Indicator -->
-    <div class="progress-section">
-      <div class="progress-meta">
-        <span class="progress-step-title" id="stepIndicatorTitle">الخطوة 1: لمن الهدية؟</span>
-        <span class="progress-step-counter" id="stepCounter">1 / 6</span>
+    <!-- 1. LANDING & CONCEPT HERO -->
+    <section class="hero-section" id="heroIntroSection">
+      <div class="hero-badge">PERSONALIZED MYSTERY EXPERIENCE</div>
+      <h1 class="hero-title">
+        أنت بتخبرنا عن الشخص...<br>
+        <span>ونحن بنصنع ونختار المفاجأة</span>
+      </h1>
+      <p class="hero-p">
+        صندوق هدايا غير عشوائي؛ مبني بالكامل على شخصية المستلم، ذوقه، وتفاصيل علاقتكم. لا نكشف لك المحتويات مسبقاً لنضمن أن تكون لحظة الفتح تجربة حقيقية ومبهرة لك وله.
+      </p>
+
+      <!-- 3 Steps -->
+      <div class="steps-brief-grid">
+        <div class="step-brief-box">
+          <span class="step-num">01</span>
+          <div class="step-h">خبرنا عنه</div>
+          <div class="step-t">إجابات سريعة وبسيطة تحدد المناسبة، اهتماماته، والممنوعات.</div>
+        </div>
+        <div class="step-brief-box">
+          <span class="step-num">02</span>
+          <div class="step-h">اختر الفئة والميزانية</div>
+          <div class="step-t">باقات مدروسة مع ضمان كامل ألا تقل قيمة المحتويات عن السعر.</div>
+        </div>
+        <div class="step-brief-box">
+          <span class="step-num">03</span>
+          <div class="step-h">اترك المفاجأة علينا</div>
+          <div class="step-t">تنسيق فاخر، بطاقة إهداء مطبوعة، وتوصيل فوري لباب المنزل.</div>
+        </div>
       </div>
-      <div class="progress-bar-track">
-        <div class="progress-bar-fill" id="progressBar"></div>
+
+      <!-- What's Inside Sneak Peek -->
+      <div class="sneak-peek-box">
+        <div class="sneak-header">
+          <span class="sneak-title">ماذا يمكن أن تجد داخل صناديق MH؟</span>
+        </div>
+        <div class="sneak-items-pills">
+          <span class="sneak-pill">عطور MH الفاخرة</span>
+          <span class="sneak-pill">ساعات وإكسسوارات راقية</span>
+          <span class="sneak-pill">بطاقات أسئلة وذكريات للطرفين</span>
+          <span class="sneak-pill">قطع محفورة ومخصصة بالاسم</span>
+          <span class="sneak-pill">أكواب حرارية وأدوات قهوة مختصة</span>
+          <span class="sneak-pill">شوكولا فاخرة مختارة</span>
+          <span class="sneak-pill">أكياس مخملية وتغليف أسود وبرتقالي أنيق</span>
+        </div>
+        <div class="sneak-note">* المحتويات تختلف من صندوق لآخر وفقاً لشخصية المستلم والميزانية المختارة لضمان التفرد التام.</div>
       </div>
+
+      <!-- Trust Bar -->
+      <div class="trust-bar">
+        <div class="trust-item">
+          <strong>ضمان القيمة 100%</strong>
+          قيمة العناصر تعادل أو تفوق الفئة المختارة دائماً
+        </div>
+        <div class="trust-item">
+          <strong>تجهيز سريع (24-48 ساعة)</strong>
+          توصيل لكافة مناطق دمشق والمحافظات السورية
+        </div>
+        <div class="trust-item">
+          <strong>خيارات دفع مرنة</strong>
+          كاش عند الاستلام، سيريتل كاش، شام كاش، أو الهرم
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" style="max-width: 320px; font-size: 1.05rem; padding: 16px 30px; margin-top: 6px;" onclick="startCustomizing()">
+        ابدأ تخصيص الصندوق الآن
+      </button>
+    </section>
+
+    <!-- BUILDER CONTAINER -->
+    <div id="builderSection" style="display: none; flex-direction: column; gap: 24px;">
+      
+      <!-- Progress Indicator -->
+      <div class="progress-section">
+        <div class="progress-meta">
+          <span class="progress-step-title" id="stepIndicatorTitle">الخطوة 1: لمن الهدية والمناسبة؟</span>
+          <span class="progress-step-counter" id="stepCounter">1 / 4</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+      </div>
+
+      <form id="mysteryForm" onsubmit="return false;">
+        
+        <!-- STEP 1: لمن الهدية والمناسبة والهدف -->
+        <div class="step-card active" data-step="1">
+          <div class="step-header">
+            <h2>1. لمن الصندوق وما هي المناسبة؟</h2>
+            <p>تحديد العلاقة والتوقيت هو حجر الأساس لبناء هوية وتفاصيل الصندوق.</p>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">طبيعة العلاقة <span class="required">*</span></label>
+            <div class="chips-grid">
+              <div class="chip-item"><input type="radio" name="relationship" id="rel_partner" value="زوج / زوجة" checked><label class="chip-label" for="rel_partner">زوج / زوجة</label></div>
+              <div class="chip-item"><input type="radio" name="relationship" id="rel_fiance" value="خطيب / خطيبة"><label class="chip-label" for="rel_fiance">خطيب / خطيبة</label></div>
+              <div class="chip-item"><input type="radio" name="relationship" id="rel_friend" value="صديق مقرب"><label class="chip-label" for="rel_friend">صديق مقرب</label></div>
+              <div class="chip-item"><input type="radio" name="relationship" id="rel_sibling" value="أخ / أخت"><label class="chip-label" for="rel_sibling">أخ / أخت</label></div>
+              <div class="chip-item"><input type="radio" name="relationship" id="rel_parent" value="أب / أم"><label class="chip-label" for="rel_parent">أب / أم</label></div>
+              <div class="chip-item"><input type="radio" name="relationship" id="rel_other" value="أخرى"><label class="chip-label" for="rel_other">علاقة أخرى</label></div>
+            </div>
+            <input type="text" class="input-box" id="rel_other_text" placeholder="اكتب نوع العلاقة..." style="display:none; margin-top:8px;">
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">الفئة العمرية للمستلم <span class="required">*</span></label>
+            <div class="chips-grid" style="grid-template-columns: repeat(3, 1fr);">
+              <div class="chip-item"><input type="radio" name="age_range" id="age_1" value="أقل من 18"><label class="chip-label" for="age_1">&lt; 18 سنة</label></div>
+              <div class="chip-item"><input type="radio" name="age_range" id="age_2" value="18 - 25" checked><label class="chip-label" for="age_2">18 – 25</label></div>
+              <div class="chip-item"><input type="radio" name="age_range" id="age_3" value="26 - 35"><label class="chip-label" for="age_3">26 – 35</label></div>
+              <div class="chip-item"><input type="radio" name="age_range" id="age_4" value="36 - 45"><label class="chip-label" for="age_4">36 – 45</label></div>
+              <div class="chip-item"><input type="radio" name="age_range" id="age_5" value="45+"><label class="chip-label" for="age_5">45+ سنة</label></div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">المناسبة <span class="required">*</span></label>
+            <div class="chips-grid">
+              <div class="chip-item"><input type="radio" name="occasion" id="occ_bday" value="عيد ميلاد" checked><label class="chip-label" for="occ_bday">عيد ميلاد</label></div>
+              <div class="chip-item"><input type="radio" name="occasion" id="occ_anniv" value="ذكرى سنوية / زواج"><label class="chip-label" for="occ_anniv">ذكرى زواج / حب</label></div>
+              <div class="chip-item"><input type="radio" name="occasion" id="occ_love" value="عيد الحب / مفاجأة عاطفية"><label class="chip-label" for="occ_love">عيد الحب</label></div>
+              <div class="chip-item"><input type="radio" name="occasion" id="occ_grad" value="تخرج / نجاح"><label class="chip-label" for="occ_grad">تخرج أو نجاح</label></div>
+              <div class="chip-item"><input type="radio" name="occasion" id="occ_job" value="وظيفة جديدة / إنجاز"><label class="chip-label" for="occ_job">ترقية أو وظيفة</label></div>
+              <div class="chip-item"><input type="radio" name="occasion" id="occ_reconcile" value="اعتذار ومصالحة"><label class="chip-label" for="occ_reconcile">اعتذار ومصالحة</label></div>
+              <div class="chip-item"><input type="radio" name="occasion" id="occ_ramadan" value="رمضان / العيد"><label class="chip-label" for="occ_ramadan">رمضان أو العيد</label></div>
+              <div class="chip-item"><input type="radio" name="occasion" id="occ_none" value="بدون مناسبة (بس لفرحك)"><label class="chip-label" for="occ_none">بدون أي مناسبة</label></div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">الشعور أو الرسالة الأساسية</label>
+            <div class="chips-grid" style="grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));">
+              <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_love" value="حب ورومانسية"><label class="chip-label" for="vibe_love">حب وعاطفة</label></div>
+              <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_proud" value="فخر واعتزاز"><label class="chip-label" for="vibe_proud">فخر واعتزاز</label></div>
+              <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_miss" value="اشتياق"><label class="chip-label" for="vibe_miss">اشتياق</label></div>
+              <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_cheer" value="بهجة وفرح"><label class="chip-label" for="vibe_cheer">بهجة وفرح</label></div>
+              <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_apology" value="مسامحة وتصالح"><label class="chip-label" for="vibe_apology">اعتذار وتصالح</label></div>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <div></div>
+            <button type="button" class="btn btn-primary" onclick="nextStep(1)">المتابعة إلى الاهتمامات</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: اهتماماته وشخصيته -->
+        <div class="step-card" data-step="2">
+          <div class="step-header">
+            <h2>2. ما الذي يحبه وما هي طباعه؟</h2>
+            <p>اختر ما يناسبه، وكلما كانت تفاصيلك أكثر وضوحاً، كانت القطع المختارة أدق ❤️</p>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">أبرز مجالات الاهتمام <span class="required">*</span></label>
+            <div class="chips-grid" style="grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));">
+              <div class="chip-item"><input type="checkbox" name="interests" id="int_perfume" value="عطور راقية"><label class="chip-label" for="int_perfume">عطور راقية</label></div>
+              <div class="chip-item"><input type="checkbox" name="interests" id="int_coffee" value="قهوة مختصة"><label class="chip-label" for="int_coffee">عالم القهوة</label></div>
+              <div class="chip-item"><input type="checkbox" name="interests" id="int_watches" value="ساعات وإكسسوارات"><label class="chip-label" for="int_watches">ساعات وإكسسوار</label></div>
+              <div class="chip-item"><input type="checkbox" name="interests" id="int_tech" value="تكنولوجيا وإلكترونيات"><label class="chip-label" for="int_tech">تكنولوجيا</label></div>
+              <div class="chip-item"><input type="checkbox" name="interests" id="int_cars" value="سيارات"><label class="chip-label" for="int_cars">عالم السيارات</label></div>
+              <div class="chip-item"><input type="checkbox" name="interests" id="int_gym" value="جيم ورياضة"><label class="chip-label" for="int_gym">رياضة ولياقة</label></div>
+              <div class="chip-item"><input type="checkbox" name="interests" id="int_gaming" value="Gaming"><label class="chip-label" for="int_gaming">Gaming</label></div>
+              <div class="chip-item"><input type="checkbox" name="interests" id="int_books" value="قراءة وكتب"><label class="chip-label" for="int_books">قراءة وكتب</label></div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">طابع الشخصية (اختياري)</label>
+            <div class="chips-grid">
+              <div class="chip-item"><input type="checkbox" name="personality" id="p_practical" value="عملي جداً"><label class="chip-label" for="p_practical">عملي ودقيق</label></div>
+              <div class="chip-item"><input type="checkbox" name="personality" id="p_elegant" value="أنيق ويهتم بمظهره"><label class="chip-label" for="p_elegant">أنيق وفخم</label></div>
+              <div class="chip-item"><input type="checkbox" name="personality" id="p_calm" value="هادئ ورايق"><label class="chip-label" for="p_calm">هادئ ورزين</label></div>
+              <div class="chip-item"><input type="checkbox" name="personality" id="p_romantic" value="رومانسي وحساس"><label class="chip-label" for="p_romantic">رومانسي</label></div>
+              <div class="chip-item"><input type="checkbox" name="personality" id="p_fun" value="مرح وبيحب الضحك"><label class="chip-label" for="p_fun">مرح وعفوي</label></div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">ألوان أو أشياء يفضلها دائماً (اختياري)</label>
+            <input type="text" class="input-box" name="favorite_items" placeholder="مثال: يفضل اللون الأسود، ماركة BMW، شاي كرك...">
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-secondary" onclick="prevStep(2)">السابق</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep(2)">المتابعة إلى الممنوعات والرسالة</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: الممنوعات واللمسة الخاصة -->
+        <div class="step-card" data-step="3">
+          <div class="step-header">
+            <h2>3. ما نتجنبه واللمسة الشخصية</h2>
+            <p>التأكد من خلو الصندوق من أي شيء غير مرغوب، وإضافة رسالتك الخاصة.</p>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" style="color: #ff6565;">الممنوعات والخطوط الحمراء (Red Flags)</label>
+            <input type="text" class="input-box" name="dislikes" placeholder="مثال: لا يحب العطور السكرية، حساسية شوكولا، تجنب الإكسسوارات..." style="border-color: rgba(255, 101, 101, 0.4);">
+            <small style="color: #888; font-size: 0.78rem;">نلتزم تماماً بعدم وضع أي عنصر يتعارض مع ما تكتبه هنا.</small>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">ذكرى خاصة أو كلمة رمزية بينكما (اختياري)</label>
+            <input type="text" class="input-box" name="special_memory" placeholder="مثال: تاريخ 14/8، أول لقاء تحت المطر، كلمة خاصة...">
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">نص كرت الإهداء المطبوع داخل الصندوق <span class="required">*</span></label>
+            <textarea class="textarea-box" name="gift_message" id="gift_message" placeholder="اكتب نص الرسالة التي ستُطبع بأناقة على بطاقة MH السوداء والبرتقالية..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">اسم الشخص المستلم (للطباعة على الغلاف)</label>
+            <input type="text" class="input-box" name="recipient_name" placeholder="مثال: منى، أحمد، د. سامر...">
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-secondary" onclick="prevStep(3)">السابق</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep(3)">المتابعة إلى الفئة والتسليم</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: الفئة ومكان التسليم وطريقة الدفع -->
+        <div class="step-card" data-step="4">
+          <div class="step-header">
+            <h2>4. باقة الصندوق والتسليم</h2>
+            <p>باقات مدروسة مع تفاصيل التسليم والدفع المباشر في سوريا.</p>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">اختر فئة الصندوق <span class="required">*</span></label>
+            <div class="tier-cards-grid">
+              
+              <!-- Tier 1 -->
+              <label class="tier-card" for="tier_1">
+                <input type="radio" name="budget_tier" id="tier_1" value="Classic Box | 25$" checked data-name="Classic Box" data-price="25$" data-count="3 - 4 عناصر عملية ومتناسقة">
+                <div class="tier-content">
+                  <div class="tier-top-row">
+                    <span class="tier-name">Classic Box</span>
+                    <span class="tier-price">25$</span>
+                  </div>
+                  <div class="tier-items-count">3 إلى 4 عناصر</div>
+                  <p class="tier-desc">صندوق مفاجأة أنيق ومناسب للمناسبات اللطيفة؛ عناصر وظيفية يومية مع كرت الإهداء وتغليف MH الفاخر.</p>
+                </div>
+              </label>
+
+              <!-- Tier 2 -->
+              <label class="tier-card" for="tier_2">
+                <input type="radio" name="budget_tier" id="tier_2" value="Signature Box | 50$" data-name="Signature Box" data-price="50$" data-count="5 - 7 عناصر مخصصة بالاسم">
+                <div class="tier-content">
+                  <div class="tier-top-row">
+                    <span class="tier-name">Signature Box</span>
+                    <span class="tier-price">50$</span>
+                  </div>
+                  <div class="tier-items-count">5 إلى 7 عناصر (الأكثر طلباً)</div>
+                  <p class="tier-desc">توازن مثالي؛ يتضمن قطعاً محفورة بالاسم أو إكسسواراً مميزاً وبطاقات تذكارية مصممة للطرفين.</p>
+                </div>
+              </label>
+
+              <!-- Tier 3 -->
+              <label class="tier-card" for="tier_3">
+                <input type="radio" name="budget_tier" id="tier_3" value="Premium VIP | 95$" data-name="Premium VIP" data-price="95$" data-count="8 - 10 عناصر فاخرة ورئيسية">
+                <div class="tier-content">
+                  <div class="tier-top-row">
+                    <span class="tier-name">Premium VIP</span>
+                    <span class="tier-price">95$</span>
+                  </div>
+                  <div class="tier-items-count">8 إلى 10 عناصر فاخرة</div>
+                  <p class="tier-desc">تجربة استثنائية تضم عطوراً أو ساعات فاخرة في علب صلبة مع أكياس مخملية وتفاصيل برتقالية ملكية.</p>
+                </div>
+              </label>
+
+              <!-- Tier 4 -->
+              <label class="tier-card" for="tier_4">
+                <input type="radio" name="budget_tier" id="tier_4" value="Royal Bespoke | 160$" data-name="Royal Bespoke" data-price="160$" data-count="12+ عنصراً حصرية">
+                <div class="tier-content">
+                  <div class="tier-top-row">
+                    <span class="tier-name">Royal Bespoke</span>
+                    <span class="tier-price">160$</span>
+                  </div>
+                  <div class="tier-items-count">أعلى درجات الفخامة</div>
+                  <p class="tier-desc">صندوق مصمم بحرفية استثنائية لتوثيق أثمن اللحظات والمناسبات الكبرى بأرقى الخامات الممكنة.</p>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">بيانات التواصل والتسليم <span class="required">*</span></label>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <input type="text" class="input-box" id="sender_name" name="sender_name" placeholder="اسمك الكريم *" required>
+              <input type="tel" class="input-box" id="sender_phone" name="sender_phone" placeholder="رقم هاتفك أو واتساب للتواصل وتأكيد الطلب *" required>
+              <input type="text" class="input-box" id="delivery_city" name="delivery_city" placeholder="المدينة وعنوان التسليم (مثال: دمشق - المزة، أو اسم المحافظة)">
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">طريقة الدفع المفضلة</label>
+            <div class="chips-grid" style="grid-template-columns: repeat(2, 1fr);">
+              <div class="chip-item"><input type="radio" name="payment_method" id="pay_cod" value="دفع عند الاستلام" checked><label class="chip-label" for="pay_cod">كاش عند الاستلام</label></div>
+              <div class="chip-item"><input type="radio" name="payment_method" id="pay_wallet" value="سيريتل كاش / شام كاش"><label class="chip-label" for="pay_wallet">سيريتل كاش / شام كاش</label></div>
+              <div class="chip-item"><input type="radio" name="payment_method" id="pay_remit" value="حوالة الهرم / فؤاد"><label class="chip-label" for="pay_remit">حوالة الهرم / فؤاد</label></div>
+              <div class="chip-item"><input type="radio" name="payment_method" id="pay_usd" value="دولار كاش"><label class="chip-label" for="pay_usd">دولار كاش</label></div>
+            </div>
+          </div>
+
+          <div class="oath-box">
+            <h4>تعهد القيمة والمفاجأة من MH:</h4>
+            <p>نضمن أن القيمة الفعلية لعناصر الصندوق تعادل أو تتجاوز المبلغ المدفوع دائماً. محتويات الصندوق تبقى سراً حتى لحظة فتحه.</p>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-secondary" onclick="prevStep(4)">السابق</button>
+            <button type="button" class="btn btn-primary" onclick="showSummaryTicket()">مراجعة وتأكيد الطلب</button>
+          </div>
+        </div>
+
+        <!-- STEP 5: THE ROW-BY-ROW LUXURY ORDER CARD -->
+        <div class="step-card" data-step="5" id="summaryStep">
+          <div class="step-header">
+            <h2>مراجعة طلب الصندوق</h2>
+            <p>تأكد من البيانات؛ سيتم تصدير هذه البطاقة بصورة عالية الدقة لإرسالها وتثبيت الطلب فوراً عبر واتساب.</p>
+          </div>
+
+          <!-- CAPTURE TICKET AREA (STRUCTURED ROWS) -->
+          <div id="ticketCaptureArea" class="ticket-container">
+            
+            <div class="ticket-header-row">
+              <div class="ticket-logo-meta">
+                <div class="ticket-logo-frame">
+                  <img src="Logo.png" alt="MH Logo" style="max-width:100%; max-height:100%; object-fit:contain;" onerror="this.style.display='none'; document.getElementById('ticketSvgLogo').style.display='block';">
+                  <svg id="ticketSvgLogo" style="display:none; width:70px; height:40px;" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 40 30 L 76 30 L 126 106 L 176 30 L 212 30 L 212 150 L 176 150 L 176 86 L 141 136 L 111 136 L 76 86 L 76 150 L 40 150 Z" fill="#F45110"/>
+                    <path d="M 176 80 L 246 80 L 246 30 L 280 30 L 280 150 L 246 150 L 246 108 L 176 108 Z" fill="#F45110"/>
+                  </svg>
+                </div>
+                <div class="ticket-branding-titles">
+                  <h3>MH PERSONALIZED MYSTERY BOX</h3>
+                  <span>ONE BRAND. EVERY MOMENT.</span>
+                </div>
+              </div>
+              <div class="ticket-order-ref">
+                <div class="ticket-ref-text" id="t_ref">#MH-0000</div>
+                <div class="ticket-ref-date" id="t_date">2026/09/25</div>
+              </div>
+            </div>
+
+            <!-- Structured Sequential Rows -->
+            <div class="info-row-item">
+              <span class="info-row-title">صاحب الطلب والتواصل</span>
+              <span class="info-row-content" id="t_sender">--</span>
+            </div>
+
+            <div class="info-row-item">
+              <span class="info-row-title">الشخص المستلم والعلاقة</span>
+              <span class="info-row-content" id="t_recipient_rel">--</span>
+            </div>
+
+            <div class="info-row-item">
+              <span class="info-row-title">المناسبة والهدف العاطفي</span>
+              <span class="info-row-content" id="t_occ">--</span>
+            </div>
+
+            <div class="info-row-item">
+              <span class="info-row-title">الاهتمامات وطابع الشخصية</span>
+              <span class="info-row-content" id="t_personality_int">--</span>
+            </div>
+
+            <div class="info-row-item">
+              <span class="info-row-title">المفضلات الخاصة والذكرى</span>
+              <span class="info-row-content" id="t_likes">--</span>
+            </div>
+
+            <div class="info-row-item" style="border-color: rgba(255, 101, 101, 0.4);">
+              <span class="info-row-title" style="color: #ff6565;">الممنوعات والخطوط الحمراء (RED FLAGS)</span>
+              <span class="info-row-content red-flag" id="t_dislikes">لا يوجد</span>
+            </div>
+
+            <div class="info-row-item">
+              <span class="info-row-title">فئة الصندوق والمحتويات</span>
+              <span class="info-row-content" id="t_tier_full">--</span>
+            </div>
+
+            <div class="info-row-item">
+              <span class="info-row-title">العنوان وطريقة الدفع</span>
+              <span class="info-row-content" id="t_delivery_pay">--</span>
+            </div>
+
+            <div class="ticket-message-row">
+              <span class="info-row-title">نص كرت الإهداء المطبوع</span>
+              <span class="info-row-content" id="t_message" style="font-style: italic; color: #f0f0f0;"></span>
+            </div>
+
+            <div class="ticket-footer-row">
+              <span>VALUE GUARANTEED • CURATED FOR THE RECIPIENT</span>
+              <span>MH OFFICIAL ORDER TICKET</span>
+            </div>
+
+          </div>
+
+          <!-- ACTIONS -->
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+            <button type="button" class="btn btn-whatsapp" id="btnSendWhatsApp" onclick="processAndSendTicket()">
+              <span id="btnText">تأكيد وإرسال الطلب كصورة عبر واتساب</span>
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="prevStep(5)">تعديل البيانات</button>
+          </div>
+        </div>
+
+        <!-- SUCCESS CONFIRMATION -->
+        <div class="step-card" data-step="6" id="successStep" style="text-align: center; align-items: center;">
+          <h2 style="font-size: 1.5rem; color: var(--mh-white); font-weight: 800; margin-top: 10px;">تم تأكيد وإرسال تفاصيل الصندوق!</h2>
+          <p style="color: var(--mh-mist); max-width: 520px; line-height: 1.6; margin-top: 6px; font-size: 0.9rem;">
+            فريق <strong>MH</strong> بدأ الآن في إعداد الصندوق وانتقاء العناصر وفقاً للملف الشخصي الذي أدخلته.
+          </p>
+
+          <div id="imagePreviewContainer" style="margin: 18px 0; max-width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--mh-card-border);"></div>
+
+          <button type="button" class="btn btn-primary" onclick="location.reload()" style="max-width: 240px;">
+            طلب صندوق آخر
+          </button>
+        </div>
+
+      </form>
     </div>
 
-    <form id="mysteryForm" onsubmit="return false;">
-      
-      <!-- STEP 1: لمن الهدية -->
-      <div class="step-card active" data-step="1">
-        <div class="step-header">
-          <h2>1. تحديد المستلم</h2>
-          <p>حدد طبيعة علاقتك بالشخص المستهدف لنبني هوية الصندوق باحترافية.</p>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">طبيعة العلاقة <span class="required">*</span></label>
-          <div class="chips-grid">
-            <div class="chip-item"><input type="radio" name="relationship" id="rel_partner" value="شريك حياة (زوج / زوجة)" checked><label class="chip-label" for="rel_partner">زوج / زوجة</label></div>
-            <div class="chip-item"><input type="radio" name="relationship" id="rel_fiance" value="خطيب / خطيبة"><label class="chip-label" for="rel_fiance">خطيب / خطيبة</label></div>
-            <div class="chip-item"><input type="radio" name="relationship" id="rel_friend" value="صديق مقرب"><label class="chip-label" for="rel_friend">صديق مقرب</label></div>
-            <div class="chip-item"><input type="radio" name="relationship" id="rel_sibling" value="أخ / أخت"><label class="chip-label" for="rel_sibling">أخ / أخت</label></div>
-            <div class="chip-item"><input type="radio" name="relationship" id="rel_parent" value="أب / أم"><label class="chip-label" for="rel_parent">أب / أم</label></div>
-            <div class="chip-item"><input type="radio" name="relationship" id="rel_other" value="أخرى"><label class="chip-label" for="rel_other">علاقة أخرى</label></div>
-          </div>
-          <input type="text" class="input-box" id="rel_other_text" placeholder="اكتب نوع العلاقة..." style="display:none; margin-top:8px;">
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">الجنس <span class="required">*</span></label>
-          <div class="chips-grid" style="grid-template-columns: 1fr 1fr;">
-            <div class="chip-item"><input type="radio" name="gender" id="gender_m" value="ذكر" checked><label class="chip-label" for="gender_m">ذكر</label></div>
-            <div class="chip-item"><input type="radio" name="gender" id="gender_f" value="أنثى"><label class="chip-label" for="gender_f">أنثى</label></div>
-          </div>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">الفئة العمرية <span class="required">*</span></label>
-          <div class="chips-grid" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="chip-item"><input type="radio" name="age_range" id="age_1" value="أقل من 12"><label class="chip-label" for="age_1">&lt; 12 سنة</label></div>
-            <div class="chip-item"><input type="radio" name="age_range" id="age_2" value="12 - 17"><label class="chip-label" for="age_2">12 – 17</label></div>
-            <div class="chip-item"><input type="radio" name="age_range" id="age_3" value="18 - 24" checked><label class="chip-label" for="age_3">18 – 24</label></div>
-            <div class="chip-item"><input type="radio" name="age_range" id="age_4" value="25 - 34"><label class="chip-label" for="age_4">25 – 34</label></div>
-            <div class="chip-item"><input type="radio" name="age_range" id="age_5" value="35 - 44"><label class="chip-label" for="age_5">35 – 44</label></div>
-            <div class="chip-item"><input type="radio" name="age_range" id="age_6" value="45+"><label class="chip-label" for="age_6">45+ سنة</label></div>
-          </div>
-        </div>
-
-        <div class="step-actions">
-          <div></div>
-          <button type="button" class="btn btn-primary" onclick="nextStep(1)">المتابعة إلى المناسبة</button>
-        </div>
-      </div>
-
-      <!-- STEP 2: المناسبة -->
-      <div class="step-card" data-step="2">
-        <div class="step-header">
-          <h2>2. مناسبة الإهداء</h2>
-          <p>توقيت المفاجأة يرسم الطابع والروح التصميمية لمحتويات الصندوق.</p>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">اختر المناسبة <span class="required">*</span></label>
-          <div class="chips-grid">
-            <div class="chip-item"><input type="radio" name="occasion" id="occ_bday" value="عيد ميلاد" checked><label class="chip-label" for="occ_bday">عيد ميلاد</label></div>
-            <div class="chip-item"><input type="radio" name="occasion" id="occ_anniv" value="ذكرى سنوية / زواج"><label class="chip-label" for="occ_anniv">ذكرى زواج / ارتباط</label></div>
-            <div class="chip-item"><input type="radio" name="occasion" id="occ_grad" value="تخرج / نجاح"><label class="chip-label" for="occ_grad">تخرج أو إنجاز أكاديمي</label></div>
-            <div class="chip-item"><input type="radio" name="occasion" id="occ_job" value="وظيفة جديدة / ترقية"><label class="chip-label" for="occ_job">وظيفة جديدة أو ترقية</label></div>
-            <div class="chip-item"><input type="radio" name="occasion" id="occ_thanks" value="شكر وتقدير"><label class="chip-label" for="occ_thanks">شكر وتقدير</label></div>
-            <div class="chip-item"><input type="radio" name="occasion" id="occ_none" value="بدون مناسبة (مفاجأة خاصة)"><label class="chip-label" for="occ_none">بدون مناسبة محددة</label></div>
-          </div>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">الهدف العاطفي من الهدية</label>
-          <div class="chips-grid" style="grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));">
-            <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_love" value="حب ورومانسية"><label class="chip-label" for="vibe_love">حب ورومانسية</label></div>
-            <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_miss" value="اشتياق وتقدير"><label class="chip-label" for="vibe_miss">اشتياق</label></div>
-            <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_proud" value="فخر واعتزاز"><label class="chip-label" for="vibe_proud">فخر واعتزاز</label></div>
-            <div class="chip-item"><input type="checkbox" name="vibe" id="vibe_cheer" value="بهجة وفرح"><label class="chip-label" for="vibe_cheer">بهجة وفرح</label></div>
-          </div>
-        </div>
-
-        <div class="step-actions">
-          <button type="button" class="btn btn-secondary" onclick="prevStep(2)">السابق</button>
-          <button type="button" class="btn btn-primary" onclick="nextStep(2)">المتابعة إلى الشخصية</button>
-        </div>
-      </div>
-
-      <!-- STEP 3: شخصية المستلم -->
-      <div class="step-card" data-step="3">
-        <div class="step-header">
-          <h2>3. طابع الشخصية</h2>
-          <p>حدد السمات الأبرز في سلوك واهتمام المستلم (يمكن اختيار أكثر من خيار).</p>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">السمات البارزة <span class="required">*</span></label>
-          <div class="chips-grid">
-            <div class="chip-item"><input type="checkbox" name="personality" id="p_practical" value="عملي ودقيق"><label class="chip-label" for="p_practical">عملي ودقيق</label></div>
-            <div class="chip-item"><input type="checkbox" name="personality" id="p_elegant" value="أنيق ويهتم بالتفاصيل"><label class="chip-label" for="p_elegant">أنيق وفاخر</label></div>
-            <div class="chip-item"><input type="checkbox" name="personality" id="p_calm" value="هادئ ورزين"><label class="chip-label" for="p_calm">هادئ ورزين</label></div>
-            <div class="chip-item"><input type="checkbox" name="personality" id="p_romantic" value="رومانسي وحساس"><label class="chip-label" for="p_romantic">رومانسي</label></div>
-            <div class="chip-item"><input type="checkbox" name="personality" id="p_fun" value="مرح واجتماعي"><label class="chip-label" for="p_fun">مرح واجتماعي</label></div>
-            <div class="chip-item"><input type="checkbox" name="personality" id="p_tech" value="تقني وشغوف"><label class="chip-label" for="p_tech">تقني وشغوف</label></div>
-            <div class="chip-item"><input type="checkbox" name="personality" id="p_simple" value="بسيط وواضح"><label class="chip-label" for="p_simple">بسيط وواضح</label></div>
-            <div class="chip-item"><input type="checkbox" name="personality" id="p_details" value="يدقق في أدق التفاصيل"><label class="chip-label" for="p_details">يهتم بأدق التفاصيل</label></div>
-          </div>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">وصف إضافي مختصر</label>
-          <input type="text" class="input-box" name="personality_desc" placeholder="مثال: دائم الانشغال بالعمل، يحب القهوة السوداء المركزة، شخصية قيادية...">
-        </div>
-
-        <div class="step-actions">
-          <button type="button" class="btn btn-secondary" onclick="prevStep(3)">السابق</button>
-          <button type="button" class="btn btn-primary" onclick="nextStep(3)">المتابعة إلى الاهتمامات</button>
-        </div>
-      </div>
-
-      <!-- STEP 4: الاهتمامات والممنوعات -->
-      <div class="step-card" data-step="4">
-        <div class="step-header">
-          <h2>4. الاهتمامات والممنوعات</h2>
-          <p>تحديد الهوايات وما يجب استبعاده بشكل قطعي لضمان دقة الاختيار.</p>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">مجالات الاهتمام المفضلة</label>
-          <div class="chips-grid" style="grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));">
-            <div class="chip-item"><input type="checkbox" name="interests" id="int_perfume" value="عطور فاخرة"><label class="chip-label" for="int_perfume">عطور راقية</label></div>
-            <div class="chip-item"><input type="checkbox" name="interests" id="int_coffee" value="ثقافة القهوة"><label class="chip-label" for="int_coffee">عالم القهوة</label></div>
-            <div class="chip-item"><input type="checkbox" name="interests" id="int_watches" value="ساعات وإكسسوارات"><label class="chip-label" for="int_watches">ساعات وإكسسوار</label></div>
-            <div class="chip-item"><input type="checkbox" name="interests" id="int_tech" value="تكنولوجيا وإلكترونيات"><label class="chip-label" for="int_tech">تكنولوجيا</label></div>
-            <div class="chip-item"><input type="checkbox" name="interests" id="int_cars" value="سيارات"><label class="chip-label" for="int_cars">عالم السيارات</label></div>
-            <div class="chip-item"><input type="checkbox" name="interests" id="int_gym" value="رياضة ولياقة"><label class="chip-label" for="int_gym">رياضة ولياقة</label></div>
-            <div class="chip-item"><input type="checkbox" name="interests" id="int_gaming" value="ألعاب إلكترونية"><label class="chip-label" for="int_gaming">Gaming</label></div>
-            <div class="chip-item"><input type="checkbox" name="interests" id="int_books" value="قراءة وكتب"><label class="chip-label" for="int_books">قراءة وكتب</label></div>
-          </div>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">ألوان أو ماركات يفضلها</label>
-          <input type="text" class="input-box" name="favorite_items" placeholder="مثال: يفضل الأسود والبرتقالي، ماركات محددة، طابع معين...">
-        </div>
-
-        <div class="field-group">
-          <label class="field-label" style="color: #ff6565;">الممنوعات والخطوط الحمراء (Red Flags)</label>
-          <input type="text" class="input-box" name="dislikes" placeholder="مثال: لا يحب العطور السكرية، حساسية مأكولات، تجنب الألوان الفاتحة..." style="border-color: rgba(255, 101, 101, 0.4);">
-        </div>
-
-        <div class="step-actions">
-          <button type="button" class="btn btn-secondary" onclick="prevStep(4)">السابق</button>
-          <button type="button" class="btn btn-primary" onclick="nextStep(4)">المتابعة إلى اللمسة الشخصية</button>
-        </div>
-      </div>
-
-      <!-- STEP 5: اللمسة الشخصية -->
-      <div class="step-card" data-step="5">
-        <div class="step-header">
-          <h2>5. اللمسة الخاصة والرسالة</h2>
-          <p>التفاصيل الدقيقة والرسالة المطبوعة على بطاقات MH هي جوهر القيمة.</p>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">ذكرى خاصة، تاريخ، أو كلمة سر رمزية</label>
-          <input type="text" class="input-box" name="special_memory" placeholder="مثال: تاريخ 14/8، أول لقاء، لقب خاص...">
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">نص كرت الإهداء الفاخر <span class="required">*</span></label>
-          <textarea class="textarea-box" name="gift_message" id="gift_message" placeholder="اكتب نص الرسالة التي ستُطبع بأناقة على بطاقة الإهداء الفاخرة..."></textarea>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">اسم الشخص المستلم للطباعة على التغليف</label>
-          <input type="text" class="input-box" name="recipient_name" placeholder="مثال: سامر، منى، الدكتور خالد...">
-        </div>
-
-        <div class="step-actions">
-          <button type="button" class="btn btn-secondary" onclick="prevStep(5)">السابق</button>
-          <button type="button" class="btn btn-primary" onclick="nextStep(5)">المتابعة إلى الفئات والميزانية</button>
-        </div>
-      </div>
-
-      <!-- STEP 6: الفئات الست والميزانية (CLICK FIXED) -->
-      <div class="step-card" data-step="6">
-        <div class="step-header">
-          <h2>6. فئات الصندوق والتسليم</h2>
-          <p>انقر على أي فئة لتحديدها؛ تم تفعيل الاختيار على كامل مساحة البطاقة.</p>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">فئة الصندوق المعتمدة <span class="required">*</span></label>
-          <div class="tier-cards-grid">
-            
-            <!-- Tier 1 -->
-            <label class="tier-card" for="tier_1">
-              <input type="radio" name="budget_tier" id="tier_1" value="Essential Box | 25$" checked data-name="Essential Box" data-price="25$" data-count="3 عناصر">
-              <div class="tier-content">
-                <div class="tier-top-row">
-                  <span class="tier-name">Essential Box</span>
-                  <span class="tier-price">25$</span>
-                </div>
-                <div class="tier-items-count">3 عناصر منسقة</div>
-                <p class="tier-desc">صندوق مفاجأة لطيف وعملي، يضم عناصر يومية متناسقة مع كرت الإهداء وتغليف MH المتقن.</p>
-              </div>
-            </label>
-
-            <!-- Tier 2 -->
-            <label class="tier-card" for="tier_2">
-              <input type="radio" name="budget_tier" id="tier_2" value="Classic Box | 45$" data-name="Classic Box" data-price="45$" data-count="4 - 5 عناصر">
-              <div class="tier-content">
-                <div class="tier-top-row">
-                  <span class="tier-name">Classic Box</span>
-                  <span class="tier-price">45$</span>
-                </div>
-                <div class="tier-items-count">4 إلى 5 عناصر</div>
-                <p class="tier-desc">توازن كلاسيكي مدروس للمناسبات المعتادة، يجمع بين القطع الوظيفية واللمسات الشخصية الأنيقة.</p>
-              </div>
-            </label>
-
-            <!-- Tier 3 -->
-            <label class="tier-card" for="tier_3">
-              <input type="radio" name="budget_tier" id="tier_3" value="Signature Box | 75$" data-name="Signature Box" data-price="75$" data-count="6 - 7 عناصر">
-              <div class="tier-content">
-                <div class="tier-top-row">
-                  <span class="tier-name">Signature Box</span>
-                  <span class="tier-price">75$</span>
-                </div>
-                <div class="tier-items-count">6 إلى 7 عناصر</div>
-                <p class="tier-desc">الفئة الأكثر طلباً؛ تتضمن عناصر محفورة أو مخصصة بالاسم مع إكسسوار متميز وتغليف كامل.</p>
-              </div>
-            </label>
-
-            <!-- Tier 4 -->
-            <label class="tier-card" for="tier_4">
-              <input type="radio" name="budget_tier" id="tier_4" value="Premium Box | 120$" data-name="Premium Box" data-price="120$" data-count="8 - 9 عناصر فاخرة">
-              <div class="tier-content">
-                <div class="tier-top-row">
-                  <span class="tier-name">Premium Box</span>
-                  <span class="tier-price">120$</span>
-                </div>
-                <div class="tier-items-count">8 إلى 9 عناصر فاخرة</div>
-                <p class="tier-desc">تجربة متقدمة تضم عناصر رئيسية ذات قيمة عالية (عطور فاخرة أو إكسسوارات راقية) مع كيس مخملي.</p>
-              </div>
-            </label>
-
-            <!-- Tier 5 -->
-            <label class="tier-card" for="tier_5">
-              <input type="radio" name="budget_tier" id="tier_5" value="Luxury Box | 180$" data-name="Luxury Box" data-price="180$" data-count="10 - 12 عنصراً">
-              <div class="tier-content">
-                <div class="tier-top-row">
-                  <span class="tier-name">Luxury Box</span>
-                  <span class="tier-price">180$</span>
-                </div>
-                <div class="tier-items-count">10 إلى 12 عنصراً من النخبة</div>
-                <p class="tier-desc">صندوق متكامل للمناسبات الكبرى؛ محتويات مخصصة بالكامل في علبة صلبة فاخرة مع أشرطة حريرية.</p>
-              </div>
-            </label>
-
-            <!-- Tier 6 -->
-            <label class="tier-card" for="tier_6">
-              <input type="radio" name="budget_tier" id="tier_6" value="Royal VIP Bespoke | 260$" data-name="Royal VIP" data-price="260$" data-count="13 - 15 عنصراً استثنائياً">
-              <div class="tier-content">
-                <div class="tier-top-row">
-                  <span class="tier-name">Royal VIP Bespoke</span>
-                  <span class="tier-price">260$</span>
-                </div>
-                <div class="tier-items-count">13 إلى 15 عنصراً استثنائياً</div>
-                <p class="tier-desc">أعلى مستويات الحرفية والتفرد؛ تجربة هدايا حصرية متكاملة تحكي قصة المستلم بأفخم الخامات.</p>
-              </div>
-            </label>
-
-          </div>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">درجة جرأة المفاجأة</label>
-          <div class="chips-grid" style="grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));">
-            <div class="chip-item"><input type="radio" name="surprise_level" id="s_safe" value="محافظ وآمن"><label class="chip-label" for="s_safe">محافظ وآمن</label></div>
-            <div class="chip-item"><input type="radio" name="surprise_level" id="s_bal" value="متوازن ومميز" checked><label class="chip-label" for="s_bal">متوازن ومميز</label></div>
-            <div class="chip-item"><input type="radio" name="surprise_level" id="s_bold" value="جريء وغير متوقع"><label class="chip-label" for="s_bold">غير تقليدي</label></div>
-          </div>
-        </div>
-
-        <div class="field-group">
-          <label class="field-label">بيانات التواصل والتسليم <span class="required">*</span></label>
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <input type="text" class="input-box" id="sender_name" name="sender_name" placeholder="اسمك الكريم *" required>
-            <input type="tel" class="input-box" id="sender_phone" name="sender_phone" placeholder="رقم الهاتف أو واتساب للتواصل وتأكيد الطلب *" required>
-            <input type="text" class="input-box" id="delivery_city" name="delivery_city" placeholder="المدينة وعنوان التسليم المطلوب">
-          </div>
-        </div>
-
-        <div class="oath-box">
-          <h4>تعهد المفاجأة من MH</h4>
-          <p>يتم انتقاء المحتويات بعناية استناداً إلى البيانات المدخلة، وتبقى تفاصيل الصندوق مجهولة حتى لحظة الفتح للحفاظ على جوهر المفاجأة.</p>
-        </div>
-
-        <div class="step-actions">
-          <button type="button" class="btn btn-secondary" onclick="prevStep(6)">السابق</button>
-          <button type="button" class="btn btn-primary" onclick="showSummaryTicket()">إصدار بطاقة الصندوق الرسمية</button>
-        </div>
-      </div>
-
-      <!-- STEP 7: THE ROW-BY-ROW LUXURY ORDER CARD -->
-      <div class="step-card" data-step="7" id="summaryStep">
-        <div class="step-header">
-          <h2>بطاقة اعتماد الصندوق</h2>
-          <p>مرتبة بأسطر واضحة؛ كل عنصر يحمل عنوانه بلون مميز وتحته محتواه بدقة.</p>
-        </div>
-
-        <!-- CAPTURE TICKET AREA (STRUCTURED ROWS) -->
-        <div id="ticketCaptureArea" class="ticket-container">
-          
-          <!-- Top Header -->
-          <div class="ticket-header-row">
-            <div class="ticket-logo-meta">
-              <div class="ticket-logo-frame">
-                <img src="Logo.png" alt="MH Logo" style="max-width:100%; max-height:100%; object-fit:contain;" onerror="this.style.display='none'; document.getElementById('ticketSvgLogo').style.display='block';">
-                <svg id="ticketSvgLogo" style="display:none; width:70px; height:40px;" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M 40 30 L 76 30 L 126 106 L 176 30 L 212 30 L 212 150 L 176 150 L 176 86 L 141 136 L 111 136 L 76 86 L 76 150 L 40 150 Z" fill="#F45110"/>
-                  <path d="M 176 80 L 246 80 L 246 30 L 280 30 L 280 150 L 246 150 L 246 108 L 176 108 Z" fill="#F45110"/>
-                </svg>
-              </div>
-              <div class="ticket-branding-titles">
-                <h3>MH MYSTERY BOX SPECIFICATION</h3>
-                <span>ONE BRAND. EVERY MOMENT.</span>
-              </div>
-            </div>
-            <div class="ticket-order-ref">
-              <div class="ticket-ref-text" id="t_ref">#MH-0000</div>
-              <div class="ticket-ref-date" id="t_date">2026/09/25</div>
-            </div>
-          </div>
-
-          <!-- Structured Sequential Rows -->
-          <div class="info-row-item">
-            <span class="info-row-title">صاحب الطلب والتواصل</span>
-            <span class="info-row-content" id="t_sender">--</span>
-          </div>
-
-          <div class="info-row-item">
-            <span class="info-row-title">الشخص المستلم والعلاقة</span>
-            <span class="info-row-content" id="t_recipient_rel">--</span>
-          </div>
-
-          <div class="info-row-item">
-            <span class="info-row-title">المناسبة والهدف العاطفي</span>
-            <span class="info-row-content" id="t_occ">--</span>
-          </div>
-
-          <div class="info-row-item">
-            <span class="info-row-title">طابع الشخصية والاهتمامات</span>
-            <span class="info-row-content" id="t_personality_int">--</span>
-          </div>
-
-          <div class="info-row-item">
-            <span class="info-row-title">المفضلات الخاصة والعلامات</span>
-            <span class="info-row-content" id="t_likes">--</span>
-          </div>
-
-          <div class="info-row-item" style="border-color: rgba(255, 101, 101, 0.4);">
-            <span class="info-row-title" style="color: #ff6565;">الممنوعات والخطوط الحمراء (RED FLAGS)</span>
-            <span class="info-row-content red-flag" id="t_dislikes">لا يوجد</span>
-          </div>
-
-          <div class="info-row-item">
-            <span class="info-row-title">فئة الصندوق والمحتويات</span>
-            <span class="info-row-content" id="t_tier_full">--</span>
-          </div>
-
-          <div class="info-row-item">
-            <span class="info-row-title">درجة المفاجأة ومدينة التسليم</span>
-            <span class="info-row-content" id="t_surprise_city">--</span>
-          </div>
-
-          <div class="ticket-message-row">
-            <span class="info-row-title">نص كرت الإهداء المرفق بالصندوق</span>
-            <span class="info-row-content" id="t_message" style="font-style: italic; color: #f0f0f0;"></span>
-          </div>
-
-          <!-- Bottom Row -->
-          <div class="ticket-footer-row">
-            <span>AUTHENTIC BESPOKE GIFT EXPERIENCE</span>
-            <span>VERIFIED SPECIFICATION SHEET</span>
-          </div>
-
-        </div>
-
-        <!-- ACTIONS -->
-        <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
-          <button type="button" class="btn btn-whatsapp" id="btnSendWhatsApp" onclick="processAndSendTicket()">
-            <span id="btnText">إرسال بطاقة الاعتماد كصورة عبر واتساب</span>
-          </button>
-          <button type="button" class="btn btn-secondary" onclick="prevStep(7)">تعديل البيانات</button>
-        </div>
-      </div>
-
-      <!-- SUCCESS CONFIRMATION -->
-      <div class="step-card" data-step="8" id="successStep" style="text-align: center; align-items: center;">
-        <h2 style="font-size: 1.5rem; color: var(--mh-white); font-weight: 800; margin-top: 10px;">تم إصدار وتجهيز الطلب بنجاح</h2>
-        <p style="color: var(--mh-mist); max-width: 500px; line-height: 1.6; margin-top: 6px; font-size: 0.9rem;">
-          تم استلام تفاصيل الصندوق وبدأ فريق <strong>MH</strong> في دراسة ملف المستلم لبدء التنسيق الفاخر.
-        </p>
-
-        <div id="imagePreviewContainer" style="margin: 18px 0; max-width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid var(--mh-card-border);"></div>
-
-        <button type="button" class="btn btn-primary" onclick="location.reload()" style="max-width: 240px;">
-          طلب صندوق جديد
-        </button>
-      </div>
-
-    </form>
-
+    <!-- Clean Discreet Footer without leak -->
     <footer>
       <div>MH BRAND &copy; 2026 • ONE BRAND. EVERY MOMENT.</div>
-      <button type="button" class="admin-trigger-btn" onclick="openAdminModal()">لوحة إدارة الطلبات</button>
     </footer>
   </div>
 
-  <!-- ADMIN CRM MODAL -->
+  <!-- HIDDEN ADMIN CRM MODAL (Only accessible via 5 clicks on logo + password) -->
   <div class="modal-backdrop" id="adminModal">
     <div class="modal-dialog">
       <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #333; padding-bottom:10px;">
-        <h3 style="color:var(--mh-orange); font-size:1.1rem;">إدارة طلبات MH الداخلية</h3>
+        <h3 style="color:var(--mh-orange); font-size:1.1rem;">لوحة إدارة طلبات MH (سرية)</h3>
         <button type="button" style="background:none; border:none; color:#aaa; font-size:1.4rem; cursor:pointer;" onclick="closeAdminModal()">&times;</button>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:0.85rem; color:#aaa;">إجمالي الطلبات المحفوظة: <strong id="adminOrdersCount" style="color:var(--mh-orange);">0</strong></span>
+        <button type="button" class="btn btn-secondary" style="padding:6px 14px; font-size:0.8rem;" onclick="clearAdminOrders()">مسح السجل</button>
       </div>
       <div id="adminOrdersContainer" style="display:flex; flex-direction:column; gap:10px;"></div>
     </div>
   </div>
 
   <script>
-    const TOTAL_STEPS = 6;
+    const TOTAL_STEPS = 4;
     let currentStep = 1;
-    const STORAGE_KEY = 'MH_MYSTERY_BOX_ORDERS_V3';
-    
-    // رقم الواتساب المعتمد للمتجر
-    const STORE_WHATSAPP_PHONE = '963900000000';
+    const STORAGE_KEY = 'MH_ORDERS_ARCHIVE_2026';
+    const STORE_WHATSAPP_PHONE = '963900000000'; // ضع رقم الواتساب المعتمد للمتجر هنا
+
+    // Real Unique Order ID Generator (#MH-YYMMDD-XXXX)
+    function generateOrderId() {
+      const now = new Date();
+      const yy = String(now.getFullYear()).slice(-2);
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      const randomPart = Math.floor(1000 + Math.random() * 9000);
+      return `MH-${yy}${mm}${dd}-${randomPart}`;
+    }
 
     const stepTitles = {
-      1: 'الخطوة 1: تحديد المستلم',
-      2: 'الخطوة 2: مناسبة الإهداء',
-      3: 'الخطوة 3: طابع الشخصية',
-      4: 'الخطوة 4: الاهتمامات والممنوعات',
-      5: 'الخطوة 5: اللمسة الخاصة والرسالة',
-      6: 'الخطوة 6: فئات الصندوق والتسليم',
-      7: 'الخطوة 7: بطاقة اعتماد الصندوق'
+      1: 'الخطوة 1: لمن الهدية والمناسبة؟',
+      2: 'الخطوة 2: الاهتمامات وطابع الشخصية',
+      3: 'الخطوة 3: الممنوعات والكرت المطبوع',
+      4: 'الخطوة 4: فئة الصندوق والتسليم',
+      5: 'الخطوة 5: مراجعة بطاقة الصندوق'
     };
 
+    function startCustomizing() {
+      document.getElementById('heroIntroSection').style.display = 'none';
+      const bSec = document.getElementById('builderSection');
+      bSec.style.display = 'flex';
+      goToStep(1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      // Toggle custom relation
       document.querySelectorAll('input[name="relationship"]').forEach(el => {
         el.addEventListener('change', () => {
           const otherInput = document.getElementById('rel_other_text');
@@ -1074,6 +1216,28 @@
           if (el.value === 'أخرى') otherInput.focus();
         });
       });
+
+      // Secret 5 Clicks on Logo with Password for Admin
+      let clicks = 0;
+      let timer;
+      const logo = document.getElementById('brandLogo');
+      if (logo) {
+        logo.addEventListener('click', () => {
+          clicks++;
+          clearTimeout(timer);
+          if (clicks >= 5) {
+            clicks = 0;
+            const pass = prompt('أدخل كلمة المرور السرية للإدارة:');
+            if (pass === 'mh2026') {
+              openAdminModal();
+            } else if (pass !== null) {
+              alert('كلمة المرور غير صحيحة.');
+            }
+          } else {
+            timer = setTimeout(() => { clicks = 0; }, 1600);
+          }
+        });
+      }
     });
 
     function goToStep(step) {
@@ -1099,7 +1263,7 @@
         title.textContent = stepTitles[step] || '';
       } else {
         progressBar.style.width = `100%`;
-        counter.textContent = `المراجعة`;
+        counter.textContent = `تأكيد الطلب`;
         title.textContent = stepTitles[step] || 'إنهاء الطلب';
       }
     }
@@ -1120,21 +1284,28 @@
           return false;
         }
       }
-      if (step === 5) {
+      if (step === 2) {
+        const ints = document.querySelectorAll('input[name="interests"]:checked');
+        if (ints.length === 0) {
+          alert('يرجى اختيار اهتمام واحد على الأقل للمستلم.');
+          return false;
+        }
+      }
+      if (step === 3) {
         if (!document.getElementById('gift_message').value.trim()) {
-          alert('يرجى كتابة نص رسالة الإهداء للكرت.');
+          alert('يرجى كتابة نص رسالة الإهداء للكرت، فهي جوهر الهدية!');
           document.getElementById('gift_message').focus();
           return false;
         }
       }
-      if (step === 6) {
+      if (step === 4) {
         if (!document.getElementById('sender_name').value.trim()) {
-          alert('يرجى إدخال اسمك الكريم.');
+          alert('يرجى إدخال اسمك الكريم للتواصل.');
           document.getElementById('sender_name').focus();
           return false;
         }
         if (!document.getElementById('sender_phone').value.trim()) {
-          alert('يرجى إدخال رقم الهاتف للتواصل.');
+          alert('يرجى إدخال رقم هاتفك أو واتساب.');
           document.getElementById('sender_phone').focus();
           return false;
         }
@@ -1149,44 +1320,38 @@
         relationship = document.getElementById('rel_other_text').value.trim() || 'أخرى';
       }
 
-      const occasion = (document.querySelector('input[name="occasion"]:checked') || {}).value || '';
-      const gender = (document.querySelector('input[name="gender"]:checked') || {}).value || '';
+      const occasion = (document.querySelector('input[name="occasion"]:checked') || {}).value || 'عام';
       const age = (document.querySelector('input[name="age_range"]:checked') || {}).value || '';
+      const vibes = Array.from(document.querySelectorAll('input[name="vibe"]:checked')).map(el => el.value).join('، ') || 'طاقة إيجابية';
 
-      const vibes = Array.from(document.querySelectorAll('input[name="vibe"]:checked')).map(el => el.value).join('، ') || 'عام';
-      const personalities = Array.from(document.querySelectorAll('input[name="personality"]:checked')).map(el => el.value).join('، ') || 'متنوع';
-      const personalityDesc = (document.querySelector('input[name="personality_desc"]') || {}).value || '';
+      const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value).join('، ');
+      const personalities = Array.from(document.querySelectorAll('input[name="personality"]:checked')).map(el => el.value).join('، ') || 'متوازن';
+      const likes = (document.querySelector('input[name="favorite_items"]') || {}).value || 'لم تحدد مفضلات خاصة';
 
-      const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value).join('، ') || 'عام';
-      const likes = (document.querySelector('input[name="favorite_items"]') || {}).value || 'لم تحدد';
-      const dislikes = (document.querySelector('input[name="dislikes"]') || {}).value || 'لا يوجد';
-
+      const dislikes = (document.querySelector('input[name="dislikes"]') || {}).value || 'لا يوجد موانع';
       const specialMemory = (document.querySelector('input[name="special_memory"]') || {}).value || '';
       const giftMessage = document.getElementById('gift_message').value.trim();
       const recipientName = (document.querySelector('input[name="recipient_name"]') || {}).value || 'شخص عزيز';
 
       const tierRadio = document.querySelector('input[name="budget_tier"]:checked');
-      const tierName = tierRadio ? tierRadio.getAttribute('data-name') : 'Standard';
-      const tierPrice = tierRadio ? tierRadio.getAttribute('data-price') : '';
+      const tierName = tierRadio ? tierRadio.getAttribute('data-name') : 'Classic Box';
+      const tierPrice = tierRadio ? tierRadio.getAttribute('data-price') : '25$';
       const tierCount = tierRadio ? tierRadio.getAttribute('data-count') : '';
-
-      const surpriseLevel = (document.querySelector('input[name="surprise_level"]:checked') || {}).value || 'متوازن';
 
       const senderName = document.getElementById('sender_name').value.trim();
       const senderPhone = document.getElementById('sender_phone').value.trim();
       const deliveryCity = document.getElementById('delivery_city').value.trim() || 'دمشق';
+      const paymentMethod = (document.querySelector('input[name="payment_method"]:checked') || {}).value || 'كاش عند الاستلام';
 
       return {
-        id: 'MH-' + Math.floor(1000 + Math.random() * 9000),
+        id: generateOrderId(),
         date: new Date().toLocaleDateString('ar-SY'),
         relationship,
-        gender,
         age,
         occasion,
         vibes,
-        personalities,
-        personalityDesc,
         interests,
+        personalities,
         likes,
         dislikes,
         specialMemory,
@@ -1195,45 +1360,43 @@
         tierName,
         tierPrice,
         tierCount,
-        surpriseLevel,
         senderName,
         senderPhone,
-        deliveryCity
+        deliveryCity,
+        paymentMethod
       };
     }
 
     let activeOrderData = null;
 
     function showSummaryTicket() {
-      if (!validateStep(6)) return;
+      if (!validateStep(4)) return;
       activeOrderData = getFormData();
 
       document.getElementById('t_ref').textContent = `#${activeOrderData.id}`;
       document.getElementById('t_date').textContent = activeOrderData.date;
       
       document.getElementById('t_sender').textContent = `${activeOrderData.senderName} (${activeOrderData.senderPhone})`;
-      document.getElementById('t_recipient_rel').textContent = `${activeOrderData.recipientName} • ${activeOrderData.relationship} (${activeOrderData.gender}، الفئة: ${activeOrderData.age})`;
+      document.getElementById('t_recipient_rel').textContent = `${activeOrderData.recipientName} • ${activeOrderData.relationship} (العمر: ${activeOrderData.age})`;
       document.getElementById('t_occ').textContent = `${activeOrderData.occasion} [الهدف: ${activeOrderData.vibes}]`;
-      
-      const persFull = activeOrderData.personalityDesc ? `${activeOrderData.personalities} (${activeOrderData.personalityDesc})` : activeOrderData.personalities;
-      document.getElementById('t_personality_int').textContent = `${persFull} • الاهتمامات: ${activeOrderData.interests}`;
+      document.getElementById('t_personality_int').textContent = `${activeOrderData.interests} • الطابع: ${activeOrderData.personalities}`;
       
       document.getElementById('t_likes').textContent = `${activeOrderData.likes}${activeOrderData.specialMemory ? ' • ذكرى: ' + activeOrderData.specialMemory : ''}`;
       document.getElementById('t_dislikes').textContent = activeOrderData.dislikes;
 
-      document.getElementById('t_tier_full').textContent = `${activeOrderData.tierName} (${activeOrderData.tierPrice}) — يحتوي على: ${activeOrderData.tierCount}`;
-      document.getElementById('t_surprise_city').textContent = `${activeOrderData.surpriseLevel} • مدينة التسليم: ${activeOrderData.deliveryCity}`;
+      document.getElementById('t_tier_full').textContent = `${activeOrderData.tierName} (${activeOrderData.tierPrice}) — ${activeOrderData.tierCount}`;
+      document.getElementById('t_delivery_pay').textContent = `التسليم: ${activeOrderData.deliveryCity} • الدفع: ${activeOrderData.paymentMethod}`;
 
       document.getElementById('t_message').textContent = `"${activeOrderData.giftMessage}"`;
 
-      goToStep(7);
+      goToStep(5);
     }
 
     async function processAndSendTicket() {
       const btn = document.getElementById('btnSendWhatsApp');
       const btnText = document.getElementById('btnText');
       btn.disabled = true;
-      btnText.textContent = 'جاري تصيير البطاقة كصورة رقمية...';
+      btnText.textContent = 'جاري تحويل البطاقة لصورة رقمية...';
 
       saveToStorage(activeOrderData);
       const ticketElement = document.getElementById('ticketCaptureArea');
@@ -1246,10 +1409,10 @@
         });
 
         canvas.toBlob(async (blob) => {
-          const fileName = `MH_Order_${activeOrderData.id}.png`;
+          const fileName = `MH_Mystery_Order_${activeOrderData.id}.png`;
           const imageFile = new File([blob], fileName, { type: 'image/png' });
 
-          const waCaption = `*طلب اعتماد جديد: MH Mystery Box*\n*الرقم المرجعي:* #${activeOrderData.id}\n*العميل:* ${activeOrderData.senderName}\n*المستلم:* ${activeOrderData.recipientName}\n*الفئة:* ${activeOrderData.tierName} (${activeOrderData.tierPrice})\n\n_تم إرفاق صورة بطاقة الاعتماد بكافة التفاصيل._`;
+          const waCaption = `*طلب جديد: MH Mystery Box 🎁*\n*الرقم المرجعي:* #${activeOrderData.id}\n*العميل:* ${activeOrderData.senderName}\n*المستلم:* ${activeOrderData.recipientName} (${activeOrderData.relationship})\n*الفئة:* ${activeOrderData.tierName} (${activeOrderData.tierPrice})\n*طريقة الدفع والتسليم:* ${activeOrderData.paymentMethod} - ${activeOrderData.deliveryCity}\n\n_تم إرفاق صورة تفاصيل ومواصفات الصندوق بالكامل._`;
           const waUrl = `https://wa.me/${STORE_WHATSAPP_PHONE}?text=${encodeURIComponent(waCaption)}`;
 
           const previewImg = document.createElement('img');
@@ -1267,10 +1430,10 @@
                 title: `MH Order ${activeOrderData.id}`,
                 text: waCaption
               });
-              goToStep(8);
+              goToStep(6);
               return;
             } catch (err) {
-              console.log('Native share bypassed, fallback triggered', err);
+              console.log('Native share cancelled or unsupported', err);
             }
           }
 
@@ -1279,20 +1442,20 @@
           downloadLink.href = canvas.toDataURL('image/png');
           downloadLink.click();
 
-          alert('تم حفظ صورة بطاقة الاعتماد بجهازك بنجاح. سيتم توجيهك إلى واتساب الآن، يرجى إرفاق الصورة بالمحادثة.');
+          alert('تم حفظ صورة تفاصيل الصندوق بجهازك. سيتم فتح واتساب الآن، يرجى إرفاق الصورة بالمحادثة لتثبيت الطلب.');
           window.open(waUrl, '_blank');
-          goToStep(8);
+          goToStep(6);
 
         }, 'image/png');
 
       } catch (err) {
         console.error('Render error:', err);
-        const waCaption = `*طلب MH Mystery Box: #${activeOrderData.id}*\nالعميل: ${activeOrderData.senderName}\nالمستلم: ${activeOrderData.recipientName}\nالفئة: ${activeOrderData.tierName}`;
+        const waCaption = `*طلب MH Mystery Box: #${activeOrderData.id}*\nالعميل: ${activeOrderData.senderName}\nالمستلم: ${activeOrderData.recipientName}\nالفئة: ${activeOrderData.tierName} (${activeOrderData.tierPrice})`;
         window.open(`https://wa.me/${STORE_WHATSAPP_PHONE}?text=${encodeURIComponent(waCaption)}`, '_blank');
-        goToStep(8);
+        goToStep(6);
       } finally {
         btn.disabled = false;
-        btnText.textContent = 'إرسال بطاقة الاعتماد كصورة عبر واتساب';
+        btnText.textContent = 'تأكيد وإرسال الطلب كصورة عبر واتساب';
       }
     }
 
@@ -1308,21 +1471,33 @@
 
     function openAdminModal() {
       const listEl = document.getElementById('adminOrdersContainer');
+      const countEl = document.getElementById('adminOrdersCount');
       const orders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      countEl.textContent = orders.length;
+
       if (orders.length === 0) {
-        listEl.innerHTML = '<div style="color:#888; text-align:center; padding:20px;">لا توجد طلبات مسجلة محلياً بعد.</div>';
+        listEl.innerHTML = '<div style="color:#888; text-align:center; padding:20px;">لا توجد طلبات مسجلة بعد.</div>';
       } else {
         listEl.innerHTML = orders.map(o => `
-          <div style="background:#1b1b1b; padding:12px; border-radius:8px; border-right:3px solid var(--mh-orange);">
+          <div style="background:#1b1b1b; padding:12px; border-radius:8px; border-right:3px solid var(--mh-orange); font-size:0.85rem;">
             <div style="font-weight:bold; color:var(--mh-orange);">#${o.id} - ${o.recipientName} (${o.tierName} - ${o.tierPrice})</div>
-            <div style="font-size:0.82rem; color:#ccc;">المرسل: ${o.senderName} (${o.senderPhone}) | المناسبة: ${o.occasion}</div>
+            <div style="color:#ccc; margin-top:2px;">المرسل: ${o.senderName} (${o.senderPhone}) | الدفع: ${o.paymentMethod}</div>
+            <div style="color:#aaa; font-size:0.78rem; margin-top:4px;">الرسالة: "${o.giftMessage}"</div>
           </div>
         `).join('');
       }
       document.getElementById('adminModal').classList.add('open');
     }
+
     function closeAdminModal() {
       document.getElementById('adminModal').classList.remove('open');
+    }
+
+    function clearAdminOrders() {
+      if (confirm('هل أنت متأكد من مسح جميع الطلبات من السجل؟')) {
+        localStorage.removeItem(STORAGE_KEY);
+        openAdminModal();
+      }
     }
   </script>
 </body>
